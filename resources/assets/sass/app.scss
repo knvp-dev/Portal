@@ -1,0 +1,122 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables";
+
+// Font-awesome
+@import "node_modules/font-awesome/css/font-awesome";
+
+// Bulma
+@import "node_modules/bulma/css/bulma";
+
+html{
+	background:none;
+}
+
+body{
+	height:100%;
+}
+
+.info-box{
+	min-height: 160px;
+}
+
+.column:not(:last-child){
+	border-right:1px solid #eee;
+}
+
+/*thead tr{
+	background-color:#696464;
+}
+
+thead th{
+	color:white!important;
+}*/
+
+.text-is-centered{
+	text-align:center;
+}
+
+.hero p{
+	color:white;
+}
+
+.is-medium-size{
+	font-size:1.5em;
+}
+
+.fat-cash{
+	display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.has-padding{
+	padding:20px;
+}
+
+.has-no-background{
+	background:none;
+}
+
+.has-2m-lineheight{
+	line-height: 2.5em!important;
+}
+
+.is-blue{
+	background-color:#00a3e0;
+}
+
+.is-blue h1, .is-blue h2{
+	color:white;
+}
+
+.is-red{
+	color:red;
+}
+
+.mb-50{
+	margin-bottom:50px;
+}
+
+.p-20{
+	padding:20px;
+}
+
+.mt-50{
+	padding-top:50px;
+}
+
+.nav{
+	min-height:60px;
+}
+
+.is-svg{
+	max-height:100%!important;
+	height: 100%;
+    width: 40%;
+}
+
+.has-icon{
+	margin-left:0;
+}
+
+.button .icon:last-child, .button .tag:last-child{
+	margin-left:-1px;
+}
+
+.products{
+	background-color:#eee;
+}
+
+.blockquote button{
+	float:right!important;
+}
+
+.product-card{
+	float:left;
+	margin: 10px;
+	width: 280px;
+}
