@@ -2,6 +2,6 @@
 
 @section('content')
 
-<beursmateriaal></beursmateriaal>
+	<beursmateriaal></beursmateriaal>
 	
 @endsection

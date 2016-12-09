@@ -18,4 +18,9 @@ class KantoorMateriaalRepository implements MateriaalInterface{
 		return KantoorItem::where('stock','>',0)->get();
 	}
 
+	public function findByCode($code){}
+	public function AddToStock($code, $amount){}
+	public function subtractFromStock($code, $amount){}
+	public function depleteStock($code){}
+
 }

@@ -27,9 +27,15 @@ Route::get('/promomateriaal/get', 'PromoMateriaalController@getPromoItemsInStock
 Route::get('/beursmateriaal', 'BeursMateriaalController@index');
 Route::get('/beursmateriaal/get', 'BeursMateriaalController@getBeursItems');
 
+// KANTOORMATERIAAL
+
+Route::get('/kantoormateriaal', 'KantoorMateriaalController@index');
+Route::get('/kantoormateriaal/get', 'KantoorMateriaalController@getKantoorItemsInStock');
+
 // ORDERS
 
 Route::post('/promomateriaal/order/create', 'PromoOrderController@store');
+Route::post('/kantoormateriaal/order/create', 'KantoorOrderController@store');
 
 // USERDATA
 

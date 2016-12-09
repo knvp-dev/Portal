@@ -15,6 +15,8 @@ class CreateKantoorOrdersTable extends Migration
     {
         Schema::create('kantoor_orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('completed')->default(0);
             $table->timestamps();
         });
     }

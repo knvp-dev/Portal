@@ -28,7 +28,7 @@ export default {
         },
         initializeCountdown(){
             this.now = Math.trunc((new Date()).getTime());
-            this.date = Math.trunc(Date.parse(this.getNextDayToCountdown(4)._d));
+            this.date = Math.trunc(Date.parse(this.getNextDayToCountdown(1)._d));
         }
     },
     computed: {

@@ -15,6 +15,11 @@ class CreateKantoorItemsTable extends Migration
     {
         Schema::create('kantoor_items', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('code');
+            $table->string('name')->unique();
+            $table->integer('pack');
+            $table->integer('stock');
+            $table->string('image');
             $table->timestamps();
         });
     }

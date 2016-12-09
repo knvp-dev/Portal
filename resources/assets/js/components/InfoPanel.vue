@@ -6,13 +6,13 @@
 		    <span class="fat-cash"><strong class="is-large-size"><i class="fa fa-euro"></i></strong></span>
 		    <h2 class="has-padding">Resterend budget</h2>
 		    <span class="fat-cash" v-if="noBudget"><strong class="is-medium-size">Deze producten zijn gratis</strong></span>
-		    <span class="fat-cash" v-else><i class="fa fa-euro"></i> <strong class="is-medium-size odometer is-budget-odo" id="odometer">{{ remainingBudget }}</strong></span>
+		    <span class="fat-cash budgetcount animated" v-else><i class="fa fa-euro"></i> <strong class="is-medium-size odometer is-budget-odo" id="odometer">{{ remainingBudget }}</strong></span>
 		    </div>
 		  </div>
 		  <div class="column">
 		    <div class="info-tile">
 		    <span class="fat-cash"><strong class="is-large-size"><i class="fa fa-clock-o"></i></strong></span>
-			    <h2 class="has-padding">Interne post vertrekt</h2>
+			    <h2 class="has-padding">Uw bestelperiode eindigd</h2>
 			    <span class="fat-cash"><strong class="is-medium-size"><countdown></countdown></strong></span>
 		    </div>
 		  </div>
@@ -24,6 +24,11 @@
 	export default {
 		mounted(){
 			this.getUserdata();
+			Event.$on('not-enough-budget', () => {
+				$('.budgetcount').addClass("shake").delay(1500).queue(function() {  // Wait for 1 second.
+		            $('.budgetcount').removeClass("shake").dequeue();
+		        });
+			});
 		},
 		props: ["orderPrice", "noBudget"],
 		data(){
@@ -36,7 +41,6 @@
 			getUserdata(){
 				this.$http.get('/userdata').then((response) => {
 					this.user = response.data;
-					console.log(this.user.start_budget);
 				});
 			},
 			animateBudget(amount){
@@ -46,6 +50,9 @@
 		computed: {
 			remainingBudget(){
 				var budget = (((this.user.budget / 100) - this.orderPrice)).toFixed(2)
+				if(budget <= 0){
+					budget = 0;
+				}
 				this.animateBudget(budget);
 				return budget;
 			},

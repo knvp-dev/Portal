@@ -10,14 +10,17 @@ class KantoorMateriaalController extends Controller{
 
 	protected $materiaal;
 
-	public function __construct(KantoorMateriaalInterface $materiaal){
+	public function __construct(KantoorMateriaalRepository $materiaal){
 		$this->materiaal = $materiaal;
         //$this->middleware('auth');
     }
 
     public function index(){
-    	$kantooritems = $this->materiaal->getAllItemsInStock();
-    	return view('pages.kantoormateriaal.index', compact('kantooritems'));
+    	return view('pages.kantoormateriaal.index');
+    }
+
+    public function getKantoorItemsInStock(){
+    	return $this->materiaal->getAllItemsInStock();
     }
 
 }

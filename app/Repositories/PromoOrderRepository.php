@@ -21,6 +21,14 @@ class PromoOrderRepository implements OrderInterface{
 	}
 
 	public function create($orderdata){
+		return $this->createNewOrder($orderdata);
+	}
+
+	public function remove($id){
+
+	}
+
+	private function createNewOrder($orderdata){
 		$order = new PromoOrder();
 		$order->user_id = Auth::user()->id;
 		$order->total_price = $orderdata->totalPrice * 100;
@@ -28,17 +36,24 @@ class PromoOrderRepository implements OrderInterface{
 
 		foreach($orderdata->orderitems as $data){
 			$order->promoItems()->attach($data['product']['id'],['amount' => $data['amount']]);
+			$this->updateStock($data['product']['id'],$data['amount']);
 		}
 
-		$user = Auth::user();
-		$user->budget -= $order->total_price;
-		$user->save();
+		$this->updateBudget($order->total_price);
 
 		return $order;
 	}
 
-	public function remove($id){
+	private function updateBudget($amount){
+		$user = Auth::user();
+		$user->budget -= $amount;
+		$user->save();
+	}
 
+	private function updateStock($product_id,$amount){
+		$product = PromoItem::whereId($product_id)->first();
+		$product->stock -= $amount;
+		$product->save();
 	}
 
 }

@@ -1,6 +1,6 @@
 <template>
 <div>
-  <hero title="Promomateriaal" :hasSubtitle="true" subtitle="Bestel hier uw promomateriaal" type="is-blue"></hero>
+<hero title="Promomateriaal" :hasSubtitle="true" subtitle="Bestel hier uw promomateriaal" type="is-blue"></hero>
 
 <div class="container mb-50">    
 
@@ -44,7 +44,7 @@
                 <td>{{ '€' + calculateTotalPriceForItemInOrder(item).toFixed(2) }}</td>
                 <td>
                   <button class="button is-primary" :disabled="item.amount == 1" @click="decreaseAmount(item)"><span class="icon is-small has-icon"><i class="fa fa-minus"></i></span></button>
-                  <button class="button is-primary" :disabled="item.stock <= 0" @click="increaseAmount(item)"><span class="icon is-small has-icon"><i class="fa fa-plus"></i></span></button>
+                  <button class="button is-primary" :disabled="item.stock <= 0" @click="addItemToOrder(item.product)"><span class="icon is-small has-icon"><i class="fa fa-plus"></i></span></button>
                 </td>
                 <td>
                   <button class="button is-danger" @click="removeItemFromOrder(item)">
@@ -79,8 +79,6 @@
               <div class="card-content">
                 <div class="content">
                   {{ item.name }} per {{ item.pack }} stuks.
-                  <br>
-                  <small>11:09 PM - 1 Jan 2016</small>
                 </div>
               </div>
 
@@ -102,7 +100,8 @@
     export default {
         mounted() {
           this.totalPrice = 0;
-            this.fetchItemsInStock();
+          this.fetchItemsInStock();
+          this.fetchUser();
         },
         data(){
             return {
@@ -110,25 +109,40 @@
                 orderlist: [],
                 totalPrice: 0,
                 showAlert: true,
-                showConfirmationModal: false
+                showConfirmationModal: false,
+                user: ''
             }
         },
+        computed:{
+
+        },
         methods: {
+            checkBudget(item){
+              return ((this.user.budget / 100) - (this.totalPrice + (item.price / 100) ) <= 0) ? false : true;
+            },  
+            fetchUser(){
+              this.$http.get('/userdata').then((response) => {
+                this.user = response.body;
+              });
+            },
             fetchItemsInStock(){
                 this.$http.get('/promomateriaal/get').then((response) => {
                     this.promomateriaal = response.body;
                 });
             },
             addItemToOrder(item){
+              if(this.checkBudget(item)){
                 var ordereditem = this.findItemInOrderList(item);
                 if(!ordereditem){
                   var stock = item.stock;
                   this.orderlist.push({'product': item, 'amount': 1, 'stock': stock-1});
-                }else{
-                  this.increaseAmount(ordereditem);
-                }
-                
+                  }else{
+                    this.increaseAmount(ordereditem);
+                  }
                 this.calculateTotalPriceForOrder();
+              }else{
+                Event.$emit('not-enough-budget');
+              }
             },
             removeItemFromOrder(item){
               this.orderlist.splice(this.orderlist.indexOf(item), 1);
