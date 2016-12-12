@@ -17,9 +17,9 @@ Vue.component('alert', require('./components/Alert.vue'));
 Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('countdown', require('./components/Countdown.vue'));
 Vue.component('beursmateriaal', require('./components/Beursmateriaal.vue'));
-Vue.component('kantoormateriaal', require('./components/KantoorMateriaalList.vue'));
+Vue.component('kantoormateriaal', require('./components/KantoorMateriaal.vue'));
 Vue.component('info-panel', require('./components/InfoPanel.vue'));
-Vue.component('promomateriaal', require('./components/PromoMateriaalList.vue'));
+Vue.component('promomateriaal', require('./components/PromoMateriaal.vue'));
 
 window.Event = new Vue({});
 

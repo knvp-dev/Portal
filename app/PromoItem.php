@@ -8,7 +8,7 @@ class PromoItem extends Model
 {
 
 	public function Orders(){
-		$this->belongsToMany('App\Orders');
+		$this->belongsToMany('App\PromoOrder');
 	}
 
     public function getFormattedPrice(){

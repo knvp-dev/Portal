@@ -20,6 +20,7 @@ class CreateUnavailabilityTable extends Migration
             $table->date('date_of_use')->nullable();
             $table->date('unavailable_from')->nullable();
             $table->date('unavailable_to')->nullable();
+            $table->timestamps();
         });
     }
 

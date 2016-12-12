@@ -36,6 +36,7 @@ Route::get('/kantoormateriaal/get', 'KantoorMateriaalController@getKantoorItemsI
 
 Route::post('/promomateriaal/order/create', 'PromoOrderController@store');
 Route::post('/kantoormateriaal/order/create', 'KantoorOrderController@store');
+Route::post('/beursmateriaal/order/create', 'BeursOrderController@store');
 
 // USERDATA
 

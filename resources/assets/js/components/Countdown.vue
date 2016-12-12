@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         getNextDayToCountdown(day){
-            if (moment().isoWeekday() < day || moment().isoWeekday() == day && this.date < moment()) { 
+            if (this.date < moment()) { 
               return moment().isoWeekday(day).set('hours',12)
             } else {
               return moment().add(1, 'weeks').isoWeekday(day).set('hours',12);

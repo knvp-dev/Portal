@@ -159,13 +159,15 @@
 				});
 			},
             placeOrder(){
-              console.log("placing order");
               setTimeout(function () { 
-                this.$emit('actionSuccess', "Uw bestelling werd successvol geplaatst!");
-                //this.$emit('actionFailed', "Er is iets foutgelopen bij het plaatsen van uw bestelling, probeer het later opnieuw!");
+                this.$http.post('/beursmateriaal/order/create', {'orderitems': this.orderlist, 'date': this.suggestedDate}).then((response) => {
+                  if(response){
+                    this.$emit('actionSuccess', "Uw bestelling werd successvol geplaatst!");
+                  }else{
+                    this.$emit('actionFailed', "Er is iets foutgelopen bij het plaatsen van uw bestelling, probeer het later opnieuw!");
+                  }
+                });
                }.bind(this), 1000);
-              
-              
             }
 		}
 	}
