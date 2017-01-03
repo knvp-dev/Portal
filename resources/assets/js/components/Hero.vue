@@ -4,10 +4,8 @@
 	    <div class="hero-body">
 	      <div class="container">
 	        <h1 class="title">{{ title }}</h1>
-	          <hr>
 	          <h2 class="subtitle" v-if="hasSubtitle">
 	            {{ subtitle }}
-	            <hr>
 	          </h2>
 	          <slot></slot>
 	      </div>

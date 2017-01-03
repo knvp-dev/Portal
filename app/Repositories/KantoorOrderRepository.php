@@ -13,11 +13,11 @@ class KantoorOrderRepository implements OrderInterface{
 	}
 
 	public function findById($id){
-		return KantoorOrder::whereId($id)->first();
+		return KantoorOrder::whereId($id)->with('products')->first();
 	}
 
 	public function getForUser(){
-		return KantoorOrder::whereUserId(Auth::user()->id)->get();
+		return KantoorOrder::whereUserId(Auth::user()->id)->with('products')->get();
 	}
 
 	public function create($orderdata){
@@ -34,7 +34,7 @@ class KantoorOrderRepository implements OrderInterface{
 		$order->save();
 
 		foreach($orderdata->orderitems as $data){
-			$order->KantoorItems()->attach($data['product']['id'],['amount' => $data['amount']]);
+			$order->products()->attach($data['product']['id'],['amount' => $data['amount']]);
 			$this->updateStock($data['product']['id'],$data['amount']);
 		}
 
@@ -45,6 +45,10 @@ class KantoorOrderRepository implements OrderInterface{
 		$product = KantoorItem::whereId($product_id)->first();
 		$product->stock -= $amount;
 		$product->save();
+	}
+
+	public function getByStatus($status){
+		return KantoorOrder::whereCompleted($status)->with('products')->get();
 	}
 
 }

@@ -13,11 +13,11 @@ class PromoOrderRepository implements OrderInterface{
 	}
 
 	public function findById($id){
-		return PromoOrder::whereId($id)->first();
+		return PromoOrder::whereId($id)->with('products')->first();
 	}
 
 	public function getForUser(){
-		return PromoOrder::whereUserId(Auth::user()->id)->get();
+		return PromoOrder::where('user_id',Auth::id())->with('products')->get();
 	}
 
 	public function create($orderdata){
@@ -35,7 +35,7 @@ class PromoOrderRepository implements OrderInterface{
 		$order->save();
 
 		foreach($orderdata->orderitems as $data){
-			$order->promoItems()->attach($data['product']['id'],['amount' => $data['amount']]);
+			$order->products()->attach($data['product']['id'],['amount' => $data['amount']]);
 			$this->updateStock($data['product']['id'],$data['amount']);
 		}
 
@@ -54,6 +54,10 @@ class PromoOrderRepository implements OrderInterface{
 		$product = PromoItem::whereId($product_id)->first();
 		$product->stock -= $amount;
 		$product->save();
+	}
+
+	public function getByStatus($status){
+		return PromoOrder::where('user_id',Auth::id())->whereCompleted($status)->with('products')->get();
 	}
 
 }

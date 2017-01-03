@@ -20,7 +20,7 @@ class BeursOrderController extends Controller
      */
     public function index()
     {
-        
+        return $this->order->getForUser();
     }
 
     /**
@@ -53,7 +53,11 @@ class BeursOrderController extends Controller
      */
     public function show($id)
     {
-        //
+        return view("pages.beursmateriaal.detail")->with('id',$id);
+    }
+
+    public function getOrderDetail($id){
+        return $this->order->findById($id);
     }
 
     /**
@@ -88,5 +92,9 @@ class BeursOrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getByStatus($status){
+        return $this->order->getByStatus($status);
     }
 }

@@ -34,9 +34,10 @@
         </a>
       @else
         <span class="nav-item">
-          <a class="button is-primary" href="{{ url('/login') }}">
-            <span class="icon">
+          <a class="button is-blue transitioning-icon" href="{{ url('/login') }}">
+            <span class="icon is-small has-stacked-icons has-animation">
               <i class="fa fa-lock"></i>
+              <i class="fa fa-unlock-alt"></i>
             </span>
             <span>Login</span>
           </a>

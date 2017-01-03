@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class KantoorOrder extends Model
 {
-    public function kantoorItems(){
+    public function products(){
     	return $this->belongsToMany('App\KantoorItem','kantooritem_kantoororder', 'kantoororder_id', 'kantooritem_id')->withPivot('amount');
     }
 

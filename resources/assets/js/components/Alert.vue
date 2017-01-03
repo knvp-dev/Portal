@@ -2,7 +2,7 @@
 
 	<section class="section">
 	  <div class="notification is-primary has-text-centered">
-	  	<button class="delete" @click="$emit('close')"></button>
+	  	<button v-if="close" class="delete" @click="$emit('close')"></button>
 	  	<slot></slot>
 	  </div>
 	</section>
@@ -15,6 +15,7 @@
 			return{
 				showAlert: false
 			}
-		}
+		},
+		props: ['close']
 	}
 </script>

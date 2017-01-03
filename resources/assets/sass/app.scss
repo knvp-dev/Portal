@@ -11,8 +11,14 @@
 // Bulma
 @import "node_modules/bulma/css/bulma";
 
+// Custom
+@import "helpers";
+@import "forms";
+@import "animations";
+
 html{
 	background:none;
+	height:100%;
 }
 
 body{
@@ -27,80 +33,37 @@ body{
 	border-right:1px solid #eee;
 }
 
-/*thead tr{
-	background-color:#696464;
+.is-icon-left{
+	padding-right:20px;
 }
-
-thead th{
-	color:white!important;
-}*/
 
 .text-is-centered{
 	text-align:center;
+}
+
+.centered-form{
+	max-width:500px;
+	margin:0 auto;
 }
 
 .hero p{
 	color:white;
 }
 
-.is-medium-size{
-	font-size:1.5em;
-}
+
 
 .fat-cash{
 	display: flex;
-    justify-content: center;
-    align-items: baseline;
-}
-
-.has-padding{
-	padding:20px;
-}
-
-.has-no-background{
-	background:none;
+	justify-content: center;
+	align-items: baseline;
 }
 
 .has-2m-lineheight{
 	line-height: 2.5em!important;
 }
 
-.is-blue{
-	background-color:#00a3e0;
-}
-
-.is-blue h1, .is-blue h2{
-	color:white;
-}
-
-.is-red{
-	color:red;
-}
-
-.mb-50{
-	margin-bottom:50px;
-}
-
-.p-20{
-	padding:20px;
-}
-
-.mt-50{
-	padding-top:50px;
-}
-
 .nav{
 	min-height:60px;
-}
-
-.is-svg{
-	max-height:100%!important;
-	height: 100%;
-    width: 40%;
-}
-
-.has-icon{
-	margin-left:0;
 }
 
 .button .icon:last-child, .button .tag:last-child{

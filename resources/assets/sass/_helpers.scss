@@ -1,0 +1,64 @@
+/*MARGIN AND PADDING*/
+
+.mb-50{
+	margin-bottom:50px;
+}
+
+.p-20{
+	padding:20px;
+}
+
+.mb-20{
+	margin-bottom:20px;
+}
+
+.mt-50{
+	padding-top:50px;
+}
+
+.has-padding{
+	padding:20px;
+}
+
+/*COLORS*/
+
+.is-blue{
+	background-color:#00a3e0;
+	border:none;
+}
+
+.is-blue h1, .is-blue h2, .is-blue>span{
+	color:white;
+}
+
+.is-red{
+	color:red;
+}
+
+/*ICON*/
+
+.has-icon{
+	margin-left:0;
+}
+
+/*SVG*/
+
+.is-svg{
+	max-height:100%!important;
+	height: 100%;
+	width: 40%;
+}
+
+/*MISC*/
+
+.is-clickable{
+	cursor:pointer;
+}
+
+.has-no-background{
+	background:none;
+}
+
+.is-medium-size{
+	font-size:1.5em;
+}

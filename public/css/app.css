@@ -9301,8 +9301,153 @@ a.panel-block:hover {
 }
 
 /*# sourceMappingURL=bulma.css.map */
+/*MARGIN AND PADDING*/
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mt-50 {
+  padding-top: 50px;
+}
+
+.has-padding {
+  padding: 20px;
+}
+
+/*COLORS*/
+.is-blue {
+  background-color: #00a3e0;
+  border: none;
+}
+
+.is-blue h1, .is-blue h2, .is-blue > span {
+  color: white;
+}
+
+.is-red {
+  color: red;
+}
+
+/*ICON*/
+.has-icon {
+  margin-left: 0;
+}
+
+/*SVG*/
+.is-svg {
+  max-height: 100% !important;
+  height: 100%;
+  width: 40%;
+}
+
+/*MISC*/
+.is-clickable {
+  cursor: pointer;
+}
+
+.has-no-background {
+  background: none;
+}
+
+.is-medium-size {
+  font-size: 1.5em;
+}
+
+.control.has-icon > .fa {
+  color: white;
+}
+
+.has-icon {
+  margin-left: auto !important;
+}
+
+.control.has-icon .input:focus + .fa {
+  color: white;
+}
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+input[type="date"]::-webkit-input-placeholder {
+  visibility: hidden !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.is-transparant-underline-input {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: none;
+  border-bottom: 1px solid white;
+  border-radius: 0;
+  color: white;
+  text-align: center;
+}
+
+.is-fixed-width-centered-input {
+  width: 450px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+
+/*DEFAULT ANIMATION SETTING*/
+.has-animation {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+/*ICON HOVER ANIMATION*/
+.transitioning-icon {
+  overflow: hidden;
+  line-height: 2em;
+}
+
+.transitioning-icon:hover {
+  box-shadow: inset 0px -2px 5px -1px rgba(0, 0, 0, 0.31);
+}
+
+.transitioning-icon:hover .has-stacked-icons {
+  margin-top: 52px;
+}
+
+.spin-icon:hover .fa {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.has-stacked-icons {
+  display: -webkit-box !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  flex-direction: column-reverse;
+}
+
+.has-stacked-icons .fa {
+  padding-top: 10px;
+}
+
 html {
   background: none;
+  height: 100%;
 }
 
 body {
@@ -9317,23 +9462,21 @@ body {
   border-right: 1px solid #eee;
 }
 
-/*thead tr{
-	background-color:#696464;
+.is-icon-left {
+  padding-right: 20px;
 }
 
-thead th{
-	color:white!important;
-}*/
 .text-is-centered {
   text-align: center;
 }
 
-.hero p {
-  color: white;
+.centered-form {
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-.is-medium-size {
-  font-size: 1.5em;
+.hero p {
+  color: white;
 }
 
 .fat-cash {
@@ -9345,54 +9488,12 @@ thead th{
   align-items: baseline;
 }
 
-.has-padding {
-  padding: 20px;
-}
-
-.has-no-background {
-  background: none;
-}
-
 .has-2m-lineheight {
   line-height: 2.5em !important;
 }
 
-.is-blue {
-  background-color: #00a3e0;
-}
-
-.is-blue h1, .is-blue h2 {
-  color: white;
-}
-
-.is-red {
-  color: red;
-}
-
-.mb-50 {
-  margin-bottom: 50px;
-}
-
-.p-20 {
-  padding: 20px;
-}
-
-.mt-50 {
-  padding-top: 50px;
-}
-
 .nav {
   min-height: 60px;
-}
-
-.is-svg {
-  max-height: 100% !important;
-  height: 100%;
-  width: 40%;
-}
-
-.has-icon {
-  margin-left: 0;
 }
 
 .button .icon:last-child, .button .tag:last-child {

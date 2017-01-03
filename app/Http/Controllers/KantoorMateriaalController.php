@@ -12,7 +12,7 @@ class KantoorMateriaalController extends Controller{
 
 	public function __construct(KantoorMateriaalRepository $materiaal){
 		$this->materiaal = $materiaal;
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index(){

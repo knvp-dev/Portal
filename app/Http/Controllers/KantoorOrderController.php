@@ -21,7 +21,7 @@ class KantoorOrderController extends Controller
      */
     public function index()
     {
-        //
+        return $this->order->getForUser();
     }
 
     /**
@@ -53,9 +53,12 @@ class KantoorOrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id){
+        return view('pages.kantoormateriaal.detail')->with('id',$id);
+    }
+
+     public function getOrderDetail($id){
+        return $this->order->findById($id);
     }
 
     /**
@@ -90,5 +93,9 @@ class KantoorOrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getByStatus($status){
+        return $this->order->getByStatus($status);
     }
 }

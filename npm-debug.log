@@ -1,0 +1,874 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-D',
+1 verbose cli   'stylus-loader',
+1 verbose cli   'stylus' ]
+2 info using npm@3.6.0
+3 info using node@v5.6.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData stylus-loader
+8 silly fetchPackageMetaData stylus
+9 silly fetchNamedPackageData stylus-loader
+10 silly mapToRegistry name stylus-loader
+11 silly mapToRegistry using default registry
+12 silly mapToRegistry registry https://registry.npmjs.org/
+13 silly mapToRegistry uri https://registry.npmjs.org/stylus-loader
+14 silly fetchNamedPackageData stylus
+15 silly mapToRegistry name stylus
+16 silly mapToRegistry using default registry
+17 silly mapToRegistry registry https://registry.npmjs.org/
+18 silly mapToRegistry uri https://registry.npmjs.org/stylus
+19 verbose request uri https://registry.npmjs.org/stylus-loader
+20 verbose request no auth needed
+21 info attempt registry request try #1 at 11:05:04
+22 verbose request id 755701670f1615b9
+23 verbose etag W/"584bc57e-dfdb"
+24 verbose lastModified Sat, 10 Dec 2016 09:06:06 GMT
+25 http request GET https://registry.npmjs.org/stylus-loader
+26 verbose request uri https://registry.npmjs.org/stylus
+27 verbose request no auth needed
+28 info attempt registry request try #1 at 11:05:04
+29 verbose etag W/"5865e13d-31455"
+30 verbose lastModified Fri, 30 Dec 2016 04:23:25 GMT
+31 http request GET https://registry.npmjs.org/stylus
+32 http 304 https://registry.npmjs.org/stylus-loader
+33 verbose headers { date: 'Tue, 03 Jan 2017 10:05:04 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   etag: 'W/"584bc57e-dfdb"',
+33 verbose headers   age: '233',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-ams4124-AMS',
+33 verbose headers   'x-cache': 'HIT',
+33 verbose headers   'x-cache-hits': '2',
+33 verbose headers   'x-timer': 'S1483437904.502704,VS0,VE0',
+33 verbose headers   vary: 'Accept-Encoding' }
+34 silly get cb [ 304,
+34 silly get   { date: 'Tue, 03 Jan 2017 10:05:04 GMT',
+34 silly get     via: '1.1 varnish',
+34 silly get     'cache-control': 'max-age=300',
+34 silly get     etag: 'W/"584bc57e-dfdb"',
+34 silly get     age: '233',
+34 silly get     connection: 'keep-alive',
+34 silly get     'x-served-by': 'cache-ams4124-AMS',
+34 silly get     'x-cache': 'HIT',
+34 silly get     'x-cache-hits': '2',
+34 silly get     'x-timer': 'S1483437904.502704,VS0,VE0',
+34 silly get     vary: 'Accept-Encoding' } ]
+35 verbose etag https://registry.npmjs.org/stylus-loader from cache
+36 verbose get saving stylus-loader to /Users/webdeveloper/.npm/registry.npmjs.org/stylus-loader/.cache.json
+37 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+38 http 304 https://registry.npmjs.org/stylus
+39 verbose headers { date: 'Tue, 03 Jan 2017 10:05:04 GMT',
+39 verbose headers   via: '1.1 varnish',
+39 verbose headers   'cache-control': 'max-age=300',
+39 verbose headers   etag: 'W/"5865e13d-31455"',
+39 verbose headers   age: '53',
+39 verbose headers   connection: 'keep-alive',
+39 verbose headers   'x-served-by': 'cache-ams4429-AMS',
+39 verbose headers   'x-cache': 'HIT',
+39 verbose headers   'x-cache-hits': '1',
+39 verbose headers   'x-timer': 'S1483437904.503411,VS0,VE0',
+39 verbose headers   vary: 'Accept-Encoding' }
+40 silly get cb [ 304,
+40 silly get   { date: 'Tue, 03 Jan 2017 10:05:04 GMT',
+40 silly get     via: '1.1 varnish',
+40 silly get     'cache-control': 'max-age=300',
+40 silly get     etag: 'W/"5865e13d-31455"',
+40 silly get     age: '53',
+40 silly get     connection: 'keep-alive',
+40 silly get     'x-served-by': 'cache-ams4429-AMS',
+40 silly get     'x-cache': 'HIT',
+40 silly get     'x-cache-hits': '1',
+40 silly get     'x-timer': 'S1483437904.503411,VS0,VE0',
+40 silly get     vary: 'Accept-Encoding' } ]
+41 verbose etag https://registry.npmjs.org/stylus from cache
+42 verbose get saving stylus to /Users/webdeveloper/.npm/registry.npmjs.org/stylus/.cache.json
+43 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir already in flight; waiting
+44 silly install normalizeTree
+45 silly loadCurrentTree Finishing
+46 silly loadIdealTree Starting
+47 silly install loadIdealTree
+48 silly cloneCurrentTree Starting
+49 silly install cloneCurrentTreeToIdealTree
+50 silly cloneCurrentTree Finishing
+51 silly loadShrinkwrap Starting
+52 silly install loadShrinkwrap
+53 silly loadShrinkwrap Finishing
+54 silly loadAllDepsIntoIdealTree Starting
+55 silly install loadAllDepsIntoIdealTree
+56 silly resolveWithNewModule stylus@0.54.5 checking installable status
+57 silly cache add args [ 'stylus', null ]
+58 verbose cache add spec stylus
+59 silly resolveWithNewModule stylus-loader@2.4.0 checking installable status
+60 silly cache add args [ 'stylus-loader', null ]
+61 verbose cache add spec stylus-loader
+62 silly cache add parsed spec Result {
+62 silly cache add   raw: 'stylus',
+62 silly cache add   scope: null,
+62 silly cache add   name: 'stylus',
+62 silly cache add   rawSpec: '',
+62 silly cache add   spec: 'latest',
+62 silly cache add   type: 'tag' }
+63 silly addNamed stylus@latest
+64 verbose addNamed "latest" is being treated as a dist-tag for stylus
+65 info addNameTag [ 'stylus', 'latest' ]
+66 silly mapToRegistry name stylus
+67 silly mapToRegistry using default registry
+68 silly mapToRegistry registry https://registry.npmjs.org/
+69 silly mapToRegistry uri https://registry.npmjs.org/stylus
+70 verbose addNameTag registry:https://registry.npmjs.org/stylus not in flight; fetching
+71 silly cache add parsed spec Result {
+71 silly cache add   raw: 'stylus-loader',
+71 silly cache add   scope: null,
+71 silly cache add   name: 'stylus-loader',
+71 silly cache add   rawSpec: '',
+71 silly cache add   spec: 'latest',
+71 silly cache add   type: 'tag' }
+72 silly addNamed stylus-loader@latest
+73 verbose addNamed "latest" is being treated as a dist-tag for stylus-loader
+74 info addNameTag [ 'stylus-loader', 'latest' ]
+75 silly mapToRegistry name stylus-loader
+76 silly mapToRegistry using default registry
+77 silly mapToRegistry registry https://registry.npmjs.org/
+78 silly mapToRegistry uri https://registry.npmjs.org/stylus-loader
+79 verbose addNameTag registry:https://registry.npmjs.org/stylus-loader not in flight; fetching
+80 verbose get https://registry.npmjs.org/stylus-loader not expired, no request
+81 silly addNameTag next cb for stylus-loader with tag latest
+82 silly addNamed stylus-loader@2.4.0
+83 verbose addNamed "2.4.0" is a plain semver version for stylus-loader
+84 verbose get https://registry.npmjs.org/stylus not expired, no request
+85 silly addNameTag next cb for stylus with tag latest
+86 silly addNamed stylus@0.54.5
+87 verbose addNamed "0.54.5" is a plain semver version for stylus
+88 silly cache afterAdd stylus-loader@2.4.0
+89 verbose afterAdd /Users/webdeveloper/.npm/stylus-loader/2.4.0/package/package.json not in flight; writing
+90 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+91 silly cache afterAdd stylus@0.54.5
+92 verbose afterAdd /Users/webdeveloper/.npm/stylus/0.54.5/package/package.json not in flight; writing
+93 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+94 verbose afterAdd /Users/webdeveloper/.npm/stylus/0.54.5/package/package.json written
+95 verbose afterAdd /Users/webdeveloper/.npm/stylus-loader/2.4.0/package/package.json written
+96 silly fetchNamedPackageData css-parse
+97 silly mapToRegistry name css-parse
+98 silly mapToRegistry using default registry
+99 silly mapToRegistry registry https://registry.npmjs.org/
+100 silly mapToRegistry uri https://registry.npmjs.org/css-parse
+101 silly fetchNamedPackageData sax
+102 silly mapToRegistry name sax
+103 silly mapToRegistry using default registry
+104 silly mapToRegistry registry https://registry.npmjs.org/
+105 silly mapToRegistry uri https://registry.npmjs.org/sax
+106 silly fetchNamedPackageData glob
+107 silly mapToRegistry name glob
+108 silly mapToRegistry using default registry
+109 silly mapToRegistry registry https://registry.npmjs.org/
+110 silly mapToRegistry uri https://registry.npmjs.org/glob
+111 silly fetchNamedPackageData source-map
+112 silly mapToRegistry name source-map
+113 silly mapToRegistry using default registry
+114 silly mapToRegistry registry https://registry.npmjs.org/
+115 silly mapToRegistry uri https://registry.npmjs.org/source-map
+116 verbose request uri https://registry.npmjs.org/css-parse
+117 verbose request no auth needed
+118 info attempt registry request try #1 at 11:05:05
+119 verbose etag W/"57ef3547-3194"
+120 verbose lastModified Sat, 01 Oct 2016 04:02:15 GMT
+121 http request GET https://registry.npmjs.org/css-parse
+122 verbose request uri https://registry.npmjs.org/sax
+123 verbose request no auth needed
+124 info attempt registry request try #1 at 11:05:05
+125 verbose etag W/"5818daca-e297"
+126 verbose lastModified Tue, 01 Nov 2016 18:11:22 GMT
+127 http request GET https://registry.npmjs.org/sax
+128 verbose request uri https://registry.npmjs.org/source-map
+129 verbose request no auth needed
+130 info attempt registry request try #1 at 11:05:05
+131 verbose etag W/"5857b719-2524b"
+132 verbose lastModified Mon, 19 Dec 2016 10:31:53 GMT
+133 http request GET https://registry.npmjs.org/source-map
+134 verbose request uri https://registry.npmjs.org/glob
+135 verbose request no auth needed
+136 info attempt registry request try #1 at 11:05:05
+137 verbose etag W/"58656cad-1f5ac"
+138 verbose lastModified Thu, 29 Dec 2016 20:06:05 GMT
+139 http request GET https://registry.npmjs.org/glob
+140 http 304 https://registry.npmjs.org/css-parse
+141 verbose headers { date: 'Tue, 03 Jan 2017 10:05:05 GMT',
+141 verbose headers   via: '1.1 varnish',
+141 verbose headers   'cache-control': 'max-age=300',
+141 verbose headers   etag: 'W/"57ef3547-3194"',
+141 verbose headers   age: '274',
+141 verbose headers   connection: 'keep-alive',
+141 verbose headers   'x-served-by': 'cache-ams4420-AMS',
+141 verbose headers   'x-cache': 'HIT',
+141 verbose headers   'x-cache-hits': '2',
+141 verbose headers   'x-timer': 'S1483437905.492676,VS0,VE0',
+141 verbose headers   vary: 'Accept-Encoding' }
+142 silly get cb [ 304,
+142 silly get   { date: 'Tue, 03 Jan 2017 10:05:05 GMT',
+142 silly get     via: '1.1 varnish',
+142 silly get     'cache-control': 'max-age=300',
+142 silly get     etag: 'W/"57ef3547-3194"',
+142 silly get     age: '274',
+142 silly get     connection: 'keep-alive',
+142 silly get     'x-served-by': 'cache-ams4420-AMS',
+142 silly get     'x-cache': 'HIT',
+142 silly get     'x-cache-hits': '2',
+142 silly get     'x-timer': 'S1483437905.492676,VS0,VE0',
+142 silly get     vary: 'Accept-Encoding' } ]
+143 verbose etag https://registry.npmjs.org/css-parse from cache
+144 verbose get saving css-parse to /Users/webdeveloper/.npm/registry.npmjs.org/css-parse/.cache.json
+145 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+146 silly resolveWithNewModule css-parse@1.7.0 checking installable status
+147 silly cache add args [ 'css-parse@1.7.x', null ]
+148 verbose cache add spec css-parse@1.7.x
+149 silly cache add parsed spec Result {
+149 silly cache add   raw: 'css-parse@1.7.x',
+149 silly cache add   scope: null,
+149 silly cache add   name: 'css-parse',
+149 silly cache add   rawSpec: '1.7.x',
+149 silly cache add   spec: '>=1.7.0 <1.8.0',
+149 silly cache add   type: 'range' }
+150 silly addNamed css-parse@>=1.7.0 <1.8.0
+151 verbose addNamed ">=1.7.0 <1.8.0" is a valid semver range for css-parse
+152 silly addNameRange { name: 'css-parse', range: '>=1.7.0 <1.8.0', hasData: false }
+153 silly mapToRegistry name css-parse
+154 silly mapToRegistry using default registry
+155 silly mapToRegistry registry https://registry.npmjs.org/
+156 silly mapToRegistry uri https://registry.npmjs.org/css-parse
+157 verbose addNameRange registry:https://registry.npmjs.org/css-parse not in flight; fetching
+158 verbose get https://registry.npmjs.org/css-parse not expired, no request
+159 silly addNameRange number 2 { name: 'css-parse', range: '>=1.7.0 <1.8.0', hasData: true }
+160 silly addNameRange versions [ 'css-parse',
+160 silly addNameRange   [ '1.0.0',
+160 silly addNameRange     '1.0.1',
+160 silly addNameRange     '1.0.2',
+160 silly addNameRange     '1.0.3',
+160 silly addNameRange     '1.0.4',
+160 silly addNameRange     '1.1.0',
+160 silly addNameRange     '1.2.0',
+160 silly addNameRange     '1.3.0',
+160 silly addNameRange     '1.4.0',
+160 silly addNameRange     '1.5.0',
+160 silly addNameRange     '1.5.1',
+160 silly addNameRange     '1.5.2',
+160 silly addNameRange     '1.5.3',
+160 silly addNameRange     '1.6.0',
+160 silly addNameRange     '1.7.0',
+160 silly addNameRange     '2.0.0' ] ]
+161 silly addNamed css-parse@1.7.0
+162 verbose addNamed "1.7.0" is a plain semver version for css-parse
+163 http 304 https://registry.npmjs.org/glob
+164 verbose headers { date: 'Tue, 03 Jan 2017 10:05:05 GMT',
+164 verbose headers   via: '1.1 varnish',
+164 verbose headers   'cache-control': 'max-age=300',
+164 verbose headers   etag: 'W/"58656cad-1f5ac"',
+164 verbose headers   age: '228',
+164 verbose headers   connection: 'keep-alive',
+164 verbose headers   'x-served-by': 'cache-ams4136-AMS',
+164 verbose headers   'x-cache': 'HIT',
+164 verbose headers   'x-cache-hits': '15',
+164 verbose headers   'x-timer': 'S1483437905.498601,VS0,VE0',
+164 verbose headers   vary: 'Accept-Encoding' }
+165 silly get cb [ 304,
+165 silly get   { date: 'Tue, 03 Jan 2017 10:05:05 GMT',
+165 silly get     via: '1.1 varnish',
+165 silly get     'cache-control': 'max-age=300',
+165 silly get     etag: 'W/"58656cad-1f5ac"',
+165 silly get     age: '228',
+165 silly get     connection: 'keep-alive',
+165 silly get     'x-served-by': 'cache-ams4136-AMS',
+165 silly get     'x-cache': 'HIT',
+165 silly get     'x-cache-hits': '15',
+165 silly get     'x-timer': 'S1483437905.498601,VS0,VE0',
+165 silly get     vary: 'Accept-Encoding' } ]
+166 verbose etag https://registry.npmjs.org/glob from cache
+167 verbose get saving glob to /Users/webdeveloper/.npm/registry.npmjs.org/glob/.cache.json
+168 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+169 silly cache afterAdd css-parse@1.7.0
+170 verbose afterAdd /Users/webdeveloper/.npm/css-parse/1.7.0/package/package.json not in flight; writing
+171 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+172 http 304 https://registry.npmjs.org/source-map
+173 verbose headers { date: 'Tue, 03 Jan 2017 10:05:05 GMT',
+173 verbose headers   via: '1.1 varnish',
+173 verbose headers   'cache-control': 'max-age=300',
+173 verbose headers   etag: 'W/"5857b719-2524b"',
+173 verbose headers   age: '225',
+173 verbose headers   connection: 'keep-alive',
+173 verbose headers   'x-served-by': 'cache-ams4440-AMS',
+173 verbose headers   'x-cache': 'HIT',
+173 verbose headers   'x-cache-hits': '6',
+173 verbose headers   'x-timer': 'S1483437905.498918,VS0,VE0',
+173 verbose headers   vary: 'Accept-Encoding' }
+174 silly get cb [ 304,
+174 silly get   { date: 'Tue, 03 Jan 2017 10:05:05 GMT',
+174 silly get     via: '1.1 varnish',
+174 silly get     'cache-control': 'max-age=300',
+174 silly get     etag: 'W/"5857b719-2524b"',
+174 silly get     age: '225',
+174 silly get     connection: 'keep-alive',
+174 silly get     'x-served-by': 'cache-ams4440-AMS',
+174 silly get     'x-cache': 'HIT',
+174 silly get     'x-cache-hits': '6',
+174 silly get     'x-timer': 'S1483437905.498918,VS0,VE0',
+174 silly get     vary: 'Accept-Encoding' } ]
+175 verbose etag https://registry.npmjs.org/source-map from cache
+176 verbose get saving source-map to /Users/webdeveloper/.npm/registry.npmjs.org/source-map/.cache.json
+177 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+178 http 304 https://registry.npmjs.org/sax
+179 verbose headers { date: 'Tue, 03 Jan 2017 10:05:05 GMT',
+179 verbose headers   via: '1.1 varnish',
+179 verbose headers   'cache-control': 'max-age=300',
+179 verbose headers   etag: 'W/"5818daca-e297"',
+179 verbose headers   age: '92',
+179 verbose headers   connection: 'keep-alive',
+179 verbose headers   'x-served-by': 'cache-ams4446-AMS',
+179 verbose headers   'x-cache': 'HIT',
+179 verbose headers   'x-cache-hits': '2',
+179 verbose headers   'x-timer': 'S1483437905.499979,VS0,VE0',
+179 verbose headers   vary: 'Accept-Encoding' }
+180 silly get cb [ 304,
+180 silly get   { date: 'Tue, 03 Jan 2017 10:05:05 GMT',
+180 silly get     via: '1.1 varnish',
+180 silly get     'cache-control': 'max-age=300',
+180 silly get     etag: 'W/"5818daca-e297"',
+180 silly get     age: '92',
+180 silly get     connection: 'keep-alive',
+180 silly get     'x-served-by': 'cache-ams4446-AMS',
+180 silly get     'x-cache': 'HIT',
+180 silly get     'x-cache-hits': '2',
+180 silly get     'x-timer': 'S1483437905.499979,VS0,VE0',
+180 silly get     vary: 'Accept-Encoding' } ]
+181 verbose etag https://registry.npmjs.org/sax from cache
+182 verbose get saving sax to /Users/webdeveloper/.npm/registry.npmjs.org/sax/.cache.json
+183 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+184 verbose afterAdd /Users/webdeveloper/.npm/css-parse/1.7.0/package/package.json written
+185 silly resolveWithNewModule glob@7.0.6 checking installable status
+186 silly cache add args [ 'glob@7.0.x', null ]
+187 verbose cache add spec glob@7.0.x
+188 silly cache add parsed spec Result {
+188 silly cache add   raw: 'glob@7.0.x',
+188 silly cache add   scope: null,
+188 silly cache add   name: 'glob',
+188 silly cache add   rawSpec: '7.0.x',
+188 silly cache add   spec: '>=7.0.0 <7.1.0',
+188 silly cache add   type: 'range' }
+189 silly addNamed glob@>=7.0.0 <7.1.0
+190 verbose addNamed ">=7.0.0 <7.1.0" is a valid semver range for glob
+191 silly addNameRange { name: 'glob', range: '>=7.0.0 <7.1.0', hasData: false }
+192 silly mapToRegistry name glob
+193 silly mapToRegistry using default registry
+194 silly mapToRegistry registry https://registry.npmjs.org/
+195 silly mapToRegistry uri https://registry.npmjs.org/glob
+196 verbose addNameRange registry:https://registry.npmjs.org/glob not in flight; fetching
+197 silly resolveWithNewModule source-map@0.1.43 checking installable status
+198 silly cache add args [ 'source-map@0.1.x', null ]
+199 verbose cache add spec source-map@0.1.x
+200 silly cache add parsed spec Result {
+200 silly cache add   raw: 'source-map@0.1.x',
+200 silly cache add   scope: null,
+200 silly cache add   name: 'source-map',
+200 silly cache add   rawSpec: '0.1.x',
+200 silly cache add   spec: '>=0.1.0 <0.2.0',
+200 silly cache add   type: 'range' }
+201 silly addNamed source-map@>=0.1.0 <0.2.0
+202 verbose addNamed ">=0.1.0 <0.2.0" is a valid semver range for source-map
+203 silly addNameRange { name: 'source-map', range: '>=0.1.0 <0.2.0', hasData: false }
+204 silly mapToRegistry name source-map
+205 silly mapToRegistry using default registry
+206 silly mapToRegistry registry https://registry.npmjs.org/
+207 silly mapToRegistry uri https://registry.npmjs.org/source-map
+208 verbose addNameRange registry:https://registry.npmjs.org/source-map not in flight; fetching
+209 silly resolveWithNewModule sax@0.5.8 checking installable status
+210 silly cache add args [ 'sax@0.5.x', null ]
+211 verbose cache add spec sax@0.5.x
+212 silly cache add parsed spec Result {
+212 silly cache add   raw: 'sax@0.5.x',
+212 silly cache add   scope: null,
+212 silly cache add   name: 'sax',
+212 silly cache add   rawSpec: '0.5.x',
+212 silly cache add   spec: '>=0.5.0 <0.6.0',
+212 silly cache add   type: 'range' }
+213 silly addNamed sax@>=0.5.0 <0.6.0
+214 verbose addNamed ">=0.5.0 <0.6.0" is a valid semver range for sax
+215 silly addNameRange { name: 'sax', range: '>=0.5.0 <0.6.0', hasData: false }
+216 silly mapToRegistry name sax
+217 silly mapToRegistry using default registry
+218 silly mapToRegistry registry https://registry.npmjs.org/
+219 silly mapToRegistry uri https://registry.npmjs.org/sax
+220 verbose addNameRange registry:https://registry.npmjs.org/sax not in flight; fetching
+221 verbose get https://registry.npmjs.org/glob not expired, no request
+222 silly addNameRange number 2 { name: 'glob', range: '>=7.0.0 <7.1.0', hasData: true }
+223 silly addNameRange versions [ 'glob',
+223 silly addNameRange   [ '1.1.0',
+223 silly addNameRange     '2.0.9',
+223 silly addNameRange     '2.0.8',
+223 silly addNameRange     '2.0.7',
+223 silly addNameRange     '2.1.0',
+223 silly addNameRange     '3.0.0',
+223 silly addNameRange     '3.0.1',
+223 silly addNameRange     '3.1.0',
+223 silly addNameRange     '3.1.1',
+223 silly addNameRange     '3.1.2',
+223 silly addNameRange     '3.1.3',
+223 silly addNameRange     '3.1.4',
+223 silly addNameRange     '3.1.5',
+223 silly addNameRange     '3.1.6',
+223 silly addNameRange     '3.1.7',
+223 silly addNameRange     '3.1.9',
+223 silly addNameRange     '3.1.10',
+223 silly addNameRange     '3.1.11',
+223 silly addNameRange     '3.1.12',
+223 silly addNameRange     '3.1.13',
+223 silly addNameRange     '3.1.14',
+223 silly addNameRange     '3.1.15',
+223 silly addNameRange     '3.1.16',
+223 silly addNameRange     '3.1.17',
+223 silly addNameRange     '3.1.18',
+223 silly addNameRange     '3.1.19',
+223 silly addNameRange     '3.1.20',
+223 silly addNameRange     '3.1.21',
+223 silly addNameRange     '3.2.0',
+223 silly addNameRange     '3.2.1',
+223 silly addNameRange     '3.2.3',
+223 silly addNameRange     '3.2.4',
+223 silly addNameRange     '3.2.5',
+223 silly addNameRange     '3.2.6',
+223 silly addNameRange     '3.2.7',
+223 silly addNameRange     '3.2.8',
+223 silly addNameRange     '3.2.9',
+223 silly addNameRange     '3.2.10',
+223 silly addNameRange     '3.2.11',
+223 silly addNameRange     '4.0.0',
+223 silly addNameRange     '4.0.1',
+223 silly addNameRange     '4.0.2',
+223 silly addNameRange     '4.0.3',
+223 silly addNameRange     '4.0.4',
+223 silly addNameRange     '4.0.5',
+223 silly addNameRange     '4.0.6',
+223 silly addNameRange     '4.1.2-beta',
+223 silly addNameRange     '4.1.2',
+223 silly addNameRange     '4.1.3',
+223 silly addNameRange     '4.1.4',
+223 silly addNameRange     '4.1.5',
+223 silly addNameRange     '4.1.6',
+223 silly addNameRange     '4.2.0',
+223 silly addNameRange     '4.2.1',
+223 silly addNameRange     '4.2.2',
+223 silly addNameRange     '4.3.0',
+223 silly addNameRange     '4.3.1',
+223 silly addNameRange     '4.3.2',
+223 silly addNameRange     '4.3.3',
+223 silly addNameRange     '4.3.4',
+223 silly addNameRange     '4.3.5',
+223 silly addNameRange     '4.4.0',
+223 silly addNameRange     '4.4.2',
+223 silly addNameRange     '4.5.0',
+223 silly addNameRange     '5.0.0',
+223 silly addNameRange     '4.5.1',
+223 silly addNameRange     '5.0.1',
+223 silly addNameRange     '4.5.2',
+223 silly addNameRange     '5.0.2',
+223 silly addNameRange     '4.5.3',
+223 silly addNameRange     '5.0.3',
+223 silly addNameRange     '5.0.4',
+223 silly addNameRange     '5.0.5',
+223 silly addNameRange     '5.0.6',
+223 silly addNameRange     '5.0.7',
+223 silly addNameRange     '5.0.9',
+223 silly addNameRange     '5.0.10',
+223 silly addNameRange     '5.0.11',
+223 silly addNameRange     '5.0.12',
+223 silly addNameRange     '5.0.13',
+223 silly addNameRange     '5.0.14',
+223 silly addNameRange     '5.0.15',
+223 silly addNameRange     '6.0.1',
+223 silly addNameRange     '6.0.2',
+223 silly addNameRange     '6.0.3',
+223 silly addNameRange     '6.0.4',
+223 silly addNameRange     '7.0.0',
+223 silly addNameRange     '7.0.1',
+223 silly addNameRange     '7.0.3',
+223 silly addNameRange     '7.0.4',
+223 silly addNameRange     '7.0.5',
+223 silly addNameRange     '7.0.6',
+223 silly addNameRange     '7.1.0',
+223 silly addNameRange     '7.1.1' ] ]
+224 silly addNamed glob@7.0.6
+225 verbose addNamed "7.0.6" is a plain semver version for glob
+226 silly cache afterAdd glob@7.0.6
+227 verbose afterAdd /Users/webdeveloper/.npm/glob/7.0.6/package/package.json not in flight; writing
+228 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+229 verbose get https://registry.npmjs.org/sax not expired, no request
+230 silly addNameRange number 2 { name: 'sax', range: '>=0.5.0 <0.6.0', hasData: true }
+231 silly addNameRange versions [ 'sax',
+231 silly addNameRange   [ '0.1.0',
+231 silly addNameRange     '0.1.1',
+231 silly addNameRange     '0.1.2',
+231 silly addNameRange     '0.1.3',
+231 silly addNameRange     '0.1.4',
+231 silly addNameRange     '0.1.5',
+231 silly addNameRange     '0.2.0',
+231 silly addNameRange     '0.2.1',
+231 silly addNameRange     '0.2.2',
+231 silly addNameRange     '0.2.3',
+231 silly addNameRange     '0.2.4',
+231 silly addNameRange     '0.2.5',
+231 silly addNameRange     '0.3.0',
+231 silly addNameRange     '0.3.1',
+231 silly addNameRange     '0.3.2',
+231 silly addNameRange     '0.3.3',
+231 silly addNameRange     '0.3.4',
+231 silly addNameRange     '0.3.5',
+231 silly addNameRange     '0.4.1',
+231 silly addNameRange     '0.4.0',
+231 silly addNameRange     '0.4.2',
+231 silly addNameRange     '0.4.3',
+231 silly addNameRange     '0.5.0',
+231 silly addNameRange     '0.5.1',
+231 silly addNameRange     '0.5.2',
+231 silly addNameRange     '0.5.3',
+231 silly addNameRange     '0.5.4',
+231 silly addNameRange     '0.5.5',
+231 silly addNameRange     '0.5.6',
+231 silly addNameRange     '0.5.7',
+231 silly addNameRange     '0.5.8',
+231 silly addNameRange     '0.6.0',
+231 silly addNameRange     '0.6.1',
+231 silly addNameRange     '1.0.0',
+231 silly addNameRange     '1.1.0',
+231 silly addNameRange     '1.1.1',
+231 silly addNameRange     '1.1.2',
+231 silly addNameRange     '1.1.3',
+231 silly addNameRange     '1.1.4',
+231 silly addNameRange     '1.1.5',
+231 silly addNameRange     '1.1.6',
+231 silly addNameRange     '1.2.1' ] ]
+232 silly addNamed sax@0.5.8
+233 verbose addNamed "0.5.8" is a plain semver version for sax
+234 verbose get https://registry.npmjs.org/source-map not expired, no request
+235 silly addNameRange number 2 { name: 'source-map', range: '>=0.1.0 <0.2.0', hasData: true }
+236 silly addNameRange versions [ 'source-map',
+236 silly addNameRange   [ '0.0.0',
+236 silly addNameRange     '0.1.0',
+236 silly addNameRange     '0.1.1',
+236 silly addNameRange     '0.1.2',
+236 silly addNameRange     '0.1.3',
+236 silly addNameRange     '0.1.4',
+236 silly addNameRange     '0.1.5',
+236 silly addNameRange     '0.1.6',
+236 silly addNameRange     '0.1.7',
+236 silly addNameRange     '0.1.8',
+236 silly addNameRange     '0.1.9',
+236 silly addNameRange     '0.1.10',
+236 silly addNameRange     '0.1.11',
+236 silly addNameRange     '0.1.12',
+236 silly addNameRange     '0.1.13',
+236 silly addNameRange     '0.1.14',
+236 silly addNameRange     '0.1.15',
+236 silly addNameRange     '0.1.16',
+236 silly addNameRange     '0.1.17',
+236 silly addNameRange     '0.1.18',
+236 silly addNameRange     '0.1.19',
+236 silly addNameRange     '0.1.20',
+236 silly addNameRange     '0.1.21',
+236 silly addNameRange     '0.1.22',
+236 silly addNameRange     '0.1.23',
+236 silly addNameRange     '0.1.24',
+236 silly addNameRange     '0.1.25',
+236 silly addNameRange     '0.1.26',
+236 silly addNameRange     '0.1.27',
+236 silly addNameRange     '0.1.28',
+236 silly addNameRange     '0.1.29',
+236 silly addNameRange     '0.1.30',
+236 silly addNameRange     '0.1.31',
+236 silly addNameRange     '0.1.32',
+236 silly addNameRange     '0.1.33',
+236 silly addNameRange     '0.1.34',
+236 silly addNameRange     '0.1.35',
+236 silly addNameRange     '0.1.36',
+236 silly addNameRange     '0.1.37',
+236 silly addNameRange     '0.1.38',
+236 silly addNameRange     '0.1.39',
+236 silly addNameRange     '0.1.40',
+236 silly addNameRange     '0.1.41',
+236 silly addNameRange     '0.1.42',
+236 silly addNameRange     '0.1.43',
+236 silly addNameRange     '0.2.0',
+236 silly addNameRange     '0.3.0',
+236 silly addNameRange     '0.4.0',
+236 silly addNameRange     '0.4.1',
+236 silly addNameRange     '0.4.2',
+236 silly addNameRange     '0.4.3',
+236 silly addNameRange     '0.4.4',
+236 silly addNameRange     '0.5.0',
+236 silly addNameRange     '0.5.1',
+236 silly addNameRange     '0.5.2',
+236 silly addNameRange     '0.5.3',
+236 silly addNameRange     '0.5.4',
+236 silly addNameRange     '0.5.5',
+236 silly addNameRange     '0.5.6' ] ]
+237 silly addNamed source-map@0.1.43
+238 verbose addNamed "0.1.43" is a plain semver version for source-map
+239 silly cache afterAdd source-map@0.1.43
+240 verbose afterAdd /Users/webdeveloper/.npm/source-map/0.1.43/package/package.json not in flight; writing
+241 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+242 silly cache afterAdd sax@0.5.8
+243 verbose afterAdd /Users/webdeveloper/.npm/sax/0.5.8/package/package.json not in flight; writing
+244 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+245 verbose afterAdd /Users/webdeveloper/.npm/glob/7.0.6/package/package.json written
+246 verbose afterAdd /Users/webdeveloper/.npm/source-map/0.1.43/package/package.json written
+247 verbose afterAdd /Users/webdeveloper/.npm/sax/0.5.8/package/package.json written
+248 silly fetchNamedPackageData when
+249 silly mapToRegistry name when
+250 silly mapToRegistry using default registry
+251 silly mapToRegistry registry https://registry.npmjs.org/
+252 silly mapToRegistry uri https://registry.npmjs.org/when
+253 verbose request uri https://registry.npmjs.org/when
+254 verbose request no auth needed
+255 info attempt registry request try #1 at 11:05:05
+256 verbose etag W/"584912d3-1c99c"
+257 verbose lastModified Thu, 08 Dec 2016 07:59:15 GMT
+258 http request GET https://registry.npmjs.org/when
+259 http 304 https://registry.npmjs.org/when
+260 verbose headers { date: 'Tue, 03 Jan 2017 10:05:05 GMT',
+260 verbose headers   via: '1.1 varnish',
+260 verbose headers   'cache-control': 'max-age=300',
+260 verbose headers   etag: 'W/"584912d3-1c99c"',
+260 verbose headers   age: '248',
+260 verbose headers   connection: 'keep-alive',
+260 verbose headers   'x-served-by': 'cache-ams4425-AMS',
+260 verbose headers   'x-cache': 'HIT',
+260 verbose headers   'x-cache-hits': '3',
+260 verbose headers   'x-timer': 'S1483437905.603391,VS0,VE0',
+260 verbose headers   vary: 'Accept-Encoding' }
+261 silly get cb [ 304,
+261 silly get   { date: 'Tue, 03 Jan 2017 10:05:05 GMT',
+261 silly get     via: '1.1 varnish',
+261 silly get     'cache-control': 'max-age=300',
+261 silly get     etag: 'W/"584912d3-1c99c"',
+261 silly get     age: '248',
+261 silly get     connection: 'keep-alive',
+261 silly get     'x-served-by': 'cache-ams4425-AMS',
+261 silly get     'x-cache': 'HIT',
+261 silly get     'x-cache-hits': '3',
+261 silly get     'x-timer': 'S1483437905.603391,VS0,VE0',
+261 silly get     vary: 'Accept-Encoding' } ]
+262 verbose etag https://registry.npmjs.org/when from cache
+263 verbose get saving when to /Users/webdeveloper/.npm/registry.npmjs.org/when/.cache.json
+264 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+265 silly resolveWithNewModule when@3.6.4 checking installable status
+266 silly cache add args [ 'when@~3.6.x', null ]
+267 verbose cache add spec when@~3.6.x
+268 silly cache add parsed spec Result {
+268 silly cache add   raw: 'when@~3.6.x',
+268 silly cache add   scope: null,
+268 silly cache add   name: 'when',
+268 silly cache add   rawSpec: '~3.6.x',
+268 silly cache add   spec: '>=3.6.0 <3.7.0',
+268 silly cache add   type: 'range' }
+269 silly addNamed when@>=3.6.0 <3.7.0
+270 verbose addNamed ">=3.6.0 <3.7.0" is a valid semver range for when
+271 silly addNameRange { name: 'when', range: '>=3.6.0 <3.7.0', hasData: false }
+272 silly mapToRegistry name when
+273 silly mapToRegistry using default registry
+274 silly mapToRegistry registry https://registry.npmjs.org/
+275 silly mapToRegistry uri https://registry.npmjs.org/when
+276 verbose addNameRange registry:https://registry.npmjs.org/when not in flight; fetching
+277 verbose get https://registry.npmjs.org/when not expired, no request
+278 silly addNameRange number 2 { name: 'when', range: '>=3.6.0 <3.7.0', hasData: true }
+279 silly addNameRange versions [ 'when',
+279 silly addNameRange   [ '1.2.0',
+279 silly addNameRange     '1.3.0',
+279 silly addNameRange     '1.4.0',
+279 silly addNameRange     '1.4.1',
+279 silly addNameRange     '1.4.2',
+279 silly addNameRange     '1.4.3',
+279 silly addNameRange     '1.4.4',
+279 silly addNameRange     '1.5.0',
+279 silly addNameRange     '1.5.1',
+279 silly addNameRange     '1.5.2',
+279 silly addNameRange     '1.6.0',
+279 silly addNameRange     '1.6.1',
+279 silly addNameRange     '1.7.0',
+279 silly addNameRange     '1.7.1',
+279 silly addNameRange     '1.8.0',
+279 silly addNameRange     '1.8.1',
+279 silly addNameRange     '2.0.0',
+279 silly addNameRange     '2.0.1',
+279 silly addNameRange     '2.1.0',
+279 silly addNameRange     '2.1.1',
+279 silly addNameRange     '2.2.0',
+279 silly addNameRange     '2.2.1',
+279 silly addNameRange     '2.3.0',
+279 silly addNameRange     '2.4.0',
+279 silly addNameRange     '2.5.0',
+279 silly addNameRange     '2.5.1',
+279 silly addNameRange     '2.6.0',
+279 silly addNameRange     '2.7.0',
+279 silly addNameRange     '2.7.1',
+279 silly addNameRange     '2.8.0',
+279 silly addNameRange     '3.0.0',
+279 silly addNameRange     '3.0.1',
+279 silly addNameRange     '3.1.0',
+279 silly addNameRange     '3.2.0',
+279 silly addNameRange     '3.2.1',
+279 silly addNameRange     '3.2.2',
+279 silly addNameRange     '3.2.3',
+279 silly addNameRange     '3.3.0',
+279 silly addNameRange     '3.3.1',
+279 silly addNameRange     '3.4.0',
+279 silly addNameRange     '3.4.1',
+279 silly addNameRange     '3.4.2',
+279 silly addNameRange     '3.4.3',
+279 silly addNameRange     '3.4.4',
+279 silly addNameRange     '3.4.5',
+279 silly addNameRange     '3.4.6',
+279 silly addNameRange     '3.5.0',
+279 silly addNameRange     '3.5.1',
+279 silly addNameRange     '3.5.2',
+279 silly addNameRange     '3.6.0',
+279 silly addNameRange     '3.6.1',
+279 silly addNameRange     '3.6.2',
+279 silly addNameRange     '3.6.3',
+279 silly addNameRange     '3.6.4',
+279 silly addNameRange     '3.7.0',
+279 silly addNameRange     '3.7.1',
+279 silly addNameRange     '3.7.2',
+279 silly addNameRange     '3.7.3',
+279 silly addNameRange     '3.7.4',
+279 silly addNameRange     '3.7.5',
+279 silly addNameRange     '3.7.6',
+279 silly addNameRange     '3.7.7' ] ]
+280 silly addNamed when@3.6.4
+281 verbose addNamed "3.6.4" is a plain semver version for when
+282 silly cache afterAdd when@3.6.4
+283 verbose afterAdd /Users/webdeveloper/.npm/when/3.6.4/package/package.json not in flight; writing
+284 verbose correctMkdir /Users/webdeveloper/.npm correctMkdir not in flight; initializing
+285 verbose afterAdd /Users/webdeveloper/.npm/when/3.6.4/package/package.json written
+286 silly fetchOtherPackageData webpack-stream@github:jeroennoten/webpack-stream#patch-1
+287 silly cache add args [ 'webpack-stream@github:jeroennoten/webpack-stream#patch-1',
+287 silly cache add   null ]
+288 verbose cache add spec webpack-stream@github:jeroennoten/webpack-stream#patch-1
+289 silly cache add parsed spec Result {
+289 silly cache add   raw: 'webpack-stream@github:jeroennoten/webpack-stream#patch-1',
+289 silly cache add   scope: null,
+289 silly cache add   name: 'webpack-stream',
+289 silly cache add   rawSpec: 'github:jeroennoten/webpack-stream#patch-1',
+289 silly cache add   spec: 'github:jeroennoten/webpack-stream#patch-1',
+289 silly cache add   type: 'hosted',
+289 silly cache add   hosted:
+289 silly cache add    { type: 'github',
+289 silly cache add      ssh: 'git@github.com:jeroennoten/webpack-stream.git#patch-1',
+289 silly cache add      sshUrl: 'git+ssh://git@github.com/jeroennoten/webpack-stream.git#patch-1',
+289 silly cache add      httpsUrl: 'git+https://github.com/jeroennoten/webpack-stream.git#patch-1',
+289 silly cache add      gitUrl: 'git://github.com/jeroennoten/webpack-stream.git#patch-1',
+289 silly cache add      shortcut: 'github:jeroennoten/webpack-stream#patch-1',
+289 silly cache add      directUrl: 'https://raw.githubusercontent.com/jeroennoten/webpack-stream/patch-1/package.json' } }
+290 verbose addRemoteGit caching github:jeroennoten/webpack-stream#patch-1
+291 verbose addRemoteGit jeroennoten/webpack-stream#patch-1 is a repository hosted by github
+292 silly tryGitProto attempting to clone git://github.com/jeroennoten/webpack-stream.git#patch-1
+293 silly tryClone cloning jeroennoten/webpack-stream#patch-1 via git://github.com/jeroennoten/webpack-stream.git#patch-1
+294 verbose tryClone git-github-com-jeroennoten-webpack-stream-git-patch-1-5e1462f4 not in flight; caching
+295 verbose correctMkdir /Users/webdeveloper/.npm/_git-remotes correctMkdir not in flight; initializing
+296 info git [ 'config', '--get', 'remote.origin.url' ]
+297 warn addRemoteGit jeroennoten/webpack-stream#patch-1 resetting remote /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-5e1462f4 because of error: You have not agreed to the Xcode license agreements, please run 'xcodebuild -license' (for user-level acceptance) or 'sudo xcodebuild -license' (for system-wide acceptance) from within a Terminal window to review and agree to the Xcode license agreements.
+298 info resetRemote resetting /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-5e1462f4 for jeroennoten/webpack-stream#patch-1
+299 silly gentlyRm /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-5e1462f4 is being purged
+300 verbose gentlyRm don't care about contents; nuking /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-5e1462f4
+301 silly vacuum-fs purging /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-5e1462f4
+302 silly vacuum-fs quitting because other entries in /Users/webdeveloper/.npm/_git-remotes
+303 info git [ 'clone',
+303 info git   '--template=/Users/webdeveloper/.npm/_git-remotes/_templates',
+303 info git   '--mirror',
+303 info git   'git://github.com/jeroennoten/webpack-stream.git',
+303 info git   '/Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-5e1462f4' ]
+304 error git clone --template=/Users/webdeveloper/.npm/_git-remotes/_templates --mirror git://github.com/jeroennoten/webpack-stream.git /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-5e1462f4: You have not agreed to the Xcode license agreements, please run 'xcodebuild -license' (for user-level acceptance) or 'sudo xcodebuild -license' (for system-wide acceptance) from within a Terminal window to review and agree to the Xcode license agreements.
+305 silly tryHTTPS attempting to clone git+https://github.com/jeroennoten/webpack-stream.git#patch-1
+306 silly tryClone cloning jeroennoten/webpack-stream#patch-1 via git+https://github.com/jeroennoten/webpack-stream.git#patch-1
+307 verbose tryClone git-https-github-com-jeroennoten-webpack-stream-git-patch-1-60be6dae not in flight; caching
+308 verbose correctMkdir /Users/webdeveloper/.npm/_git-remotes correctMkdir not in flight; initializing
+309 info git [ 'config', '--get', 'remote.origin.url' ]
+310 warn addRemoteGit jeroennoten/webpack-stream#patch-1 resetting remote /Users/webdeveloper/.npm/_git-remotes/git-https-github-com-jeroennoten-webpack-stream-git-patch-1-60be6dae because of error: You have not agreed to the Xcode license agreements, please run 'xcodebuild -license' (for user-level acceptance) or 'sudo xcodebuild -license' (for system-wide acceptance) from within a Terminal window to review and agree to the Xcode license agreements.
+311 info resetRemote resetting /Users/webdeveloper/.npm/_git-remotes/git-https-github-com-jeroennoten-webpack-stream-git-patch-1-60be6dae for jeroennoten/webpack-stream#patch-1
+312 silly gentlyRm /Users/webdeveloper/.npm/_git-remotes/git-https-github-com-jeroennoten-webpack-stream-git-patch-1-60be6dae is being purged
+313 verbose gentlyRm don't care about contents; nuking /Users/webdeveloper/.npm/_git-remotes/git-https-github-com-jeroennoten-webpack-stream-git-patch-1-60be6dae
+314 silly vacuum-fs purging /Users/webdeveloper/.npm/_git-remotes/git-https-github-com-jeroennoten-webpack-stream-git-patch-1-60be6dae
+315 silly vacuum-fs quitting because other entries in /Users/webdeveloper/.npm/_git-remotes
+316 info git [ 'clone',
+316 info git   '--template=/Users/webdeveloper/.npm/_git-remotes/_templates',
+316 info git   '--mirror',
+316 info git   'https://github.com/jeroennoten/webpack-stream.git',
+316 info git   '/Users/webdeveloper/.npm/_git-remotes/git-https-github-com-jeroennoten-webpack-stream-git-patch-1-60be6dae' ]
+317 error git clone --template=/Users/webdeveloper/.npm/_git-remotes/_templates --mirror https://github.com/jeroennoten/webpack-stream.git /Users/webdeveloper/.npm/_git-remotes/git-https-github-com-jeroennoten-webpack-stream-git-patch-1-60be6dae: You have not agreed to the Xcode license agreements, please run 'xcodebuild -license' (for user-level acceptance) or 'sudo xcodebuild -license' (for system-wide acceptance) from within a Terminal window to review and agree to the Xcode license agreements.
+318 silly trySSH attempting to clone git@github.com:jeroennoten/webpack-stream.git#patch-1
+319 silly tryClone cloning jeroennoten/webpack-stream#patch-1 via git@github.com:jeroennoten/webpack-stream.git#patch-1
+320 verbose tryClone git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a not in flight; caching
+321 verbose correctMkdir /Users/webdeveloper/.npm/_git-remotes correctMkdir not in flight; initializing
+322 info git [ 'config', '--get', 'remote.origin.url' ]
+323 warn addRemoteGit jeroennoten/webpack-stream#patch-1 resetting remote /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a because of error: You have not agreed to the Xcode license agreements, please run 'xcodebuild -license' (for user-level acceptance) or 'sudo xcodebuild -license' (for system-wide acceptance) from within a Terminal window to review and agree to the Xcode license agreements.
+324 info resetRemote resetting /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a for jeroennoten/webpack-stream#patch-1
+325 silly gentlyRm /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a is being purged
+326 verbose gentlyRm don't care about contents; nuking /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a
+327 silly vacuum-fs purging /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a
+328 silly vacuum-fs quitting because other entries in /Users/webdeveloper/.npm/_git-remotes
+329 info git [ 'clone',
+329 info git   '--template=/Users/webdeveloper/.npm/_git-remotes/_templates',
+329 info git   '--mirror',
+329 info git   'git@github.com:jeroennoten/webpack-stream.git',
+329 info git   '/Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a' ]
+330 error git clone --template=/Users/webdeveloper/.npm/_git-remotes/_templates --mirror git@github.com:jeroennoten/webpack-stream.git /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a: You have not agreed to the Xcode license agreements, please run 'xcodebuild -license' (for user-level acceptance) or 'sudo xcodebuild -license' (for system-wide acceptance) from within a Terminal window to review and agree to the Xcode license agreements.
+331 silly fetchPackageMetaData Error: Command failed: git clone --template=/Users/webdeveloper/.npm/_git-remotes/_templates --mirror git@github.com:jeroennoten/webpack-stream.git /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a
+331 silly fetchPackageMetaData
+331 silly fetchPackageMetaData You have not agreed to the Xcode license agreements, please run 'xcodebuild -license' (for user-level acceptance) or 'sudo xcodebuild -license' (for system-wide acceptance) from within a Terminal window to review and agree to the Xcode license agreements.
+331 silly fetchPackageMetaData
+331 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:213:12)
+331 silly fetchPackageMetaData     at emitTwo (events.js:100:13)
+331 silly fetchPackageMetaData     at ChildProcess.emit (events.js:185:7)
+331 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:827:16)
+331 silly fetchPackageMetaData     at Socket.<anonymous> (internal/child_process.js:319:11)
+331 silly fetchPackageMetaData     at emitOne (events.js:90:13)
+331 silly fetchPackageMetaData     at Socket.emit (events.js:182:7)
+331 silly fetchPackageMetaData     at Pipe._onclose (net.js:471:12)
+331 silly fetchPackageMetaData  error for webpack-stream@github:jeroennoten/webpack-stream#patch-1 { [Error: Command failed: git clone --template=/Users/webdeveloper/.npm/_git-remotes/_templates --mirror git@github.com:jeroennoten/webpack-stream.git /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a
+331 silly fetchPackageMetaData
+331 silly fetchPackageMetaData You have not agreed to the Xcode license agreements, please run 'xcodebuild -license' (for user-level acceptance) or 'sudo xcodebuild -license' (for system-wide acceptance) from within a Terminal window to review and agree to the Xcode license agreements.
+331 silly fetchPackageMetaData ]
+331 silly fetchPackageMetaData   killed: false,
+331 silly fetchPackageMetaData   code: 69,
+331 silly fetchPackageMetaData   signal: null,
+331 silly fetchPackageMetaData   cmd: 'git clone --template=/Users/webdeveloper/.npm/_git-remotes/_templates --mirror git@github.com:jeroennoten/webpack-stream.git /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a' }
+332 silly rollbackFailedOptional Starting
+333 silly rollbackFailedOptional Finishing
+334 silly runTopLevelLifecycles Starting
+335 silly runTopLevelLifecycles Finishing
+336 silly install printInstalled
+337 verbose stack Error: Command failed: git clone --template=/Users/webdeveloper/.npm/_git-remotes/_templates --mirror git@github.com:jeroennoten/webpack-stream.git /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a
+337 verbose stack
+337 verbose stack You have not agreed to the Xcode license agreements, please run 'xcodebuild -license' (for user-level acceptance) or 'sudo xcodebuild -license' (for system-wide acceptance) from within a Terminal window to review and agree to the Xcode license agreements.
+337 verbose stack
+337 verbose stack     at ChildProcess.exithandler (child_process.js:213:12)
+337 verbose stack     at emitTwo (events.js:100:13)
+337 verbose stack     at ChildProcess.emit (events.js:185:7)
+337 verbose stack     at maybeClose (internal/child_process.js:827:16)
+337 verbose stack     at Socket.<anonymous> (internal/child_process.js:319:11)
+337 verbose stack     at emitOne (events.js:90:13)
+337 verbose stack     at Socket.emit (events.js:182:7)
+337 verbose stack     at Pipe._onclose (net.js:471:12)
+338 verbose cwd /Users/webdeveloper/Code/portal-remastered
+339 error Darwin 16.3.0
+340 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-D" "stylus-loader" "stylus"
+341 error node v5.6.0
+342 error npm  v3.6.0
+343 error code 69
+344 error Command failed: git clone --template=/Users/webdeveloper/.npm/_git-remotes/_templates --mirror git@github.com:jeroennoten/webpack-stream.git /Users/webdeveloper/.npm/_git-remotes/git-github-com-jeroennoten-webpack-stream-git-patch-1-b24e730a
+344 error
+344 error You have not agreed to the Xcode license agreements, please run 'xcodebuild -license' (for user-level acceptance) or 'sudo xcodebuild -license' (for system-wide acceptance) from within a Terminal window to review and agree to the Xcode license agreements.
+345 error If you need help, you may report this error at:
+345 error     <https://github.com/npm/npm/issues>
+346 verbose exit [ 1, true ]

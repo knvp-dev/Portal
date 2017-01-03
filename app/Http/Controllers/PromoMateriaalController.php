@@ -12,7 +12,7 @@ class PromoMateriaalController extends Controller{
 
 	public function __construct(PromoMateriaalRepository $materiaal){
 		$this->materiaal = $materiaal;
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index(){

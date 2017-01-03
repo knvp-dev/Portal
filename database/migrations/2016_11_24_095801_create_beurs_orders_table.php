@@ -16,6 +16,9 @@ class CreateBeursOrdersTable extends Migration
         Schema::create('beurs_orders', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->string('event');
+            $table->date('date_of_use');
+            $table->date('return_date');
             $table->integer('completed')->default(0);
             $table->timestamps();
         });

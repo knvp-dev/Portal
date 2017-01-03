@@ -14,11 +14,11 @@ class BeursOrderRepository implements OrderInterface{
 	}
 
 	public function findById($id){
-		return BeursOrder::whereId($id)->first();
+		return BeursOrder::whereId($id)->with('products')->first();
 	}
 
 	public function getForUser(){
-		return BeursOrder::whereUserId(Auth::user()->id)->get();
+		return BeursOrder::whereUserId(Auth::user()->id)->with('products')->get();
 	}
 
 	public function create($orderdata){
@@ -32,10 +32,13 @@ class BeursOrderRepository implements OrderInterface{
 	private function createNewOrder($orderdata){
 		$order = new BeursOrder();
 		$order->user_id = Auth::user()->id;
+		$order->event = $orderdata->event;
+		$order->date_of_use = $orderdata->date;
+		$order->return_date = Date('Y-m-d', strtotime($orderdata->date . "+1 week"));
 		$order->save();
 
 		foreach($orderdata->orderitems as $data){
-			$order->beursItems()->attach($data['id']);
+			$order->products()->attach($data['id']);
 			$this->setUnavailability($order->id, $orderdata->date, $data['id']);
 		}
 
@@ -50,6 +53,10 @@ class BeursOrderRepository implements OrderInterface{
 		$unavailability->unavailable_from = Date('Y-m-d', strtotime($date . "-1 week"));
 		$unavailability->unavailable_to = Date('Y-m-d', strtotime($date . "+1 week"));
 		$unavailability->save();
+	}
+
+	public function getByStatus($status){
+		return BeursOrder::whereCompleted($status)->with('products')->get();
 	}
 
 }
