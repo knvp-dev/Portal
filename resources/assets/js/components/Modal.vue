@@ -1,7 +1,7 @@
 <template>
 	<div class="modal is-active">
 	  <div class="modal-background"></div>
-		  <div class="modal-content text-is-centered animated fadeIn">
+		  <div class="modal-content text-is-centered">
 		    <div class="box">
 		     <div class="modal-header"></div>
 		     <div class="modal-body">
@@ -12,13 +12,13 @@
 		     </div>
 		     <div class="modal-controls">
 			     <div v-if="!isWorking && hasYesNoOptions && !initialActionDone">
-			     	<button class="button is-primary is-outlined" @click="modalConfirmed">Yes</button>
-			     	<button class="button is-danger is-outlined" @click="modalDeclined">No</button>
+			     	<button class="button is-primary" @click="modalConfirmed">{{ trans.translate('Ja ga door') }}</button>
+			     	<button class="button is-danger" @click="modalDeclined">{{ trans.translate('Nee') }}</button>
 			     </div>
-		     	<button class="button is-primary is-outlined" v-if="canContinue" @click="$emit('close')">Continue</button>
+		     	<button class="button is-primary" v-if="canContinue" @click="redirectToOverview()">{{ trans.translate('Ga verder') }}</button>
 		     	<div v-if="!isWorking && !canContinue && initialActionDone">
-		     		<button class="button is-danger is-outlined" @click="modalConfirmed">Try again</button>
-		     		<button class="button is-outlined" @click="modalDeclined">Cancel</button>
+		     		<button class="button is-danger" @click="modalConfirmed">{{ trans.translate('probeer opnieuw') }}</button>
+		     		<button class="button" @click="modalDeclined">{{ trans.translate('annuleren') }}</button>
 		     	</div>
 		     </div>
 		    </div>
@@ -48,14 +48,14 @@
 				this.setFailureState(msg);
 			});
 		},
-		props:['hasYesNoOptions'],
+		props:['hasYesNoOptions', 'body'],
 		data(){
 			return{
-				body: "Bent u zeker dat u deze bestelling wilt plaatsen?",
 				initialActionDone: false,
 				canContinue: false,
 				isWorking: false,
-				iconType: "fa-exclamation"
+				iconType: "fa-exclamation",
+				trans: Locale
 			}
 		},
 		methods:{
@@ -71,7 +71,7 @@
 			setLoadingState(msg){
 				this.isWorking = true;
 				this.iconType = "fa-gear fa-spin";
-				this.body = "Verzoek verwerken...";
+				this.body = this.trans.translate('Verzoek verwerken');
 			},
 			setSuccessState(msg){
 				this.isWorking = false;
@@ -84,6 +84,10 @@
 				this.canContinue = false;
 				this.iconType = "fa-times";
 				this.body = msg;
+			},
+			redirectToOverview(){
+				Event.$emit('close');
+				window.location.href = "/overzicht";
 			}
 		}
 	}

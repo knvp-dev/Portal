@@ -24,8 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->integer('phone');
             $table->integer('fax');
-            $table->string('firm');
-            $table->string('firm_extra');
+            $table->string('entity');
+            $table->string('entity_extra');
             $table->integer('budget');
             $table->integer('start_budget');
             $table->integer('admin')->default(0);

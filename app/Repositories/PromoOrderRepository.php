@@ -9,7 +9,7 @@ use App\Repositories\Contracts\OrderInterface;
 class PromoOrderRepository implements OrderInterface{
 
 	public function getAll(){
-		return PromoOrder::all();
+		return PromoOrder::with('products')->with('user')->orderBy('id','DESC')->get();
 	}
 
 	public function findById($id){
@@ -17,7 +17,7 @@ class PromoOrderRepository implements OrderInterface{
 	}
 
 	public function getForUser(){
-		return PromoOrder::where('user_id',Auth::id())->with('products')->get();
+		return PromoOrder::where('user_id',Auth::id())->with('products')->orderBy('id','DESC')->get();
 	}
 
 	public function create($orderdata){
@@ -25,7 +25,12 @@ class PromoOrderRepository implements OrderInterface{
 	}
 
 	public function remove($id){
-
+		$order = PromoOrder::where('id',$id)->first();
+		$user = Auth::user();
+		$user->budget += $order->total_price;
+		$user->save();
+		$order->delete();
+		return "deleted";
 	}
 
 	private function createNewOrder($orderdata){
@@ -59,5 +64,9 @@ class PromoOrderRepository implements OrderInterface{
 	public function getByStatus($status){
 		return PromoOrder::where('user_id',Auth::id())->whereCompleted($status)->with('products')->get();
 	}
+
+    public function getAllByStatus($status){
+        return PromoOrder::whereCompleted($status)->with('products')->with('user')->get();
+    }
 
 }

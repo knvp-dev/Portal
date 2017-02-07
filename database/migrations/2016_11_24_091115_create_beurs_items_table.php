@@ -16,7 +16,8 @@ class CreateBeursItemsTable extends Migration
         Schema::create('beurs_items', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('code');
-            $table->string('name')->unique();
+            $table->string('name_nl')->unique();
+            $table->string('name_fr')->unique();
             $table->integer('unavailability_id');
             $table->string('image');
             $table->timestamps();

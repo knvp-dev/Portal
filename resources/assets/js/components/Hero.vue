@@ -1,5 +1,5 @@
 <template>
-	<div class="container-fluid mb-50">
+	<div class="container-fluid">
 	  <section class="hero is-small has-text-centered is-bold" :class="type">
 	    <div class="hero-body">
 	      <div class="container">

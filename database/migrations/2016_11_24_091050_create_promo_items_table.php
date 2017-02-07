@@ -16,7 +16,8 @@ class CreatePromoItemsTable extends Migration
         Schema::create('promo_items', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code');
-            $table->string('name')->unique();
+            $table->string('name_nl')->unique();
+            $table->string('name_fr')->unique();
             $table->integer('pack');
             $table->integer('price')->unsigned();
             $table->integer('stock');

@@ -8,6 +8,12 @@
 // Font-awesome
 @import "node_modules/font-awesome/css/font-awesome";
 
+// Fonts
+@import "fonts";
+
+// Overwrite
+@import "overwrite";
+
 // Bulma
 @import "node_modules/bulma/css/bulma";
 
@@ -15,6 +21,10 @@
 @import "helpers";
 @import "forms";
 @import "animations";
+@import "cart";
+@import "masonry";
+
+[v-cloak] { display:none; }
 
 html{
 	background:none;
@@ -23,6 +33,29 @@ html{
 
 body{
 	height:100%;
+}
+
+#app{
+	display: flex;
+	flex-direction: column;
+	height:100vh;
+}
+
+.chooseLanguage{
+	display:flex;
+	position:absolute;
+	background-color:white;
+	top: 70px;
+    right: 0;
+}
+
+.chooseLanguage a{
+	padding:10px;
+	color:$konvert-blue;
+}
+
+.content-wrapper{
+	flex:1;
 }
 
 .info-box{
@@ -35,6 +68,10 @@ body{
 
 .is-icon-left{
 	padding-right:20px;
+}
+
+.is-icon-right{
+	padding-left:20px;
 }
 
 .text-is-centered{
@@ -71,7 +108,7 @@ body{
 }
 
 .products{
-	background-color:#eee;
+	/*background-color:#eee;*/
 }
 
 .blockquote button{
@@ -83,3 +120,51 @@ body{
 	margin: 10px;
 	width: 280px;
 }
+
+.single-product-card{
+	width: 280px;
+	padding: 10px;
+	margin:10px;
+	float:left;
+	border-top:2px solid $blue-dark;
+	-webkit-box-shadow: 0px 4px 5px -1px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 4px 5px -1px rgba(0,0,0,0.2);
+	box-shadow: 0px 4px 5px -1px rgba(0,0,0,0.2);
+}
+
+.single-product-card h3{
+	text-transform: uppercase;
+	font-size:1em;
+	font-weight:500;
+	padding-bottom:10px;
+}
+
+.single-product-card-info{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.columns-panel{
+	background-color: #fbfbfb;
+	padding: 20px;
+}
+
+.is-primary:hover{
+	background-color:darken($blue-dark, 4%)!important;
+}
+
+.button-centered{
+	margin: 0 auto;
+    display: block;
+}
+
+.button{
+	border-radius:18px;
+	border:none;
+}
+
+/*.modal-content{
+	padding:50px;
+	background-color:white;
+}*/

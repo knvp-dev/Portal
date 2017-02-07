@@ -1,21 +1,32 @@
 <template>
-	<div class="container mb-50">
-	  <div class="columns has-text-centered">
-		  <div class="column">
-		    <div class="info-tile">
-		    <span class="fat-cash"><strong class="is-large-size"><i class="fa fa-euro"></i></strong></span>
-		    <h2 class="has-padding">Resterend budget</h2>
-		    <span class="fat-cash" v-if="noBudget"><strong class="is-medium-size">Deze producten zijn gratis</strong></span>
-		    <span class="fat-cash budgetcount animated" v-else><i class="fa fa-euro"></i> <strong class="is-medium-size odometer is-budget-odo" id="odometer">{{ remainingBudget }}</strong></span>
-		    </div>
-		  </div>
+	<div class="container-fluid mb-50 has-shadow">
+	  <div class="columns has-text-centered columns-panel">
+	  
 		  <div class="column">
 		    <div class="info-tile">
 		    <span class="fat-cash"><strong class="is-large-size"><i class="fa fa-clock-o"></i></strong></span>
-			    <h2 class="has-padding">Uw bestelperiode eindigd</h2>
+			    <h2 class="has-padding">{{ day }}</h2>
+			    <span class="fat-cash"><strong class="is-medium-size">{{ time }}</strong></span>
+		    </div>
+		  </div>
+
+		  <div class="column">
+		    <div class="info-tile">
+		    <span class="fat-cash"><strong class="is-large-size"><i class="fa fa-euro"></i></strong></span>
+		    <h2 class="has-padding">{{ trans.translate('Resterend budget') }}</h2>
+		    <span class="fat-cash" v-if="noBudget"><strong class="is-medium-size">{{ trans.translate('Deze producten zijn gratis') }}</strong></span>
+		    <span class="fat-cash budgetcount animated" v-else><i class="fa fa-euro"></i> <strong class="is-medium-size odometer is-budget-odo" id="odometer">{{ remainingBudget }}</strong></span>
+		    </div>
+		  </div>
+
+		  <div class="column">
+		    <div class="info-tile">
+		    <span class="fat-cash"><strong class="is-large-size"><i class="fa fa-exclamation"></i></strong></span>
+			    <h2 class="has-padding">{{ trans.translate('Uw bestelperiode eindigd') }}</h2>
 			    <span class="fat-cash"><strong class="is-medium-size"><countdown></countdown></strong></span>
 		    </div>
 		  </div>
+
 		</div>
 	</div>
 </template>
@@ -23,6 +34,10 @@
 <script>
 	export default {
 		mounted(){
+			window.setInterval( () => {
+				this.time = moment().format("HH:mm:ss");
+				this.day = moment().format("DD MMMM, YYYY");
+			}, 1000);
 			this.getUserdata();
 			Event.$on('not-enough-budget', () => {
 				$('.budgetcount').addClass("shake").delay(1500).queue(function() {  // Wait for 1 second.
@@ -34,7 +49,10 @@
 		data(){
 			return{
 				user: '',
-				budgetLeft: 0
+				budgetLeft: 0,
+				day: moment().format("DD MMMM, YYYY"),
+				time: moment().format("HH:mm:ss"),
+				trans: Locale
 			}
 		},
 		methods: {

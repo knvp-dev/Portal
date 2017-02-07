@@ -23,4 +23,8 @@ class PromoMateriaalController extends Controller{
     	return $this->materiaal->getAllItemsInStock();
     }
 
+    public function getAll(){
+        return $this->materiaal->getAll();
+    }
+
 }

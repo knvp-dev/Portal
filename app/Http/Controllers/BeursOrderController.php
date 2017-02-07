@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Repositories\BeursOrderRepository;
 
@@ -53,7 +54,11 @@ class BeursOrderController extends Controller
      */
     public function show($id)
     {
-        return view("pages.beursmateriaal.detail")->with('id',$id);
+        if(Auth::id() == $this->order->findById($id)->user_id || Auth::user()->isAdmin()){
+            return view("pages.beursmateriaal.detail")->with('id',$id);
+        }
+        return redirect('/');
+        
     }
 
     public function getOrderDetail($id){
@@ -91,10 +96,18 @@ class BeursOrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->order->remove($id);
     }
 
     public function getByStatus($status){
         return $this->order->getByStatus($status);
+    }
+
+    public function getAll(){
+        return $this->order->getAll();
+    }
+
+    public function getAllByStatus($status){
+        return $this->order->getAllByStatus($status);
     }
 }

@@ -1,0 +1,45 @@
+.button-round{
+	border-radius:90%!important;
+	width:32px;
+	height:32px;
+	margin-right:0!important;
+}
+
+.button .icon:last-child, .button .tag:last-child{
+	margin-right:0!important;
+}
+
+.button.is-primary{
+	background-color:#00729D!important;
+	border:1px solid #00729D!important;
+	color:white;
+}
+
+.section{
+	background:none!important;
+}
+
+.box{
+	z-index:1;
+}
+
+.tag.is-primary{
+	background-color:#00a3e0!important;
+}
+
+.tabs, .tabs a, .tabs ul{
+	border:none!important;
+	line-height:1.5em!important;
+}
+
+.tabs ul{
+	padding:1px;
+	margin-bottom:50px;
+}
+
+.tabs li.is-active a {
+    border: none;
+    background-color:#00a3e0;
+    border-radius:25px;
+    color: white!important;
+}

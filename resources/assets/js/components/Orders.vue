@@ -1,48 +1,66 @@
 <template>
 	<div>
-		<hero title="Overzicht van alle bestellingen" :hasSubtitle="false" type="is-blue"></hero>
-
+		<hero :title="trans.translate('Overzicht van alle bestellingen')" :hasSubtitle="false" type="is-blue"></hero>
+		<info-panel :orderPrice="0"></info-panel>
 		<div class="container">
-			<div class="tabs is-centered mt-50 mb-50">
-				<ul>
-					<li @click="fetchOrders('promo')" :class="{'is-active': activeType == 'promo'}"><a>Promomateriaal</a></li>
-					<li @click="fetchOrders('kantoor')" :class="{'is-active': activeType == 'kantoor'}"><a>Kantoormateriaal</a></li>
-					<li @click="fetchOrders('beurs')" :class="{'is-active': activeType == 'beurs'}"><a>Beursmateriaal</a></li>
+			<section class="section">
+				<div class="section-header has-text-centered">
+					<h1 class="title is-title-centered-message">{{ trans.translate('Overzicht bestellingen') }}</h1>
+				</div>
+
+				<div class="tabs is-centered mb-50">
+					<ul>
+						<li @click="fetchOrders('promo')" :class="{'is-active': activeType == 'promo'}"><a>{{ trans.translate('promomateriaal') }}</a></li>
+						<li @click="fetchOrders('kantoor')" :class="{'is-active': activeType == 'kantoor'}"><a>{{ trans.translate('kantoormateriaal') }}</a></li>
+						<li @click="fetchOrders('beurs')" :class="{'is-active': activeType == 'beurs'}"><a>{{ trans.translate('beursmateriaal') }}</a></li>
+					</ul>
+				</div>
+
+				<div class="filters mb-20 is-clickable">
+					<span class="tag" :class="{'is-primary': activeStatus == 2}" @click="fetchOrders(activeType)">{{ trans.translate('Alle') }}</span>
+					<span class="tag" :class="{'is-primary': activeStatus == 0}" @click="filterOrders(0)">{{ trans.translate('In behandeling') }}</span>
+					<span class="tag" :class="{'is-primary': activeStatus == 1}" @click="filterOrders(1)">{{ trans.translate('Voltooid') }}</span>
+				</div>
+
+				<ul class="cart-list">
+					<li v-for="order in orders" class="slideInLeft">
+						<div class="cart-item-segment">
+							<div class="cart-item-amount">
+								{{ order.id }}
+								<span class="anim-circle"></span>
+							</div>
+							<div class="cart-item-info">
+								{{ order.products.length }} {{ trans.translate('product(en)') }}
+							</div>
+							<div class="cart-item-info">
+								{{ trans.translate('Aangevraagd op') }} {{ formatDate(order.created_at) }}
+							</div>
+							<div class="cart-item-info">
+								{{ (order.total_price) ? formatCurrency(order.total_price) : trans.translate('Gratis') }}
+							</div>
+							<div class="cart-item-info">
+								{{ order.event }}
+							</div>
+							<div class="cart-item-info">
+								<span v-if="order.completed" class="tag is-success is-small is-icon-left"><i class="fa fa-check icon is-small"></i> {{ trans.translate('Voltooid') }}</span>
+								<span v-else class="tag is-small"><i class="fa fa-refresh icon is-small is-icon-left"></i> {{ trans.translate('In behandeling') }}</span>
+							</div>
+							<div class="cart-item-controls">
+								<a class="button button-round is-primary transitioning-icon" @click="showOrderDetail(order.id)">
+									<span class="icon is-small has-stacked-icons has-animation">
+										<i class="fa fa-ellipsis-h"></i>
+										<i class="fa fa-arrow-right"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+					</li>
 				</ul>
+
+				<span class="is-light-centered-message" v-if="orders.length == 0">{{ trans.translate('Geen bestellingen') }}</span>
 			</div>
 
-			<div class="filters mb-20 is-clickable">
-				<span class="tag" :class="{'is-success': activeStatus == 2}" @click="fetchOrders(activeType)">Alle</span>
-				<span class="tag" :class="{'is-success': activeStatus == 0}" @click="filterOrders(0)">In behandeling</span>
-				<span class="tag" :class="{'is-success': activeStatus == 1}" @click="filterOrders(1)">Voltooid</span>
-			</div>
-
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Bestelnummer</th>
-						<th>Aangevraagd op</th>
-						<th>Aantal producten</th>
-						<th>Prijs</th>
-						<th>Status</th>
-						<th></th>
-					</tr>
-				</thead>
-
-				<tbody>
-					<tr v-for="order in orders">
-						<td>{{ order.id }}</td>
-						<td>{{ formatDate(order.created_at) }}</td>
-						<td>{{ order.products.length }} </td>
-						<td>{{ (order.total_price) ? formatCurrency(order.total_price) : 'Gratis' }}</td>
-						<td v-if="order.completed"><span class="tag is-success is-small is-icon-left"><i class="fa fa-check icon is-small"></i> Verzonden</span></td>
-						<td v-else><span class="tag is-small"><i class="fa fa-refresh icon is-small is-icon-left"></i> In behandeling</span></td>
-						<td><a @click="showOrderDetail(order.id)">Detail</a></td>
-					</tr>
-
-				</tbody>
-			</table>
-		</div>
+		</section>
 	</div>
 </template>
 
@@ -55,7 +73,8 @@
 			return {
 				orders: [],
 				activeType: 'promo',
-				activeStatus: 2
+				activeStatus: 2,
+				trans: Locale
 			}
 		},
 		methods: {

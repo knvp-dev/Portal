@@ -16,6 +16,7 @@ class CreateUnavailabilityTable extends Migration
         Schema::create('unavailabilities', function(Blueprint $table){
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->integer('order_id');
             $table->integer('beurs_item_id');
             $table->date('date_of_use')->nullable();
             $table->date('unavailable_from')->nullable();

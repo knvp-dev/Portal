@@ -17,10 +17,12 @@ class isOrderOwner
      */
     public function handle($request, Closure $next, $guard = null, $user_id)
     {
-        if (Auth::id() !== $user_id) {
-            return redirect('/');
+        if(!Auth::user()->isAdmin){
+            if (Auth::id() !== $user_id) {
+                return redirect('/');
+            }
         }
-
+        
         return $next($request);
     }
 }

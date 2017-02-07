@@ -5,59 +5,90 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+ require('./bootstrap');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-Vue.component('hero', require('./components/Hero.vue'));
-Vue.component('alert', require('./components/Alert.vue'));
-Vue.component('modal', require('./components/Modal.vue'));
-Vue.component('countdown', require('./components/Countdown.vue'));
-Vue.component('orders', require('./components/Orders.vue'));
-Vue.component('info-panel', require('./components/InfoPanel.vue'));
-Vue.component('promomateriaal', require('./components/promo/PromoMateriaal.vue'));
-Vue.component('promodetail', require('./components/promo/PromoOrderDetail.vue'));
-Vue.component('kantoordetail', require('./components/kantoor/KantoorOrderDetail.vue'));
-Vue.component('beursdetail', require('./components/beurs/BeursOrderDetail.vue'));
-Vue.component('beursmateriaal', require('./components/beurs/Beursmateriaal.vue'));
-Vue.component('kantoormateriaal', require('./components/kantoor/KantoorMateriaal.vue'));
-Vue.component('datepicker', require('./components/datepicker/datepicker.vue'));
+ Vue.component('hero', require('./components/Hero.vue'));
+ Vue.component('alert', require('./components/Alert.vue'));
+ Vue.component('notification', require('./components/Notification.vue'));
+ Vue.component('modal', require('./components/Modal.vue'));
+ Vue.component('countdown', require('./components/Countdown.vue'));
+ Vue.component('orders', require('./components/Orders.vue'));
+ Vue.component('info-panel', require('./components/InfoPanel.vue'));
+ Vue.component('promomateriaal', require('./components/promo/PromoMateriaal.vue'));
+ Vue.component('promodetail', require('./components/promo/PromoOrderDetail.vue'));
+ Vue.component('kantoordetail', require('./components/kantoor/KantoorOrderDetail.vue'));
+ Vue.component('beursdetail', require('./components/beurs/BeursOrderDetail.vue'));
+ Vue.component('beursmateriaal', require('./components/beurs/Beursmateriaal.vue'));
+ Vue.component('kantoormateriaal', require('./components/kantoor/KantoorMateriaal.vue'));
+ Vue.component('datepicker', require('./components/datepicker/datepicker.vue'));
+ Vue.component('emailhandtekeningen', require('./components/Emailhandtekeningen.vue'));
 
-window.Event = new Vue({});
+ Vue.component('admin-emailhandtekeningen', require('./components/admin/Emailhandtekeningen.vue'));
+ Vue.component('admin-promomateriaal', require('./components/admin/Promomateriaal.vue'));
+ Vue.component('admin-kantoormateriaal', require('./components/admin/Kantoormateriaal.vue'));
+ Vue.component('admin-beursmateriaal', require('./components/admin/Beursmateriaal.vue'));
+ Vue.component('admin-orders', require('./components/admin/Orders.vue'));
+ Vue.component('admin-kantoren', require('./components/admin/Kantoren.vue'));
 
-const app = new Vue({
-    el: '#app'
-});
+ window.Event = new Vue({});
 
-Vue.filter('two_digits', function (value) {
-    if(value.toString().length <= 1)
-    {
-        return "0"+value.toString();
-    }
-    return value.toString();
-});
+ window.Locale = new Vue({
+ 	data: {
+ 		locale: 'nl',
+ 		translations: []
+ 	},
+ 	methods:{
+ 		getLocale(){
+ 			return this.locale;
+ 		},
+ 		setTranslations(data){
+ 			this.translations = data;
+ 		},
+ 		setLocale(locale){
+ 			this.locale = locale;
+ 			Cookie.set('locale', locale, 1);
+ 		},
+ 		translate(key){
+ 			if(this.translations.length > 0){
+ 				return this.translations[0][this.locale][key];
+ 			}
+ 		}
+ 	}
+ })
 
-$(function(){
-    jQuery.curCSS = function(element, prop, val) {
-        return jQuery(element).css(prop, val);
-    };
-	// $('.datepicker').DatePicker({
- //        format:'Y-m-d',
- //        date: $('.datepicker').val(),
- //        current: $('.datepicker').val(),
- //        starts: 1,
- //        position: 'r',
- //        onChange: function(formated, dates){
- //            $('.datepicker').val(formated);
- //            $('.datepicker').DatePickerHide();
- //        }
- //    });
-  $('.products').masonry({
-    itemSelector : '.product-card',
-    fitWidth: true
-  });
+ const app = new Vue({
+ 	el: '#app',
+ 	mounted(){
+ 		this.getTranslations();
+ 		(!Cookie.get('locale')) ? Locale.setLocale('nl') : Locale.setLocale(Cookie.get('locale'));
+ 		(!Cookie.get('locale')) ? window.moment.locale("nl") : window.moment.locale(Cookie.get('locale'));
+ 	},
+ 	data:{
+ 		trans: Locale,
+ 		translations: ''
+ 	},
+ 	methods:{
+ 		changeLocal(lang){
+ 			Locale.setLocale(lang);
+ 			window.moment.locale(lang);
+ 		},
+ 		getTranslations(){
+ 			$.getJSON('/translations.json',function(data){
+              Locale.setTranslations(data);
+            });
+ 		}
+ 	}
+ });
 
-});
+ Vue.directive('translate-name', function (el, binding) {
+  (Locale.getLocale() == 'nl') ? el.innerHTML = binding.value.name_nl : el.innerHTML = binding.value.name_fr;
+})
+
+  	// 	jQuery.curCSS = function(element, prop, val) {
+ 		// 	return jQuery(element).css(prop, val);
+ 		// };

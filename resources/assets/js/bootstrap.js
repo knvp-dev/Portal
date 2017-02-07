@@ -7,8 +7,18 @@ window._ = require('lodash');
  * code may be modified to fit the specific needs of your application.
  */
 
+var imagesLoaded = require('imagesloaded');
+
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
+
+imagesLoaded.makeJQueryPlugin( $ );
+
+window.Masonry = require('masonry-layout');
+var jQueryBridget = require('jquery-bridget');
+jQueryBridget( 'masonry', Masonry, $ );
+
+
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -18,6 +28,8 @@ require('bootstrap-sass');
 
 window.Vue = require('vue');
 require('vue-resource');
+
+window.Cookie = require('vue-cookie');
 
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
@@ -39,6 +51,8 @@ Vue.http.interceptors.push((request, next) => {
 
 window.moment = require('moment');
 moment().format();
+
+window.fullcalendar = require('fullcalendar');
 
 // import Echo from "laravel-echo"
 

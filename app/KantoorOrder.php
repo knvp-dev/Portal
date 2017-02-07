@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class KantoorOrder extends Model
 {
+
+	public function user(){
+		return $this->hasOne('App\user','id','user_id');
+	}
+
     public function products(){
-    	return $this->belongsToMany('App\KantoorItem','kantooritem_kantoororder', 'kantoororder_id', 'kantooritem_id')->withPivot('amount');
+    	return $this->belongsToMany('App\KantoorItem','kantooritem_kantoororder', 'kantoororder_id', 'kantooritem_id')->withPivot('amount','status');
     }
 
-    public function complete(){
-    	$this->completed = 1;
-    }
 }

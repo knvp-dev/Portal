@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Konvert Marketing') }}</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/vendor.css">
@@ -18,19 +18,21 @@
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
-</head>
-<body>
-    <div id="app">
-        @include('partials.menu')
-        @yield('hero')
-        @yield('content')
-        @include('partials.footer')
-    </div>
+            ]); ?>
+        </script>
+    </head>
+    <body>
+        <div id="app">
+            @include('partials.menu')
+            @yield('hero')
+            <div class="content-wrapper">
+                @yield('content')
+            </div>
+            @include('partials.footer')
+        </div>
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
-    <script src="/js/vendor.js"></script>
-</body>
-</html>
+        <!-- Scripts -->
+        <script src="/js/app.js"></script>
+        <script src="/js/vendor.js"></script>
+    </body>
+    </html>

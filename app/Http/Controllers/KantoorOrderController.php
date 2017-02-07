@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Repositories\KantoorOrderRepository;
 use Illuminate\Http\Request;
 
@@ -54,7 +55,10 @@ class KantoorOrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        return view('pages.kantoormateriaal.detail')->with('id',$id);
+        if(Auth::id() == $this->order->findById($id)->user_id || Auth::user()->isAdmin()){
+            return view('pages.kantoormateriaal.detail')->with('id',$id);
+        }
+        return redirect('/');
     }
 
      public function getOrderDetail($id){
@@ -92,10 +96,18 @@ class KantoorOrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->order->remove($id);
     }
 
     public function getByStatus($status){
         return $this->order->getByStatus($status);
+    }
+
+    public function getAll(){
+        return $this->order->getAll();
+    }
+
+    public function getAllByStatus($status){
+        return $this->order->getAllByStatus($status);
     }
 }

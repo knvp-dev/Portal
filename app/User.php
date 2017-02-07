@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $guarded = [
-        'admin'
+    'admin'
     ];
 
     /**
@@ -24,6 +24,32 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+    'password', 'remember_token',
     ];
+
+    protected $casts = [
+        'admin' => 'boolean',
+    ];
+
+    public function isAdmin()
+    {
+        return $this->admin;
+    }
+
+    public function isDm(){
+        return $this->dm;
+    }
+
+    public function openPromoOrders(){
+        return $this->hasMany("App\PromoOrder")->where('completed',0);
+    }
+
+    public function openKantoorOrders(){
+        return $this->hasMany("App\KantoorOrder")->where('completed',0);
+    }
+
+    public function unavailability(){
+        return $this->hasMany('App\Unavailability', 'user_id');
+    }
+
 }

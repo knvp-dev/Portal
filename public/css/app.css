@@ -3045,6 +3045,84 @@
   clip: auto;
 }
 
+@font-face {
+  font-family: 'opensans';
+  src: url("/fonts/opensans/OpenSans-Regular-webfont.eot");
+  src: url("/fonts/opensans/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/opensans/OpenSans-Regular-webfont.woff") format("woff"), url("/fonts/opensans/OpenSans-Regular-webfont.ttf") format("truetype"), url("/fonts/opensans/OpenSans-Regular-webfont.svg#open_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'opensans_italic';
+  src: url("/fonts/opensans/OpenSans-Italic-webfont.eot");
+  src: url("/fonts/opensans/OpenSans-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/opensans/OpenSans-Italic-webfont.woff") format("woff"), url("/fonts/opensans/OpenSans-Italic-webfont.ttf") format("truetype"), url("/fonts/opensans/OpenSans-Italic-webfont.svg#open_sansitalic") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'opensans_bold';
+  src: url("/fonts/opensans/OpenSans-Bold-webfont.eot");
+  src: url("/fonts/opensans/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/opensans/OpenSans-Bold-webfont.woff") format("woff"), url("/fonts/opensans/OpenSans-Bold-webfont.ttf") format("truetype"), url("/fonts/opensans/OpenSans-Bold-webfont.svg#open_sansbold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'opensans_semibold';
+  src: url("/fonts/opensans/OpenSans-Semibold-webfont.eot");
+  src: url("/fonts/opensans/OpenSans-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/opensans/OpenSans-Semibold-webfont.woff") format("woff"), url("/fonts/opensans/OpenSans-Semibold-webfont.ttf") format("truetype"), url("/fonts/opensans/OpenSans-Semibold-webfont.svg#open_sanssemibold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.button-round {
+  border-radius: 90% !important;
+  width: 32px;
+  height: 32px;
+  margin-right: 0 !important;
+}
+
+.button .icon:last-child, .button .tag:last-child {
+  margin-right: 0 !important;
+}
+
+.button.is-primary {
+  background-color: #00729D !important;
+  border: 1px solid #00729D !important;
+  color: white;
+}
+
+.section {
+  background: none !important;
+}
+
+.box {
+  z-index: 1;
+}
+
+.tag.is-primary {
+  background-color: #00a3e0 !important;
+}
+
+.tabs, .tabs a, .tabs ul {
+  border: none !important;
+  line-height: 1.5em !important;
+}
+
+.tabs ul {
+  padding: 1px;
+  margin-bottom: 50px;
+}
+
+.tabs li.is-active a {
+  border: none;
+  background-color: #00a3e0;
+  border-radius: 25px;
+  color: white !important;
+}
+
 /*! bulma.io v0.2.3 | MIT License | github.com/jgthms/bulma */
 @-webkit-keyframes spinAround {
   from {
@@ -9361,6 +9439,33 @@ a.panel-block:hover {
   font-size: 1.5em;
 }
 
+.is-light-centered-message {
+  font-size: 2em;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  margin: 50px;
+  color: #e0e0e0;
+}
+
+.is-title-centered-message {
+  font-size: 2em;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  margin-bottom: 50px !important;
+  color: #b5b5b5;
+}
+
+.is-horizontally-centered {
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.notdeliverable {
+  color: #FF3860;
+}
+
 .control.has-icon > .fa {
   color: white;
 }
@@ -9426,9 +9531,18 @@ input::-webkit-inner-spin-button {
   margin-top: 52px;
 }
 
+.blink {
+  -webkit-animation: blink .5s;
+  animation: blink .5s;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
+
 .spin-icon:hover .fa {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transform-origin: center;
+  transform-origin: center;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -9445,6 +9559,229 @@ input::-webkit-inner-spin-button {
   padding-top: 10px;
 }
 
+.jump-out:hover {
+  background: none !important;
+  color: white;
+  box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.52);
+  border: 1px solid #eee;
+  height: 30px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.slideInLeft {
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+}
+
+/*JELLO*/
+.jello:hover {
+  -webkit-animation: jello .5s;
+  animation: jello .5s;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
+
+@-webkit-keyframes jello {
+  0% {
+    -webkit-transform: none;
+    transform: none;
+  }
+  10% {
+    -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);
+    transform: skewX(-12.5deg) skewY(-12.5deg);
+  }
+  20% {
+    -webkit-transform: skewX(6.25deg) skewY(6.25deg);
+    transform: skewX(6.25deg) skewY(6.25deg);
+  }
+  30% {
+    -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
+    transform: skewX(-3.125deg) skewY(-3.125deg);
+  }
+  40% {
+    -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);
+    transform: skewX(1.5625deg) skewY(1.5625deg);
+  }
+  50% {
+    -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
+    transform: skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+  60% {
+    -webkit-transform: skewX(0.390625deg) skewY(0.390625deg);
+    transform: skewX(0.390625deg) skewY(0.390625deg);
+  }
+  70% {
+    -webkit-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+  }
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes jello {
+  0% {
+    -webkit-transform: none;
+    transform: none;
+  }
+  10% {
+    -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);
+    transform: skewX(-12.5deg) skewY(-12.5deg);
+  }
+  20% {
+    -webkit-transform: skewX(6.25deg) skewY(6.25deg);
+    transform: skewX(6.25deg) skewY(6.25deg);
+  }
+  30% {
+    -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
+    transform: skewX(-3.125deg) skewY(-3.125deg);
+  }
+  40% {
+    -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);
+    transform: skewX(1.5625deg) skewY(1.5625deg);
+  }
+  50% {
+    -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
+    transform: skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+  60% {
+    -webkit-transform: skewX(0.390625deg) skewY(0.390625deg);
+    transform: skewX(0.390625deg) skewY(0.390625deg);
+  }
+  70% {
+    -webkit-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+  }
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(1.7);
+    transform: scale(1.7);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(1.7);
+    transform: scale(1.7);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.cart-item-segment {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px dashed #e8e6e6;
+}
+
+.cart-item-segment p:first-child {
+  margin-right: auto;
+}
+
+.cart-item-amount {
+  position: relative;
+  font-weight: 800;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  color: white;
+  background-color: #06BAFF;
+  border-radius: 90%;
+}
+
+.anim-circle {
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 90%;
+  height: 30px;
+  width: 30px;
+  border: 2px solid #06BAFF;
+}
+
+.cart-item-info-name {
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 500px;
+  margin-right: auto;
+  padding: 30px;
+}
+
+.cart-item-info-pack, .cart-item-info-stock, .cart-item-info-price {
+  margin-right: auto;
+}
+
+.cart-list-summary {
+  height: 100px;
+}
+
+[v-cloak] {
+  display: none;
+}
+
 html {
   background: none;
   height: 100%;
@@ -9452,6 +9789,34 @@ html {
 
 body {
   height: 100%;
+}
+
+#app {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.chooseLanguage {
+  display: -webkit-box;
+  display: flex;
+  position: absolute;
+  background-color: white;
+  top: 70px;
+  right: 0;
+}
+
+.chooseLanguage a {
+  padding: 10px;
+  color: #00a3e0;
+}
+
+.content-wrapper {
+  -webkit-box-flex: 1;
+  flex: 1;
 }
 
 .info-box {
@@ -9464,6 +9829,10 @@ body {
 
 .is-icon-left {
   padding-right: 20px;
+}
+
+.is-icon-right {
+  padding-left: 20px;
 }
 
 .text-is-centered {
@@ -9501,7 +9870,7 @@ body {
 }
 
 .products {
-  background-color: #eee;
+  /*background-color:#eee;*/
 }
 
 .blockquote button {
@@ -9513,5 +9882,53 @@ body {
   margin: 10px;
   width: 280px;
 }
+
+.single-product-card {
+  width: 280px;
+  padding: 10px;
+  margin: 10px;
+  float: left;
+  border-top: 2px solid #00729D;
+  box-shadow: 0px 4px 5px -1px rgba(0, 0, 0, 0.2);
+}
+
+.single-product-card h3 {
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+
+.single-product-card-info {
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.columns-panel {
+  background-color: #fbfbfb;
+  padding: 20px;
+}
+
+.is-primary:hover {
+  background-color: #006389 !important;
+}
+
+.button-centered {
+  margin: 0 auto;
+  display: block;
+}
+
+.button {
+  border-radius: 18px;
+  border: none;
+}
+
+/*.modal-content{
+	padding:50px;
+	background-color:white;
+}*/
 
 /*# sourceMappingURL=app.css.map */

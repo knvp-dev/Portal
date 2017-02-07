@@ -1,39 +1,45 @@
 <template>
 	<div>
-	<hero title="Overzicht bestelling kantoormateriaal" :hasSubtitle="true" :subtitle="'Gesplaatst op '+formatDate(order.created_at)" type="is-blue">
-		<div class="tag is-primary" v-if="order.completed">Status: Voltooid</div>
-		<div class="tag" v-else>Status: In behandeling</div>
+	<hero :title="trans.translate('Overzicht bestelling') + ' ' + trans.translate('kantoormateriaal')" :hasSubtitle="true" :subtitle="trans.translate('Aangevraagd op') + ' ' +formatDate(order.created_at)" type="is-blue">
+		<div class="tag is-success" v-if="order.completed">{{ trans.translate('Voltooid') }}</div>
+		<div class="tag is-primary" v-else>{{ trans.translate('In behandeling') }}</div>
 	</hero>
+
+	<modal 
+		v-if="showConfirmationModal" 
+		@close="showConfirmationModal = false"
+		@modalconfirmed="cancelOrder"
+		:hasYesNoOptions="true"
+		:body="trans.translate('Bent u zeker dat u deze bestelling wilt annuleren?')"
+		>
+	</modal>
+
 		<div class="container mb-50">
 			<section class="section">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Product</th>
-							<th>Stuks per pakket</th>
-							<th>Aantal</th>
-							<th>Totaalprijs</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						<tr v-for="product in order.products">
-							<td>{{ product.id }}</td>
-							<td>{{ product.name }}</td>
-							<td>{{ product.pack }}</td>
-							<td>{{ product.pivot.amount }}</td>
-							<td>Gratis</td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="content">
-
-					<blockquote class="has-2m-lineheight">
-						Deze bestelling is gratis
-						<span v-if="!order.completed"><button class="button is-danger pull-right">Bestelling annuleren</button></span>
-					</blockquote>
-				</div>
+				<ul class="cart-list">
+					<li v-for="product in order.products" class="slideInLeft">
+						<div class="cart-item-segment" :class="{ notdeliverable : !!product.pivot.status }">
+							<div class="cart-item-amount">
+								{{ product.pivot.amount }}x
+								<span class="anim-circle"></span>
+							</div>
+							<div class="cart-item-info-name">
+								<span v-translate-name="product"></span> <span v-if="product.pivot.status">( {{ trans.translate('Niet leverbaar') }} )</span>
+							</div>
+							<div class="cart-item-info-pack">
+								{{ trans.translate('pakket van') }} {{ product.pack }} {{ trans.translate('stuks') }}
+							</div>
+							<div class="cart-item-info-price">
+								{{ trans.translate('Gratis') }}
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="cart-item-segment cart-list-summary">
+					<p>{{ trans.translate('totaalprijs') }}: <strong>{{ trans.translate('Deze producten zijn gratis') }}</strong></p>
+					<span  v-if="!order.completed"><button class="button is-danger pull-right" @click="showConfirmationModal = true">{{ trans.translate('Bestelling annuleren') }}</button></span>
+				</p>
+			</div>
 			</section>
 		</div>
 	</div>
@@ -47,7 +53,9 @@
 		props: ['id'],
 		data(){
 			return{
-				order: []
+				order: [],
+				showConfirmationModal: false,
+				trans: Locale
 			}
 		},
 		computed:{
@@ -63,6 +71,17 @@
 			},
 			formatDate(date){
 				return moment(date).format('D MMMM, YYYY');
+			},
+			cancelOrder(){
+				setTimeout(function () { 
+					this.$http.get('/kantoormateriaal/order/delete/' + this.order.id).then((response) => {
+						if(response){
+							this.$emit('actionSuccess', this.trans.translate("Uw bestelling werd successvol geannuleerd!"));
+						}else{
+							this.$emit('actionFailed', this.trans.translate("Er is iets foutgelopen bij het annuleren van uw bestelling, probeer het later opnieuw!"));
+						}
+					});
+				}.bind(this), 1000);
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 <?php 
 namespace App\Repositories;
 
+use Auth;
 use App\KantoorItem;
 use App\Repositories\Contracts\MateriaalInterface;
 
@@ -15,7 +16,7 @@ class KantoorMateriaalRepository implements MateriaalInterface{
 	}
 
 	public function getAllItemsInStock(){
-		return KantoorItem::where('stock','>',0)->get();
+		return KantoorItem::where('stock','>',0)->whereEntity(Auth::user()->entity)->orWhere('entity','ALL')->get();
 	}
 
 	public function findByCode($code){}

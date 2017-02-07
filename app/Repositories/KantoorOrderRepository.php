@@ -9,7 +9,7 @@ use App\Repositories\Contracts\OrderInterface;
 class KantoorOrderRepository implements OrderInterface{
 
 	public function getAll(){
-		return KantoorOrder::all();
+		return KantoorOrder::with('products')->with('user')->orderBy('id','DESC')->get();
 	}
 
 	public function findById($id){
@@ -17,7 +17,7 @@ class KantoorOrderRepository implements OrderInterface{
 	}
 
 	public function getForUser(){
-		return KantoorOrder::whereUserId(Auth::user()->id)->with('products')->get();
+		return KantoorOrder::whereUserId(Auth::user()->id)->with('products')->orderBy('id','DESC')->get();
 	}
 
 	public function create($orderdata){
@@ -25,7 +25,9 @@ class KantoorOrderRepository implements OrderInterface{
 	}
 
 	public function remove($id){
-
+		$order = KantoorOrder::where('id',$id)->first();
+		$order->delete();
+		return "deleted";
 	}
 
 	private function createNewOrder($orderdata){
@@ -48,7 +50,11 @@ class KantoorOrderRepository implements OrderInterface{
 	}
 
 	public function getByStatus($status){
-		return KantoorOrder::whereCompleted($status)->with('products')->get();
+		return KantoorOrder::where('user_id',Auth::id())->whereCompleted($status)->with('products')->get();
 	}
+
+	public function getAllByStatus($status){
+        return KantoorOrder::whereCompleted($status)->with('products')->with('user')->get();
+    }
 
 }
