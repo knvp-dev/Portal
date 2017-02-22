@@ -12,6 +12,6 @@ class BeursMateriaalAdminController extends Controller
 	}
 	
     public function getAllUnavailabilities(){
-    	return Unavailability::with('beursItem')->with('user')->with('order')->get();
+    	return Unavailability::with(['beursItem','user','order'])->get();
     }
 }

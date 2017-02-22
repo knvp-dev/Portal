@@ -53,6 +53,12 @@
 						</p>
 					</div>
 					<div class="form-input">
+						<label class="label">Advertisement Budget (x100)</label>
+						<p class="control">
+							<input class="input" type="text" placeholder="Budget" v-model="officeToEdit.advertisement_budget">
+						</p>
+					</div>
+					<div class="form-input">
 						<label class="label">Extra ( Food, Logistics, ... )</label>
 						<p class="control">
 							<input class="input" type="text" placeholder="Extra" v-model="officeToEdit.entity_extra">

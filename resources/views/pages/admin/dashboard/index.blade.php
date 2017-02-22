@@ -2,6 +2,6 @@
 
 @section('content')
 
-	<admin-orders></admin-orders>
+	<admin-orders prefix="admin"></admin-orders>
 
 @endsection

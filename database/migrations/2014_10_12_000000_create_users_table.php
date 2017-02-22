@@ -28,7 +28,11 @@ class CreateUsersTable extends Migration
             $table->string('entity_extra');
             $table->integer('budget');
             $table->integer('start_budget');
+            $table->integer('advertisement_budget')->default(0);
+            $table->integer('advertisement_start_budget')->default(0);
             $table->integer('admin')->default(0);
+            $table->integer('dm')->nullable();
+            $table->integer('dm_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

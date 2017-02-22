@@ -54,7 +54,7 @@ class KantoorOrderRepository implements OrderInterface{
 	}
 
 	public function getAllByStatus($status){
-        return KantoorOrder::whereCompleted($status)->with('products')->with('user')->get();
+        return KantoorOrder::whereCompleted($status)->with(['products','user'])->get();
     }
 
 }

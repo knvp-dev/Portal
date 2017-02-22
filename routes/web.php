@@ -124,7 +124,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'App\Http\Middleware\Admin'],
 
 Route::group(['prefix' => 'dm', 'middleware' => 'App\Http\Middleware\Dm'], function()
 {
-    Route::get('/', 'DmController@index');
+    Route::get('/mijn-kantoren', 'DmController@index');
     Route::get('/data', 'DmController@data');
     Route::get('/offices', 'DmController@getOffices');
+
+    Route::get('/promomateriaal/orders/{user_id}', 'DmController@getPromoOrders');
+    Route::get('/kantoormateriaal/orders/{user_id}', 'DmController@getKantoorOrders');
+    Route::get('/beursmateriaal/orders/{user_id}', 'DmController@getBeursOrders');
+
+    Route::post('/kantoren/update', 'DmController@update');
 });

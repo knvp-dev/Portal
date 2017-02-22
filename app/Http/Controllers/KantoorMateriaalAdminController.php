@@ -12,7 +12,7 @@ class KantoorMateriaalAdminController extends Controller
     }
 
     public function update(Request $request){
-    	$promoitem = KantoorItem::where('id',$request['product']['id'])->first();
+    	$promoitem = KantoorItem::whereId($request['product']['id'])->first();
     	$product = $request['product'];
     	unset($product['id']);
     	$promoitem->update($product);

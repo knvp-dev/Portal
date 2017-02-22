@@ -18,7 +18,6 @@ class EmailhandtekeningenAdminController extends Controller
     	$functie->name_nl = $request->name_nl;
     	$functie->name_fr = $request->name_fr;
     	$functie->save();
-    	return ['message' => 'success'];
     }
 
     public function getUnapproved(){
@@ -26,13 +25,13 @@ class EmailhandtekeningenAdminController extends Controller
     }
 
     public function setApproved($id){
-    	$emailhandtekening = Emailhandtekening::where('id',$id)->first();
+    	$emailhandtekening = Emailhandtekening::whereId($id)->first();
     	$emailhandtekening->approved = 1;
     	$emailhandtekening->save();
     }
 
     public function removeEmailhandtekening($id){
-    	$emailhandtekening = Emailhandtekening::where('id',$id)->first();
+    	$emailhandtekening = Emailhandtekening::whereId($id)->first();
     	$emailhandtekening->delete();
     }
 

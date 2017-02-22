@@ -29,7 +29,7 @@ class PromoOrderController extends Controller
 
     public function show($id)
     {
-        if(Auth::id() == $this->order->findById($id)->user_id || Auth::user()->isAdmin()){
+        if(Auth::id() == $this->order->findById($id)->user_id || Auth::user()->isAdmin() || Auth::user()->isDm()){
             return view('pages.promomateriaal.detail')->with('id',$id);
         }
         return redirect('/');

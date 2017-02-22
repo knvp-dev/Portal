@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $guarded = [
-    'admin'
+    'admin','dm','dm_id'
     ];
 
     /**
@@ -51,5 +51,10 @@ class User extends Authenticatable
     public function unavailability(){
         return $this->hasMany('App\Unavailability', 'user_id');
     }
+
+    public function promoOrders(){
+        return $this->hasMany('App\PromoOrder');
+    }
+
 
 }

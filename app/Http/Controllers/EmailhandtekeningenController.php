@@ -44,11 +44,11 @@ class EmailhandtekeningenController extends Controller
     }
 
     public function destroy($id){
-        Emailhandtekening::where('id',$id)->delete();
+        Emailhandtekening::whereId($id)->delete();
     }
 
     public function downloadEmailhandtekening($id){
-        $emailhandtekening = Emailhandtekening::where('id',$id)->first();
+        $emailhandtekening = Emailhandtekening::whereId($id)->first();
         $path = storage_path('emailhandtekeningen/' . $emailhandtekening->image);
         return response()->download($path);
     }

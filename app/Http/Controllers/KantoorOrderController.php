@@ -55,7 +55,7 @@ class KantoorOrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        if(Auth::id() == $this->order->findById($id)->user_id || Auth::user()->isAdmin()){
+        if(Auth::id() == $this->order->findById($id)->user_id || Auth::user()->isAdmin() || Auth::user()->isDm()){
             return view('pages.kantoormateriaal.detail')->with('id',$id);
         }
         return redirect('/');

@@ -159,7 +159,6 @@
       },1);
     },
     placeOrder(){
-      console.log("placing order");
       setTimeout(function () { 
         this.$http.post('/kantoormateriaal/order/create', {'orderitems': this.orderlist }).then((response) => {
           if(response){

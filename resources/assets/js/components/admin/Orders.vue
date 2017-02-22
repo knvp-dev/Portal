@@ -68,6 +68,7 @@
 		mounted(){
 			this.fetchOrders(this.activeType);
 		},
+		props: ['prefix'],
 		data(){
 			return {
 				orders: [],
@@ -79,7 +80,7 @@
 			fetchOrders(type){
 				this.activeStatus = 2;
 				this.activeType = type;
-				this.$http.get('/admin/'+type+'materiaal/orders').then((response) => {
+				this.$http.get('/'+this.prefix+'/'+type+'materiaal/orders').then((response) => {
 					this.orders = response.data;
 				});
 			},
@@ -91,7 +92,7 @@
 			},
 			filterOrders(status){
 				this.activeStatus = status;
-				this.$http.get('/admin/'+this.activeType+'materiaal/orders/'+status).then((response) => {
+				this.$http.get('/'+this.prefix+'/'+this.activeType+'materiaal/orders/'+status).then((response) => {
 					this.orders = response.data;
 				});
 			},

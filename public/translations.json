@@ -58,7 +58,9 @@
 		"naam": "Naam",
 		"voornaam": "Voornaam",
 		"functie": "Functie",
-		"indienen": "Indienen"
+		"indienen": "Indienen",
+		"mijn kantoren": "Mijn kantoren",
+		"Geen bestellingen": "Geen bestellingen"
 	},
 	"fr":{
 		"nee": "Non",
@@ -113,12 +115,14 @@
 		"nieuwe emailhandtekening aanmaken": "Créer une nouvelle signature électronique",
 		"Funtie": "Fonction",
 		"Indienen": "Déposer",
-		"Niet leverbaar": "Ne pas blablabla",
+		"Niet leverbaar": "Ne pas ------------",
 		"voor": "pour",
-		"Uw bestelperiode eindigd": "votre blablabla",
+		"Uw bestelperiode eindigd": "votre ------------",
 		"naam": "Nom",
 		"voornaam": "Prénom",
 		"functie": "Function",
-		"indienen": "Le diening in"
+		"indienen": "Le diening in",
+		"mijn kantoren": "Mes agences",
+		"Geen bestellingen": "Que des commandes"
 	}
 }]

@@ -18,7 +18,7 @@ window.Masonry = require('masonry-layout');
 var jQueryBridget = require('jquery-bridget');
 jQueryBridget( 'masonry', Masonry, $ );
 
-
+window.Chart = require('chart.js');
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces

@@ -27,7 +27,6 @@
  Vue.component('kantoormateriaal', require('./components/kantoor/KantoorMateriaal.vue'));
  Vue.component('datepicker', require('./components/datepicker/datepicker.vue'));
  Vue.component('emailhandtekeningen', require('./components/Emailhandtekeningen.vue'));
-
  Vue.component('admin-emailhandtekeningen', require('./components/admin/Emailhandtekeningen.vue'));
  Vue.component('admin-promomateriaal', require('./components/admin/Promomateriaal.vue'));
  Vue.component('admin-kantoormateriaal', require('./components/admin/Kantoormateriaal.vue'));
@@ -35,19 +34,31 @@
  Vue.component('admin-orders', require('./components/admin/Orders.vue'));
  Vue.component('admin-kantoren', require('./components/admin/Kantoren.vue'));
 
+ Vue.component('dm-offices', require('./components/dm/Offices.vue'));
+ Vue.component('dm-orders', require('./components/dm/Orders.vue'));
+
  window.Event = new Vue({});
 
  window.Locale = new Vue({
+ 	created(){
+ 		this.getTranslations();
+ 	},
  	data: {
  		locale: 'nl',
- 		translations: []
+ 		translations: [],
+ 		defaultUrl: '/translations.json'
  	},
  	methods:{
- 		getLocale(){
- 			return this.locale;
+ 		getTranslations(){
+ 			$.getJSON(this.defaultUrl,function(data){
+ 				Locale.setTranslations(data);
+ 			});
  		},
  		setTranslations(data){
  			this.translations = data;
+ 		},
+ 		getLocale(){
+ 			return this.locale;
  		},
  		setLocale(locale){
  			this.locale = locale;
@@ -64,7 +75,6 @@
  const app = new Vue({
  	el: '#app',
  	mounted(){
- 		this.getTranslations();
  		(!Cookie.get('locale')) ? Locale.setLocale('nl') : Locale.setLocale(Cookie.get('locale'));
  		(!Cookie.get('locale')) ? window.moment.locale("nl") : window.moment.locale(Cookie.get('locale'));
  	},
@@ -75,19 +85,14 @@
  	methods:{
  		changeLocal(lang){
  			Locale.setLocale(lang);
- 			window.moment.locale(lang);
- 		},
- 		getTranslations(){
- 			$.getJSON('/translations.json',function(data){
-              Locale.setTranslations(data);
-            });
+ 			moment.locale(lang);
  		}
  	}
  });
 
  Vue.directive('translate-name', function (el, binding) {
-  (Locale.getLocale() == 'nl') ? el.innerHTML = binding.value.name_nl : el.innerHTML = binding.value.name_fr;
-})
+ 	(Locale.getLocale() == 'nl') ? el.innerHTML = binding.value.name_nl : el.innerHTML = binding.value.name_fr;
+ })
 
   	// 	jQuery.curCSS = function(element, prop, val) {
  		// 	return jQuery(element).css(prop, val);

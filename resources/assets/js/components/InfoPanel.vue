@@ -21,9 +21,9 @@
 
 		  <div class="column">
 		    <div class="info-tile">
-		    <span class="fat-cash"><strong class="is-large-size"><i class="fa fa-exclamation"></i></strong></span>
-			    <h2 class="has-padding">{{ trans.translate('Uw bestelperiode eindigd') }}</h2>
-			    <span class="fat-cash"><strong class="is-medium-size"><countdown></countdown></strong></span>
+		    <span class="fat-cash"><strong class="is-large-size"><i class="fa fa-facebook"></i></strong></span>
+			    <h2 class="has-padding">Resterend facebook budget</h2>
+			    <span class="fat-cash"><i class="fa fa-euro"></i> <strong class="is-medium-size odometer is-advertisement-budget-odo" id="odometer">{{ remainingAdvertisementBudget }}</strong></span>
 		    </div>
 		  </div>
 
@@ -50,6 +50,7 @@
 			return{
 				user: '',
 				budgetLeft: 0,
+				advertisement_budget: 0,
 				day: moment().format("DD MMMM, YYYY"),
 				time: moment().format("HH:mm:ss"),
 				trans: Locale
@@ -63,6 +64,9 @@
 			},
 			animateBudget(amount){
 				$('.is-budget-odo').text(amount);
+			},
+			animateAdvertisementBudget(amount){
+				$('.is-advertisement-budget-odo').text(amount);
 			}
 		},
 		computed: {
@@ -76,6 +80,17 @@
 			},
 			budgetPercentage(){
 				return Math.round(((this.remainingBudget * 100) / this.user.start_budget) * 100);
+			},
+			remainingAdvertisementBudget(){
+				var budget = (((this.user.advertisement_budget / 100) - this.orderPrice)).toFixed(2)
+				if(budget <= 0){
+					budget = 0;
+				}
+				this.animateAdvertisementBudget(budget);
+				return budget;
+			},
+			advertisementBudgetPercentage(){
+				return Math.round(((this.remainingAdvertisementBudget * 100) / this.user.advertisement_start_budget) * 100);
 			}
 		}
 	}

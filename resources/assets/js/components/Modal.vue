@@ -12,13 +12,13 @@
 		     </div>
 		     <div class="modal-controls">
 			     <div v-if="!isWorking && hasYesNoOptions && !initialActionDone">
-			     	<button class="button is-primary" @click="modalConfirmed">{{ trans.translate('Ja ga door') }}</button>
-			     	<button class="button is-danger" @click="modalDeclined">{{ trans.translate('Nee') }}</button>
+			     	<button class="button is-primary" @click="modalConfirmed"><i class="fa fa-check"></i></button>
+			     	<button class="button is-danger" @click="modalDeclined"><i class="fa fa-remove"></i></button>
 			     </div>
-		     	<button class="button is-primary" v-if="canContinue" @click="redirectToOverview()">{{ trans.translate('Ga verder') }}</button>
+		     	<button class="button is-primary" v-if="canContinue" @click="redirectToOverview()"><i class="fa fa-check"></i></button>
 		     	<div v-if="!isWorking && !canContinue && initialActionDone">
-		     		<button class="button is-danger" @click="modalConfirmed">{{ trans.translate('probeer opnieuw') }}</button>
-		     		<button class="button" @click="modalDeclined">{{ trans.translate('annuleren') }}</button>
+		     		<button class="button is-danger" @click="modalConfirmed"><i class="fa fa-refresh"></i></button>
+		     		<button class="button" @click="modalDeclined"><i class="fa fa-remove"></i></button>
 		     	</div>
 		     </div>
 		    </div>
