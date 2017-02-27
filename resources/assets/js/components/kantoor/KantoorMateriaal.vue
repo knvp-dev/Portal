@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<hero :title="trans.translate('kantoormateriaal')" :hasSubtitle="true" :subtitle="trans.translate('Bestel hier uw kantoormateriaal')" type="is-blue"></hero>
-    <info-panel :noBudget="true"></info-panel>
+    <info-panel orderPrice="0" :noBudget="true"></info-panel>
 		<div class="container mb-50">
 			<modal 
       v-if="showConfirmationModal" 

@@ -26,10 +26,10 @@ class CreateUsersTable extends Migration
             $table->integer('fax');
             $table->string('entity');
             $table->string('entity_extra');
-            $table->integer('budget');
-            $table->integer('start_budget');
-            $table->integer('advertisement_budget')->default(0);
-            $table->integer('advertisement_start_budget')->default(0);
+            $table->integer('budget')->default(720);
+            $table->integer('start_budget')->default(720);
+            $table->integer('advertisement_budget')->default(150);
+            $table->integer('advertisement_start_budget')->default(150);
             $table->integer('admin')->default(0);
             $table->integer('dm')->nullable();
             $table->integer('dm_id')->nullable();

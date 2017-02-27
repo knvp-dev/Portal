@@ -40,7 +40,7 @@
 			}, 1000);
 			this.getUserdata();
 			Event.$on('not-enough-budget', () => {
-				$('.budgetcount').addClass("shake").delay(1500).queue(function() {  // Wait for 1 second.
+				$('.budgetcount').addClass("shake").delay(1500).queue(function() {  // Wait for 1.5 seconds.
 		            $('.budgetcount').removeClass("shake").dequeue();
 		        });
 			});
@@ -82,7 +82,7 @@
 				return Math.round(((this.remainingBudget * 100) / this.user.start_budget) * 100);
 			},
 			remainingAdvertisementBudget(){
-				var budget = (((this.user.advertisement_budget / 100) - this.orderPrice)).toFixed(2)
+				var budget = (this.user.advertisement_budget / 100).toFixed(2);
 				if(budget <= 0){
 					budget = 0;
 				}

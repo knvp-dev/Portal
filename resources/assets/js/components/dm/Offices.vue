@@ -53,7 +53,7 @@
 					<div class="form-input">
 						<label class="label">Advertisement Budget (x100)</label>
 						<p class="control">
-							<input class="input" type="text" placeholder="Budget" v-model="officeToEdit.advertisement_budget">
+							<input class="input" type="text" placeholder="Advertisement budget" v-model="officeToEdit.advertisement_budget">
 						</p>
 					</div>
 					<div class="form-input">
@@ -75,21 +75,12 @@
 		</div>
 
 		<section class="section">
-			<h1 class="title is-title-centered-message">Budget</h1>
+			<h1 class="title is-title-centered-message">{{ trans.translate('Budgetten') }}</h1>
 			<canvas id="myChart" width="1500" height="300"></canvas>
 		</section>
 
 		<section class="section">
-			<h1 class="title is-title-centered-message">Budget</h1>
-			<div class="columns">
-				<div class="column" v-for="kantoor in kantoren">
-					
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<h3 class="title is-title-centered-message">Kantoren</h3>
+			<h3 class="title is-title-centered-message">{{ trans.translate('mijn kantoren') }}</h3>
 			<ul class="cart-list">
 				<li v-for="kantoor in kantoren" class="slideInLeft">
 					<div class="cart-item-segment">
@@ -105,9 +96,6 @@
 						</div>
 						<div class="cart-item-info-stock card-info-item">
 							{{ kantoor.phone }}
-						</div>
-						<div class="cart-item-info-stock card-info-item">
-							€{{ (kantoor.budget / 100 ).toFixed(2) }}
 						</div>
 						<div class="cart-item-info-stock card-info-item">
 							{{ kantoor.entity_extra }}
@@ -146,7 +134,8 @@
 				orders: [],
 				data: [],
 				selectedOffice: '',
-				officeToEdit: ''
+				officeToEdit: '',
+				trans: Locale
 			}
 		},
 		methods:{
@@ -158,10 +147,13 @@
 					let that = this;
 					let names = [];
 					let dat = [];
+					let adv = [];
 
 					_.forEach(this.kantoren, function(value){
 						let budget = value.budget/100;
+						let advertisement_budget = value.advertisement_budget/100;
 						dat.push(budget);
+						adv.push(advertisement_budget);
 						names.push(value.name);
 					});
 
@@ -170,6 +162,12 @@
 							label: "Budget",
 							data: dat,
 							backgroundColor: '#00a3e0'
+						},
+						{
+							type: 'bar',
+							label: "Advertisement budget",
+							data: adv,
+							backgroundColor: '#C4373C'
 						});
 
 					let ctx = document.getElementById("myChart").getContext("2d");

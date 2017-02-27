@@ -28,7 +28,7 @@
 		</p>
 	</hero>
 
-	<info-panel user="username" :noBudget="true"></info-panel>
+	<info-panel orderPrice="0" :noBudget="true"></info-panel>
 
 	<div class="container">
 

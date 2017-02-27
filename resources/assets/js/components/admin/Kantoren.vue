@@ -55,7 +55,7 @@
 					<div class="form-input">
 						<label class="label">Advertisement Budget (x100)</label>
 						<p class="control">
-							<input class="input" type="text" placeholder="Budget" v-model="officeToEdit.advertisement_budget">
+							<input class="input" type="text" placeholder="Advertisement budget" v-model="officeToEdit.advertisement_budget">
 						</p>
 					</div>
 					<div class="form-input">
@@ -95,7 +95,10 @@
 								{{ kantoor.phone }}
 							</div>
 							<div class="cart-item-info-stock card-info-item">
-								€{{ (kantoor.budget / 100 ).toFixed(2) }}
+								Budget: €{{ (kantoor.budget / 100 ).toFixed(2) }}
+							</div>
+							<div class="cart-item-info-stock card-info-item">
+								Ads budget: €{{ (kantoor.advertisement_budget / 100 ).toFixed(2) }}
 							</div>
 							<div class="cart-item-info-stock card-info-item">
 								{{ kantoor.entity_extra }}

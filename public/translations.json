@@ -60,7 +60,8 @@
 		"functie": "Functie",
 		"indienen": "Indienen",
 		"mijn kantoren": "Mijn kantoren",
-		"Geen bestellingen": "Geen bestellingen"
+		"Geen bestellingen": "Geen bestellingen",
+		"Budgetten": "Budgetten"
 	},
 	"fr":{
 		"nee": "Non",
@@ -123,6 +124,7 @@
 		"functie": "Function",
 		"indienen": "Le diening in",
 		"mijn kantoren": "Mes agences",
-		"Geen bestellingen": "Que des commandes"
+		"Geen bestellingen": "Il n'y a pas des commandes",
+		"Budgetten": "Budgets"
 	}
 }]

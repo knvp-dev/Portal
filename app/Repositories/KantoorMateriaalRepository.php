@@ -16,7 +16,7 @@ class KantoorMateriaalRepository implements MateriaalInterface{
 	}
 
 	public function getAllItemsInStock(){
-		return KantoorItem::where('stock','>',0)->whereEntity(Auth::user()->entity)->orWhere('entity','ALL')->get();
+		return KantoorItem::whereEntity(Auth::user()->entity)->orWhere('entity','ALL')->where('stock','>',0)->get();
 	}
 
 	public function findByCode($code){}
