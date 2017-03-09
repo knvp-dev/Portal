@@ -26,7 +26,6 @@ class PromoMateriaalRepository implements MateriaalInterface{
 		$promoitem = $this->findByCode($code);
 		$promoitem->stock += $amount;
 		$promoitem->save();
-
 		return $promoitem;
 	}
 
@@ -34,7 +33,6 @@ class PromoMateriaalRepository implements MateriaalInterface{
 		$promoitem = $this->findByCode($code);
 		$promoitem->stock -= $amount;
 		$promoitem->save();
-
 		return $promoitem;
 	}
 
@@ -42,7 +40,6 @@ class PromoMateriaalRepository implements MateriaalInterface{
 		$promoitem = $this->findByCode($code);
 		$promoitem->stock = 0;
 		$promoitem->save();
-
 		return $promoitem;
 	}
 

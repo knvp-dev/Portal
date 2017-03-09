@@ -13,8 +13,8 @@
 		  <div class="column">
 		    <div class="info-tile">
 		    <span class="fat-cash"><strong class="is-large-size"><i class="fa fa-euro"></i></strong></span>
-		    <h2 class="has-padding">{{ trans.translate('Resterend budget') }}</h2>
-		    <span class="fat-cash" v-if="noBudget"><strong class="is-medium-size">{{ trans.translate('Deze producten zijn gratis') }}</strong></span>
+		    <h2 class="has-padding">{{ $root.trans.translate('Resterend budget') }}</h2>
+		    <span class="fat-cash" v-if="noBudget"><strong class="is-medium-size">{{ $root.trans.translate('Deze producten zijn gratis') }}</strong></span>
 		    <span class="fat-cash budgetcount animated" v-else><i class="fa fa-euro"></i> <strong class="is-medium-size odometer is-budget-odo" id="odometer">{{ remainingBudget }}</strong></span>
 		    </div>
 		  </div>
@@ -22,7 +22,7 @@
 		  <div class="column">
 		    <div class="info-tile">
 		    <span class="fat-cash"><strong class="is-large-size"><i class="fa fa-facebook"></i></strong></span>
-			    <h2 class="has-padding">Resterend facebook budget</h2>
+			    <h2 class="has-padding">{{ $root.trans.translate('Resterend facebook budget') }}</h2>
 			    <span class="fat-cash"><i class="fa fa-euro"></i> <strong class="is-medium-size odometer is-advertisement-budget-odo" id="odometer">{{ remainingAdvertisementBudget }}</strong></span>
 		    </div>
 		  </div>
@@ -52,8 +52,7 @@
 				budgetLeft: 0,
 				advertisement_budget: 0,
 				day: moment().format("DD MMMM, YYYY"),
-				time: moment().format("HH:mm:ss"),
-				trans: Locale
+				time: moment().format("HH:mm:ss")
 			}
 		},
 		methods: {

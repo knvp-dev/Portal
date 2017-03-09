@@ -12,8 +12,8 @@
 		     </div>
 		     <div class="modal-controls">
 			     <div v-if="!isWorking && hasYesNoOptions && !initialActionDone">
-			     	<button class="button is-primary" @click="modalConfirmed"><i class="fa fa-check"></i></button>
-			     	<button class="button is-danger" @click="modalDeclined"><i class="fa fa-remove"></i></button>
+			     	<button class="button is-primary" @click="modalConfirmed">{{ this.$root.trans.translate('ja') }}</button>
+			     	<button class="button is-danger" @click="modalDeclined">{{ this.$root.trans.translate('nee') }}</button>
 			     </div>
 		     	<button class="button is-primary" v-if="canContinue" @click="redirectToOverview()"><i class="fa fa-check"></i></button>
 		     	<div v-if="!isWorking && !canContinue && initialActionDone">
@@ -54,8 +54,7 @@
 				initialActionDone: false,
 				canContinue: false,
 				isWorking: false,
-				iconType: "fa-exclamation",
-				trans: Locale
+				iconType: "fa-exclamation"
 			}
 		},
 		methods:{
@@ -71,7 +70,7 @@
 			setLoadingState(msg){
 				this.isWorking = true;
 				this.iconType = "fa-gear fa-spin";
-				this.body = this.trans.translate('Verzoek verwerken');
+				this.body = this.$root.trans.translate('Verzoek verwerken');
 			},
 			setSuccessState(msg){
 				this.isWorking = false;

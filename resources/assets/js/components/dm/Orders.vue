@@ -4,14 +4,14 @@
 		<div class="container">
 			<section class="section">
 				<div class="section-header has-text-centered">
-					<h1 class="title is-title-centered-message">{{ trans.translate('Overzicht bestellingen') }} {{ office.name }}</h1>
+					<h1 class="title is-title-centered-message">{{ $root.trans.translate('Overzicht bestellingen') }} {{ office.name }}</h1>
 				</div>
 
 				<div class="tabs is-centered mb-50">
 					<ul>
-						<li @click="fetchOrders('promo')" :class="{'is-active': activeType == 'promo'}"><a>{{ trans.translate('promomateriaal') }}</a></li>
-						<li @click="fetchOrders('kantoor')" :class="{'is-active': activeType == 'kantoor'}"><a>{{ trans.translate('kantoormateriaal') }}</a></li>
-						<li @click="fetchOrders('beurs')" :class="{'is-active': activeType == 'beurs'}"><a>{{ trans.translate('beursmateriaal') }}</a></li>
+						<li @click="fetchOrders('promo')" :class="{'is-active': activeType == 'promo'}"><a>{{ $root.trans.translate('promomateriaal') }}</a></li>
+						<li @click="fetchOrders('kantoor')" :class="{'is-active': activeType == 'kantoor'}"><a>{{ $root.trans.translate('kantoormateriaal') }}</a></li>
+						<li @click="fetchOrders('beurs')" :class="{'is-active': activeType == 'beurs'}"><a>{{ $root.trans.translate('beursmateriaal') }}</a></li>
 					</ul>
 				</div>
 
@@ -23,20 +23,20 @@
 								<span class="anim-circle"></span>
 							</div>
 							<div class="cart-item-info">
-								{{ order.products.length }} {{ trans.translate('product(en)') }}
+								{{ order.products.length }} {{ $root.trans.translate('product(en)') }}
 							</div>
 							<div class="cart-item-info">
-								{{ trans.translate('Aangevraagd op') }} {{ formatDate(order.created_at) }}
+								{{ $root.trans.translate('Aangevraagd op') }} {{ formatDate(order.created_at) }}
 							</div>
 							<div class="cart-item-info">
-								{{ (order.total_price) ? formatCurrency(order.total_price) : trans.translate('Gratis') }}
+								{{ (order.total_price) ? formatCurrency(order.total_price) : $root.trans.translate('Gratis') }}
 							</div>
 							<div class="cart-item-info">
 								{{ order.event }}
 							</div>
 							<div class="cart-item-info">
-								<span v-if="order.completed" class="tag is-success is-small is-icon-left"><i class="fa fa-check icon is-small"></i> {{ trans.translate('Voltooid') }}</span>
-								<span v-else class="tag is-small"><i class="fa fa-refresh icon is-small is-icon-left"></i> {{ trans.translate('In behandeling') }}</span>
+								<span v-if="order.completed" class="tag is-success is-small is-icon-left"><i class="fa fa-check icon is-small"></i> {{ $root.trans.translate('Voltooid') }}</span>
+								<span v-else class="tag is-small"><i class="fa fa-refresh icon is-small is-icon-left"></i> {{ $root.trans.translate('In behandeling') }}</span>
 							</div>
 							<div class="cart-item-controls">
 								<a class="button button-round is-primary transitioning-icon" @click="showOrderDetail(order.id)">
@@ -50,7 +50,7 @@
 					</li>
 				</ul>
 
-				<span class="is-light-centered-message" v-if="orders.length == 0">{{ trans.translate('Geen bestellingen') }}</span>
+				<span class="is-light-centered-message" v-if="orders.length == 0">{{ $root.trans.translate('Geen bestellingen') }}</span>
 			</div>
 
 		</section>
@@ -65,8 +65,7 @@
 		data(){
 			return {
 				orders: [],
-				activeType: 'promo',
-				trans: Locale
+				activeType: 'promo'
 			}
 		},
 		props: ['office'],

@@ -60,7 +60,7 @@
 										<i class="fa fa-eye"></i>
 									</span>
 								</a>
-								<a class="button button-round is-success spin-icon" @click="approveEmailhandtekening(emailhandtekening.id)">
+								<a class="button button-round is-success transitioning-icon" @click="approveEmailhandtekening(emailhandtekening.id)">
 									<span class="icon is-small has-stacked-icons has-animation">
 										<i class="fa fa-check"></i>
 										<i class="fa fa-check"></i>

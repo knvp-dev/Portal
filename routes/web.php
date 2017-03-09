@@ -80,13 +80,11 @@ Route::get('/functies', 'EmailhandtekeningenController@getFuncties');
 
 Route::post('/emailhandtekeningen/create', 'EmailhandtekeningenController@store');
 
-
 //ADMIN
 Route::group(['prefix' => 'admin', 'middleware' => 'App\Http\Middleware\Admin'], function()
 {
 
-    Route::get('/overzicht', function()
-    {
+    Route::get('/overzicht', function(){
         return view('pages.admin.dashboard.index');
     });
 

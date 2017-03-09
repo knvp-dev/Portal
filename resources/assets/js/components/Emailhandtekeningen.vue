@@ -1,33 +1,33 @@
 <template>
 	<div>
-		<hero :title="trans.translate('overzicht')" :hasSubtitle="false" type="is-blue"></hero>
+		<hero :title="$root.trans.translate('overzicht')" :hasSubtitle="false" type="is-blue"></hero>
 		<notification></notification>
 		<div class="container">
 			<section class="section">
-				<h3 class="title is-title-centered-message">{{ trans.translate('Emailhandtekening aanmaken') }}</h3>
-				<button v-if="!showCreate" @click="showCreate = true" class="button is-primary button-centered">{{ trans.translate('nieuwe emailhandtekening aanmaken') }}</button>
+				<h3 class="title is-title-centered-message">{{ $root.trans.translate('Emailhandtekening aanmaken') }}</h3>
+				<button v-if="!showCreate" @click="showCreate = true" class="button is-primary button-centered">{{ $root.trans.translate('nieuwe emailhandtekening aanmaken') }}</button>
 				<transition name="slide">
 					<div class="create-emailhandtekening-wrapper" v-show="showCreate">
 						<div class="columns is-horizontally-centered">
 							<div class="column">
 								<form class="signature-form" method="POST" action="/emailhandtekeningen/create" @submit.prevent="createEmailhandtekening">
 									<div class="form-input">
-										<label class="label">{{ trans.translate('naam') }}</label>
+										<label class="label">{{ $root.trans.translate('naam') }}</label>
 										<p class="control">
-											<input class="input" type="text" :placeholder="trans.translate('naam')" v-model="formdata.name">
+											<input class="input" type="text" :placeholder="$root.trans.translate('naam')" v-model="formdata.name">
 											<span class="help is-danger" v-if="errors.name">{{ errors.name }}</span>
 										</p>
 									</div>
 
 									<div class="form-input">
-										<label class="label">{{ trans.translate('voornaam') }}</label>
+										<label class="label">{{ $root.trans.translate('voornaam') }}</label>
 										<p class="control">
-											<input class="input" type="text" :placeholder="trans.translate('voornaam')" v-model="formdata.firstname">
+											<input class="input" type="text" :placeholder="$root.trans.translate('voornaam')" v-model="formdata.firstname">
 											<span class="help is-danger" v-if="errors.firstname">{{ errors.firstname }}</span>
 										</p>
 									</div>
 									<div class="form-input">
-										<label class="label">{{ trans.translate('functie') }}</label>
+										<label class="label">{{ $root.trans.translate('functie') }}</label>
 										<p class="control">
 											<span class="select">
 												<select v-model="formdata.function" @change="checkFunction">
@@ -38,7 +38,7 @@
 										</p>
 									</div>
 
-									<div class="form-input" v-if="formdata.function == 'Office manager'">
+									<div class="form-input" v-if="formdata.function == 'Office manager' || formdata.function == 'District manager'">
 										<label class="label">GSM ( +32 (0)4xx xx xx xx )</label>
 										<p class="control">
 											<input class="input" type="text" placeholder="+32 (0)4xx xx xx xx" v-model="formdata.gsm">
@@ -48,7 +48,7 @@
 
 									<div class="form-input">
 										<p class="control">
-											<button type="submit" class="button is-primary">{{ trans.translate('indienen') }}</button>
+											<button type="submit" class="button is-primary">{{ $root.trans.translate('indienen') }}</button>
 										</p>
 									</div>
 
@@ -73,7 +73,7 @@
 			</section>
 
 			<section class="section">
-				<h3 class="title is-title-centered-message">{{ trans.translate('Emailhandtekeningen') }}</h3>
+				<h3 class="title is-title-centered-message">{{ $root.trans.translate('Emailhandtekeningen') }}</h3>
 				<ul class="cart-list">
 					<li v-for="emailhandtekening in emailhandtekeningen" class="slideInLeft">
 						<div class="cart-item-segment">
@@ -102,7 +102,7 @@
 								</a>
 							</div>
 							<div class="cart-item-controls" v-else>
-								<span class="tag is-small"><i class="fa fa-refresh icon is-small is-icon-left"></i> {{ trans.translate('In behandeling') }}</span>
+								<span class="tag is-small"><i class="fa fa-refresh icon is-small is-icon-left"></i> {{ $root.trans.translate('In behandeling') }}</span>
 							</div>
 						</div>
 					</li>
@@ -132,8 +132,7 @@
 				functies: [],
 				errors: {},
 				emailhandtekeningen: [],
-				showCreate: false,
-				trans: Locale
+				showCreate: false
 			}
 		},
 		methods: {
@@ -164,7 +163,7 @@
 					this.$http.post('/emailhandtekeningen/create', {'formdata':this.formdata , 'image': this.createEmailhandtekeningImage()})
 					.then((response) => { 
 						this.getEmailHandtekeningen();
-						Event.$emit('itemAddedToCart', { 'message': this.trans.translate("Emailhandtekening succesvol aangemaakt") });
+						Event.$emit('itemAddedToCart', { 'message': this.$root.trans.translate("Emailhandtekening succesvol aangemaakt") });
 						this.showCreate = false;
 						this.formdata.name = '';
 						this.formdata.firstname = '';
@@ -176,10 +175,10 @@
 			},
 			validateForm(){
 				this.errors = {};
-				(this.formdata.name == "") ? this.errors.name = this.trans.translate("Uw naam is niet ingevuld") : false ;
-				(this.formdata.firstname == "") ? this.errors.firstname = this.trans.translate("Uw voornaam is niet ingevuld") : false;
-				(this.formdata.function == "") ? this.errors.function = this.trans.translate("U hebt geen functie gekozen") : false;
-				(this.formdata.function == "Office manager" && this.formdata.gsm == "") ? this.errors.gsm = this.trans.translate("Uw gsm nummer is niet ingevuld") : false;
+				(this.formdata.name == "") ? this.errors.name = this.$root.trans.translate("Uw naam is niet ingevuld") : false ;
+				(this.formdata.firstname == "") ? this.errors.firstname = this.$root.trans.translate("Uw voornaam is niet ingevuld") : false;
+				(this.formdata.function == "") ? this.errors.function = this.$root.trans.translate("U hebt geen functie gekozen") : false;
+				(this.formdata.function == "Office manager" || this.formdata.function == "District manager" && this.formdata.gsm == "") ? this.errors.gsm = this.$root.trans.translate("Uw gsm nummer is niet ingevuld") : false;
 				return (_.isEmpty(this.errors)) ? true : false;
 			},
 			createEmailhandtekeningImage(){
@@ -188,7 +187,7 @@
 			removeEmailhandtekening(emailhandtekening_id){
 				this.$http.get('/emailhandtekeningen/delete/'+emailhandtekening_id)
 				.then((response) => {
-					Event.$emit('itemRemovedFromCart', { 'message': this.trans.translate("Emailhandtekening succesvol verwijderd") });
+					Event.$emit('itemRemovedFromCart', { 'message': this.$root.trans.translate("Emailhandtekening succesvol verwijderd") });
 					this.getEmailHandtekeningen();
 				});
 			}

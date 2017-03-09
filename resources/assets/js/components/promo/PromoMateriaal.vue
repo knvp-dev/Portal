@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hero :title="trans.translate('promomateriaal')" :hasSubtitle="true" :subtitle="trans.translate('Bestel hier uw promomateriaal')" type="is-blue"></hero>
+    <hero :title="this.$root.trans.translate('promomateriaal')" :hasSubtitle="true" :subtitle="this.$root.trans.translate('Bestel hier uw promomateriaal')" type="is-blue"></hero>
     <info-panel :orderPrice="totalPrice"></info-panel>
 
     <div class="container mb-50">    
@@ -10,7 +10,7 @@
       @close="showConfirmationModal = false"
       @modalconfirmed="placeOrder"
       :hasYesNoOptions="true"
-      :body="trans.translate('Bent u zeker dat u deze bestelling wilt plaatsen?')"
+      :body="this.$root.trans.translate('Bent u zeker dat u deze bestelling wilt plaatsen?')"
       >
     </modal>
 
@@ -33,10 +33,10 @@
             <span v-translate-name="item.product"></span>
           </div>
           <div class="cart-item-info-pack card-info-item">
-            {{ trans.translate('pakket van') }} {{ item.product.pack }} {{ trans.translate('stuks') }}
+            {{ $root.trans.translate('pakket van') }} {{ item.product.pack }} {{ $root.trans.translate('stuks') }}
           </div>
           <div class="cart-item-info-stock card-info-item">
-            {{ item.product.stock - item.amount }} {{ trans.translate('in stock') }}
+            {{ item.product.stock - item.amount }} {{ $root.trans.translate('in stock') }}
           </div>
           <div class="cart-item-info-price card-info-item">
             {{ '€' + calculateTotalPriceForItemInOrder(item).toFixed(2) }}
@@ -63,27 +63,27 @@
       </li>
     </ul>
     <div class="cart-item-segment cart-list-summary" v-if="orderlist.length >= 1">
-      <p>{{ trans.translate('totaalprijs') }} <strong>€ {{ totalPrice.toFixed(2) }}</strong></p>
-      <button class="button is-primary pull-right" @click="showConfirmationModal = true">{{ trans.translate('Bestelling plaatsen') }}</button>
+      <p>{{ $root.trans.translate('totaalprijs') }} <strong>€ {{ totalPrice.toFixed(2) }}</strong></p>
+      <button class="button is-primary pull-right" @click="showConfirmationModal = true">{{ $root.trans.translate('Bestelling plaatsen') }}</button>
     </p>
   </div>
 </section>
 
-  <h3 class="title is-title-centered-message">{{ trans.translate('Beschikbare producten') }}</h3>
+  <h3 class="title is-title-centered-message">{{ $root.trans.translate('Beschikbare producten') }}</h3>
 
 <div class="products">
 
   <div class="single-product-card" v-for="item in promomateriaal">
     <h3 class="has-text-centered">
     <span v-translate-name="item"></span>
-      {{ trans.translate('per') + " " + item.pack + " " + trans.translate('stuks') }}.
+      {{ $root.trans.translate('per') + " " + item.pack + " " + $root.trans.translate('stuks') }}.
     </h3>
     <div class="single-product-card-image">
       <img :src="'/images/promomateriaal/'+item.image+'.png'" alt="">
     </div>
     <div class="single-product-card-info">
     <div class="card-info-item">
-      {{ item.stock + " " + trans.translate('in stock')}} 
+      {{ item.stock + " " + $root.trans.translate('in stock')}} 
     </div>
     <div class="card-info-item">
       {{ '€' + (item.price / 100).toFixed(2) }}
@@ -118,8 +118,7 @@
         totalPrice: 0,
         showAlert: true,
         showConfirmationModal: false,
-        user: '',
-        trans: Locale
+        user: ''
       }
     },
     computed:{
@@ -150,7 +149,7 @@
           if(!ordereditem){
             var stock = item.stock;
             this.orderlist.push({'product': item, 'amount': 1, 'stock': stock-1});
-            Event.$emit('itemAddedToCart', { 'message': item.name_nl + " " + this.trans.translate('werd toegevoegd aan uw winkelmandje') });
+            Event.$emit('itemAddedToCart', { 'message': this.$root.trans.translate('Het gekozen product werd toegevoegd aan uw winkelmandje') });
           }else{
             this.increaseAmount(ordereditem);
           }
@@ -162,7 +161,7 @@
       removeItemFromOrder(item){
         this.orderlist.splice(this.orderlist.indexOf(item), 1);
         this.calculateTotalPriceForOrder();
-        Event.$emit('itemRemovedFromCart', { 'message': item.product.name_nl + " " + this.trans.translate('werd verwijderd uit uw winkelmandje') });
+        Event.$emit('itemRemovedFromCart', { 'message': this.$root.trans.translate('Het gekozen product werd verwijderd uit uw winkelmandje') });
       },
       increaseAmount(item){
         if(item.stock > 0){
@@ -203,9 +202,9 @@
         setTimeout(function () { 
           this.$http.post('/promomateriaal/order/create', {'orderitems': this.orderlist, 'totalPrice': this.totalPrice }).then((response) => {
             if(response){
-              this.$emit('actionSuccess', this.trans.translate('Uw bestelling werd successvol geplaatst!'));
+              this.$emit('actionSuccess', this.$root.trans.translate('Uw bestelling werd succesvol geplaatst!'));
             }else{
-              this.$emit('actionFailed', this.trans.translate('Er is iets foutgelopen bij het plaatsen van uw bestelling, probeer het later opnieuw!'));
+              this.$emit('actionFailed', this.$root.trans.translate('Er is iets foutgelopen bij het plaatsen van uw bestelling, probeer het later opnieuw!'));
             }
           });
         }.bind(this), 1000);

@@ -5,24 +5,23 @@
 		@close="showConfirmationModal = false" 
 		@modalconfirmed="placeOrder"
 		:hasYesNoOptions="true"
-		:body="trans.translate('Bent u zeker dat u deze bestelling wilt plaatsen?')"
+		:body="this.$root.trans.translate('Bent u zeker dat u deze bestelling wilt plaatsen?')"
 		>
 	</modal>
 
 	<notification></notification>
 
-	<hero :title="trans.translate('beursmateriaal')" :hasSubtitle="false" type="is-blue">
+	<hero :title="this.$root.trans.translate('beursmateriaal')" :hasSubtitle="false" type="is-blue">
 		<p class="has-padding">
-			{{ trans.translate('Vul de datum in van de beurs of het evenement om de beschikbare producten te zien.') }}
+			{{ this.$root.trans.translate('Vul de datum in van de beurs of het evenement om de beschikbare producten te zien.') }}
 		</p>
-		
 		<p class="control has-icon has-icon-right is-fixed-width-centered-input " v-if="orderlist.length == 0">
 			<datepicker :disabled="{'to': new Date()}"></datepicker>
 			<i class="fa fa-calendar"></i>
 		</p>
-		<h1 class="title has-padding" v-else>{{ trans.translate('Bestelling voor') }} {{ suggestedDate }}</h1>
-		<p class="has-padding">{{ trans.translate('Voor welk evenement wilt u dit materiaal bestellen?') }}</p>
-		<p class="control has-icon has-icon-right is-fixed-width-centered-input ">
+		<h1 class="title has-padding" v-else>{{ this.$root.trans.translate('Bestelling voor') }} {{ suggestedDate }}</h1>
+		<p class="has-padding">{{ this.$root.trans.translate('Voor welk evenement wilt u dit materiaal bestellen?') }}</p>
+		<p class="control has-icon has-icon-right is-fixed-width-centered-input">
 			<input class="input is-medium is-transparant-underline-input" type="text" placeholder="" v-model="event">
 			<i class="fa fa-location-arrow"></i>
 		</p>
@@ -33,7 +32,7 @@
 	<div class="container">
 
 		<alert v-if="event == ''" :close="false">
-			{{ trans.translate('U kunt pas bestellen indien u de naam van het evenement invult') }}
+			{{ this.$root.trans.translate('U kunt pas bestellen indien u de naam van het evenement invult') }}
 		</alert>
 
 		<section class="section" v-if="orderlist.length > 0">
@@ -60,8 +59,8 @@
 				</li>
 			</ul>
 			<div class="cart-item-segment cart-list-summary" v-if="orderlist.length >= 1">
-				<p>{{ trans.translate('totaalprijs') }}: {{ trans.translate('Gratis') }}</p>
-				<button v-if="event != ''" class="button is-primary pull-right" @click="showConfirmationModal = true">{{ trans.translate('Bestelling plaatsen') }}</button>
+				<p>{{ this.$root.trans.translate('totaalprijs') }}: {{ this.$root.trans.translate('Gratis') }}</p>
+				<button v-if="event != ''" class="button is-primary pull-right" @click="showConfirmationModal = true">{{ this.$root.trans.translate('Bestelling plaatsen') }}</button>
 			</p>
 		</div>
 
@@ -72,7 +71,7 @@
 <section v-if="availableItems.length > 0" class="section text-is-centered">
 	<div class="container">
 		<div class="heading">
-			<h1 class="title is-title-centered-message">{{ trans.translate('Beschikbare producten op') }} {{ suggestedDate }}</h1>
+			<h1 class="title is-title-centered-message">{{ this.$root.trans.translate('Beschikbare producten op') }} {{ suggestedDate }}</h1>
 		</div>
 		<hr>
 		<div class="single-product-card" v-for="item in availableItems">
@@ -98,11 +97,10 @@
 <section v-else class="section text-is-centered">
 	<div class="container">
 		<p class="subtitle">
-			<h1 class="is-light-centered-message">{{ trans.translate('Geen datum geselecteerd') }}</h1>
+			<h1 class="is-light-centered-message">{{ this.$root.trans.translate('Geen datum geselecteerd') }}</h1>
 		</p>
 	</div>
 </section>
-
 
 </div>
 </template>
@@ -124,8 +122,7 @@
 				availableItems: [],
 				orderlist: [],
 				showConfirmationModal: false,
-				event: '',
-				trans: Locale
+				event: ''
 			}
 		},
 		methods:{
@@ -163,12 +160,12 @@
 			addItemToOrder(item){
 				this.orderlist.push(item);
 				this.availableItems.splice(this.availableItems.indexOf(item), 1);
-				Event.$emit('itemAddedToCart', { 'message': this.trans.translate('werd toegevoegd aan uw winkelmandje') });
+				Event.$emit('itemAddedToCart', { 'message': this.$root.trans.translate('Het gekozen product werd toegevoegd aan uw winkelmandje') });
 			},
 			removeItemFromOrder(item){
 				this.orderlist.splice(this.orderlist.indexOf(item), 1);
 				this.availableItems.push(item);
-				Event.$emit('itemRemovedFromCart', { 'message': this.trans.translate('werd verwijderd uit uw winkelmandje') });
+				Event.$emit('itemRemovedFromCart', { 'message': this.$root.trans.translate('Het gekozen product werd verwijderd uit uw winkelmandje') });
 			},
 			checkIfDateIsInBetween(givenDate, startDate, endDate){
 				return moment(givenDate).isBetween(startDate, endDate);
@@ -211,9 +208,9 @@
 				setTimeout(function () { 
 					this.$http.post('/beursmateriaal/order/create', {'orderitems': this.orderlist, 'date': this.suggestedDate, 'event': this.event }).then((response) => {
 						if(response){
-							this.$emit('actionSuccess', this.trans.translate('Uw bestelling werd successvol geplaatst!'));
+							this.$emit('actionSuccess', this.$root.trans.translate('Uw bestelling werd succesvol geplaatst!'));
 						}else{
-							this.$emit('actionFailed', this.trans.translate('Er is iets foutgelopen bij het plaatsen van uw bestelling, probeer het later opnieuw!'));
+							this.$emit('actionFailed', this.$root.trans.translate('Er is iets foutgelopen bij het plaatsen van uw bestelling, probeer het later opnieuw!'));
 						}
 					});
 				}.bind(this), 1000);

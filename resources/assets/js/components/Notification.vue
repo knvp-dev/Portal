@@ -15,8 +15,7 @@
 				show: false,
 				message: '',
 				icon: 'fa-check',
-				state: "notification-blue",
-				trans:Locale
+				state: "notification-blue"
 			}
 		},
 		mounted(){

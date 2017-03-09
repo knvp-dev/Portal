@@ -66,6 +66,4 @@ class PromoOrderController extends Controller
         return $this->order->getByStatus($status);
     }
 
-    
-
 }

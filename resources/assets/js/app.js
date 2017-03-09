@@ -74,12 +74,15 @@
 
  const app = new Vue({
  	el: '#app',
+ 	created(){
+ 		this.$root.trans = Locale;
+ 	},
  	mounted(){
  		(!Cookie.get('locale')) ? Locale.setLocale('nl') : Locale.setLocale(Cookie.get('locale'));
  		(!Cookie.get('locale')) ? window.moment.locale("nl") : window.moment.locale(Cookie.get('locale'));
  	},
  	data:{
- 		trans: Locale,
+ 		trans: {},
  		translations: ''
  	},
  	methods:{
@@ -92,8 +95,4 @@
 
  Vue.directive('translate-name', function (el, binding) {
  	(Locale.getLocale() == 'nl') ? el.innerHTML = binding.value.name_nl : el.innerHTML = binding.value.name_fr;
- })
-
-  	// 	jQuery.curCSS = function(element, prop, val) {
- 		// 	return jQuery(element).css(prop, val);
- 		// };
+ });
