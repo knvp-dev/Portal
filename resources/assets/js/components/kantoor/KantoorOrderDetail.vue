@@ -48,6 +48,7 @@
 <script>
 	export default{
 		mounted(){
+			Event.$emit('start-loading');
 			this.fetchOrderDetails();
 		},
 		props: ['id'],
@@ -65,7 +66,6 @@
 		},
 		methods:{
 			fetchOrderDetails(){
-				Event.$emit('start-loading');
 				this.$http.get('/kantoormateriaal/order/detail/'+this.orderId).then( (response) => {
 					this.order = response.data;
 					Event.$emit('data-loaded');

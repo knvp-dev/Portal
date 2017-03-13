@@ -67,6 +67,7 @@
 <script>
 	export default{
 		mounted(){
+			Event.$emit('start-loading');
 			this.fetchOrders(this.activeType);
 		},
 		data(){
@@ -79,7 +80,6 @@
 		},
 		methods: {
 			fetchOrders(type){
-				Event.$emit('start-loading');
 				this.activeStatus = 2;
 				this.activeType = type;
 				this.$http.get('/'+type+'materiaal/orders').then((response) => {

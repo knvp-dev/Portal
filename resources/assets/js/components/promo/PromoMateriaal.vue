@@ -107,6 +107,7 @@
 <script>
   export default {
     mounted() {
+      Event.$emit('start-loading');
       this.totalPrice = 0;
       this.fetchItemsInStock();
       this.fetchUser();
@@ -134,7 +135,6 @@
         });
       },
       fetchItemsInStock(){
-        Event.$emit('start-loading');
         this.$http.get('/promomateriaal/get').then((response) => {
           this.promomateriaal = response.body;
           this.$nextTick(() => {

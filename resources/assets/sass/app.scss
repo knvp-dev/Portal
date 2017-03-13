@@ -178,7 +178,7 @@ body{
     top: calc(50% - 50px);
     left: calc(50% - 50px);
     z-index: 100;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     -webkit-box-shadow: 3px 2px 21px -1px rgba(0,0,0,0.25);

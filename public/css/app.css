@@ -9999,7 +9999,8 @@ body {
   top: calc(50% - 50px);
   left: calc(50% - 50px);
   z-index: 100;
-  display: none;
+  display: -webkit-box;
+  display: flex;
   -webkit-box-pack: center;
   justify-content: center;
   -webkit-box-align: center;

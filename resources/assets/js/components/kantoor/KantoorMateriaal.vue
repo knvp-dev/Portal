@@ -98,6 +98,7 @@
 <script>
 	export default{
 		mounted(){
+      Event.$emit('start-loading');
 			this.fetchItemsInStock();
 		},
 		data(){
@@ -110,7 +111,6 @@
     },
     methods:{
      fetchItemsInStock(){
-      Event.$emit('start-loading');
       this.$http.get('/kantoormateriaal/get').then((response) => {
         this.kantoormateriaal = response.body;
         this.$nextTick(() => {

@@ -108,6 +108,7 @@
 <script>
 	export default{
 		mounted(){
+			Event.$emit('start-loading');
 			this.fetchItems();
 
 			Event.$on('selected', (data) => {
@@ -127,7 +128,6 @@
 		},
 		methods:{
 			fetchItems(){
-				Event.$emit('start-loading');
 				this.$http.get('/beursmateriaal/get').then((response) => {
 					this.beursmateriaal = response.body;
 					Event.$emit('data-loaded');

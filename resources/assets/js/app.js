@@ -99,7 +99,7 @@
  			moment.locale(lang);
  		},
  		startLoading(){
-            $('.loading-overlay').css('display','flex').css('z-index','1').addClass('fadeIn animated');
+            //$('.loading-overlay').css('display','flex').css('z-index','1').addClass('fadeIn animated');
  		},
  		doneLoading(){
             $('.loading-overlay').css('display','flex').css('z-index','1').addClass('fadeOut animated');

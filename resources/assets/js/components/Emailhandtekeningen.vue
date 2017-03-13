@@ -116,6 +116,7 @@
 <script>
 	export default {
 		mounted() {
+			Event.$emit('start-loading');
 			this.getEmailHandtekeningen();
 			this.getUserdata();
 			this.getFuncties();
@@ -142,7 +143,6 @@
 				});
 			},
 			getEmailHandtekeningen(){
-				Event.$emit('start-loading');
 				this.$http.get('/emailhandtekeningen/get')
 				.then((response) => {
 					this.emailhandtekeningen = response.data;
