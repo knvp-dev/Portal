@@ -127,9 +127,10 @@
 		},
 		methods:{
 			fetchItems(){
+				Event.$emit('start-loading');
 				this.$http.get('/beursmateriaal/get').then((response) => {
 					this.beursmateriaal = response.body;
-
+					Event.$emit('data-loaded');
 				});
 			},
 			weekOfMonth(m) {

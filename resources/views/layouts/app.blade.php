@@ -23,7 +23,9 @@
     </head>
     <body>
         <div id="app">
+
             @include('partials.menu')
+            @include('partials.loader')
             @yield('hero')
             <div class="content-wrapper">
                 @yield('content')

@@ -134,11 +134,13 @@
         });
       },
       fetchItemsInStock(){
+        Event.$emit('start-loading');
         this.$http.get('/promomateriaal/get').then((response) => {
           this.promomateriaal = response.body;
           this.$nextTick(() => {
             $('.products').imagesLoaded( function() {
               $('.products').masonry();
+              Event.$emit('data-loaded');
             });
           });
         });

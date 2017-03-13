@@ -110,11 +110,13 @@
     },
     methods:{
      fetchItemsInStock(){
+      Event.$emit('start-loading');
       this.$http.get('/kantoormateriaal/get').then((response) => {
         this.kantoormateriaal = response.body;
         this.$nextTick(() => {
             $('.products').imagesLoaded( function() {
               $('.products').masonry();
+              Event.$emit('data-loaded');
             });
           });
       });

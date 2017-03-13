@@ -79,10 +79,12 @@
 		},
 		methods: {
 			fetchOrders(type){
+				Event.$emit('start-loading');
 				this.activeStatus = 2;
 				this.activeType = type;
 				this.$http.get('/'+type+'materiaal/orders').then((response) => {
 					this.orders = response.data;
+					Event.$emit('data-loaded');
 				});
 			},
 			formatDate(date){

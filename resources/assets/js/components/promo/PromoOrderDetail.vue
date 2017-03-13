@@ -64,8 +64,10 @@
 		},
 		methods:{
 			fetchOrderDetails(){
+				Event.$emit('start-loading');
 				this.$http.get('/promomateriaal/order/detail/'+this.orderId).then( (response) => {
 					this.order = response.data;
+					Event.$emit('data-loaded');
 				});
 			},
 			formatCurrency(value){

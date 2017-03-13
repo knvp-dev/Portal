@@ -80,6 +80,14 @@
  	mounted(){
  		(!Cookie.get('locale')) ? Locale.setLocale('nl') : Locale.setLocale(Cookie.get('locale'));
  		(!Cookie.get('locale')) ? window.moment.locale("nl") : window.moment.locale(Cookie.get('locale'));
+
+ 		Event.$on('start-loading', () => {
+ 			this.startLoading();
+ 		});
+
+ 		Event.$on('data-loaded', () => {
+ 			this.doneLoading();
+ 		});
  	},
  	data:{
  		trans: {},
@@ -89,6 +97,15 @@
  		changeLocal(lang){
  			Locale.setLocale(lang);
  			moment.locale(lang);
+ 		},
+ 		startLoading(){
+            $('.loading-overlay').css('display','flex').css('z-index','1').addClass('fadeIn animated');
+ 		},
+ 		doneLoading(){
+            $('.loading-overlay').css('display','flex').css('z-index','1').addClass('fadeOut animated');
+            let t2 = setTimeout(function(){
+                $('.loading-overlay').css('z-index','-1').hide();
+            },1000);
  		}
  	}
  });

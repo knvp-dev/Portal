@@ -142,9 +142,11 @@
 				});
 			},
 			getEmailHandtekeningen(){
+				Event.$emit('start-loading');
 				this.$http.get('/emailhandtekeningen/get')
 				.then((response) => {
 					this.emailhandtekeningen = response.data;
+					Event.$emit('data-loaded');
 				})
 			},
 			getFuncties(){
