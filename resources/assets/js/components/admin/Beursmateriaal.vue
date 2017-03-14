@@ -10,7 +10,6 @@
 	export default {
 		mounted(){
 			this.fetchUnvailabilities();
-			console.log('init');
 		},
 		data(){
 			return {
@@ -24,6 +23,7 @@
 				.then( (response) => {
 					this.unavailabilities = response.data;
 					this.createEventObjects();
+					Event.$emit('data-loaded');
 				})
 			},
 			createEventObjects(){

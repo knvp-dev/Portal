@@ -12,7 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('pages.orders.index');
+    if(!Auth::user()){
+        return view('auth.login');
+    }
+    else if(Auth::user()->isDm()){
+        return view('pages.dm.overview');
+    }else if(Auth::user()){
+        return view('pages.orders.index');
+    }
 });
 
 Auth::routes();
@@ -35,51 +42,54 @@ Route::get('/kantoormateriaal', 'KantoorMateriaalController@index');
 Route::get('/kantoormateriaal/get', 'KantoorMateriaalController@getKantoorItemsInStock');
 
 // ORDERS
+// 
+Route::group(['middleware' => ['auth']], function () {
 
-Route::get('/overzicht', function(){
-	return view('pages.orders.index');
-});
+    Route::get('/overzicht', function(){
+       return view('pages.orders.index');
+   });
 
-Route::get('/promomateriaal/orders', 'PromoOrderController@index');
-Route::get('/kantoormateriaal/orders', 'KantoorOrderController@index');
-Route::get('/beursmateriaal/orders', 'BeursOrderController@index');
+    Route::get('/promomateriaal/orders', 'PromoOrderController@index');
+    Route::get('/kantoormateriaal/orders', 'KantoorOrderController@index');
+    Route::get('/beursmateriaal/orders', 'BeursOrderController@index');
 
-Route::get('/promomateriaal/orders/{status}', 'PromoOrderController@getByStatus');
-Route::get('/kantoormateriaal/orders/{status}', 'KantoorOrderController@getByStatus');
-Route::get('/beursmateriaal/orders/{status}', 'BeursOrderController@getByStatus');
+    Route::get('/promomateriaal/orders/{status}', 'PromoOrderController@getByStatus');
+    Route::get('/kantoormateriaal/orders/{status}', 'KantoorOrderController@getByStatus');
+    Route::get('/beursmateriaal/orders/{status}', 'BeursOrderController@getByStatus');
 
-Route::post('/promomateriaal/order/create', 'PromoOrderController@store');
-Route::post('/kantoormateriaal/order/create', 'KantoorOrderController@store');
-Route::post('/beursmateriaal/order/create', 'BeursOrderController@store');
+    Route::post('/promomateriaal/order/create', 'PromoOrderController@store');
+    Route::post('/kantoormateriaal/order/create', 'KantoorOrderController@store');
+    Route::post('/beursmateriaal/order/create', 'BeursOrderController@store');
 
-Route::get('/promomateriaal/detail/{id}', 'PromoOrderController@show');
-Route::get('/kantoormateriaal/detail/{id}', 'KantoorOrderController@show');
-Route::get('/beursmateriaal/detail/{id}', 'BeursOrderController@show');
+    Route::get('/promomateriaal/detail/{id}', 'PromoOrderController@show');
+    Route::get('/kantoormateriaal/detail/{id}', 'KantoorOrderController@show');
+    Route::get('/beursmateriaal/detail/{id}', 'BeursOrderController@show');
 
-Route::get('/promomateriaal/order/detail/{id}', 'PromoOrderController@getOrderDetail');
-Route::get('/kantoormateriaal/order/detail/{id}', 'KantoorOrderController@getOrderDetail');
-Route::get('/beursmateriaal/order/detail/{id}', 'BeursOrderController@getOrderDetail');
+    Route::get('/promomateriaal/order/detail/{id}', 'PromoOrderController@getOrderDetail');
+    Route::get('/kantoormateriaal/order/detail/{id}', 'KantoorOrderController@getOrderDetail');
+    Route::get('/beursmateriaal/order/detail/{id}', 'BeursOrderController@getOrderDetail');
 
-Route::get('/promomateriaal/order/delete/{id}', 'PromoOrderController@destroy');
-Route::get('/kantoormateriaal/order/delete/{id}', 'KantoorOrderController@destroy');
-Route::get('/beursmateriaal/order/delete/{id}', 'BeursOrderController@destroy');
+    Route::get('/promomateriaal/order/delete/{id}', 'PromoOrderController@destroy');
+    Route::get('/kantoormateriaal/order/delete/{id}', 'KantoorOrderController@destroy');
+    Route::get('/beursmateriaal/order/delete/{id}', 'BeursOrderController@destroy');
 
 // USERDATA
 
-Route::get('/userdata', function(){
-	return Auth::user();
-});
+    Route::get('/userdata', function(){
+       return Auth::user();
+   });
 
 // Emailsignatures
 
-Route::get('/emailhandtekeningen', 'EmailhandtekeningenController@index');
-Route::get('/emailhandtekeningen/get', 'EmailhandtekeningenController@getEmailHandtekeningen');
-Route::get('/emailhandtekeningen/download/{id}', 'EmailhandtekeningenController@downloadEmailHandtekening');
-Route::get('/emailhandtekeningen/delete/{id}', 'EmailhandtekeningenController@destroy');
-Route::get('/functies', 'EmailhandtekeningenController@getFuncties');
+    Route::get('/emailhandtekeningen', 'EmailhandtekeningenController@index');
+    Route::get('/emailhandtekeningen/get', 'EmailhandtekeningenController@getEmailHandtekeningen');
+    Route::get('/emailhandtekeningen/download/{id}', 'EmailhandtekeningenController@downloadEmailHandtekening');
+    Route::get('/emailhandtekeningen/delete/{id}', 'EmailhandtekeningenController@destroy');
+    Route::get('/functies', 'EmailhandtekeningenController@getFuncties');
 
-Route::post('/emailhandtekeningen/create', 'EmailhandtekeningenController@store');
+    Route::post('/emailhandtekeningen/create', 'EmailhandtekeningenController@store');
 
+});
 //ADMIN
 Route::group(['prefix' => 'admin', 'middleware' => 'App\Http\Middleware\Admin'], function()
 {

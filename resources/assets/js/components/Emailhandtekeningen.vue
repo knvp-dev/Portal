@@ -116,7 +116,6 @@
 <script>
 	export default {
 		mounted() {
-			Event.$emit('start-loading');
 			this.getEmailHandtekeningen();
 			this.getUserdata();
 			this.getFuncties();

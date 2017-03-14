@@ -141,6 +141,7 @@
 			fetchOffices(){
 				this.$http.get('/dm/offices').then((response) => {
 					this.kantoren = response.data;
+					Event.$emit('data-loaded');
 					this.selectedOffice = this.kantoren[0];
 					this.officeToEdit = this.kantoren[0];
 					let that = this;

@@ -67,7 +67,6 @@
 <script>
 	export default{
 		mounted(){
-			Event.$emit('start-loading');
 			this.fetchOrders(this.activeType);
 		},
 		data(){

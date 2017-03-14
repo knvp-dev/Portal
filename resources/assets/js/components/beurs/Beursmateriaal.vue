@@ -108,7 +108,6 @@
 <script>
 	export default{
 		mounted(){
-			Event.$emit('start-loading');
 			this.fetchItems();
 
 			Event.$on('selected', (data) => {

@@ -145,7 +145,6 @@ class AppController extends Controller
 
     public function getAllReservations(){
     	$orders = BeursOrder::with('unavailability')->with('user')->with('products')->get();
-
     	return $orders;
     }
 }

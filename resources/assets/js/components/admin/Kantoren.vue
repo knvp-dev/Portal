@@ -122,7 +122,6 @@
 	export default {
 		mounted(){
 			this.fetchKantoren();
-			console.log('init');
 		},
 		data(){
 			return{
@@ -134,8 +133,8 @@
 			fetchKantoren(){
 				this.$http.get('/admin/kantoren/all')
 				.then((response) => {
-					console.log(response.data);
 					this.kantoren = response.data;
+					Event.$emit('data-loaded');
 				});
 			},
 			openEditModal(office){

@@ -86,7 +86,6 @@
 		mounted(){
 			this.getFuncties();
 			this.fetchEmailhandtekeningen();
-			console.log('admin emailhandtekening initialized');
 		},
 		data(){
 			return{
@@ -102,6 +101,7 @@
 				this.$http.get('/admin/emailhandtekeningen/unapproved')
 				.then((response) => {
 					this.emailhandtekeningen = response.data;
+					Event.$emit('data-loaded');
 				});
 			},
 			removeEmailhandtekening(emailhandtekening_id){
@@ -130,7 +130,6 @@
 			approveEmailhandtekening(id){
 				this.$http.get('/admin/emailhandtekeningen/approve/'+ id)
 					.then((response) => {
-						console.log('ok');
 						this.fetchEmailhandtekeningen();
 					});
 			}

@@ -81,10 +81,6 @@
  		(!Cookie.get('locale')) ? Locale.setLocale('nl') : Locale.setLocale(Cookie.get('locale'));
  		(!Cookie.get('locale')) ? window.moment.locale("nl") : window.moment.locale(Cookie.get('locale'));
 
- 		Event.$on('start-loading', () => {
- 			this.startLoading();
- 		});
-
  		Event.$on('data-loaded', () => {
  			this.doneLoading();
  		});
@@ -97,9 +93,6 @@
  		changeLocal(lang){
  			Locale.setLocale(lang);
  			moment.locale(lang);
- 		},
- 		startLoading(){
-            //$('.loading-overlay').css('display','flex').css('z-index','1').addClass('fadeIn animated');
  		},
  		doneLoading(){
             $('.loading-overlay').css('display','flex').css('z-index','1').addClass('fadeOut animated');

@@ -82,6 +82,7 @@
 				this.activeType = type;
 				this.$http.get('/'+this.prefix+'/'+type+'materiaal/orders').then((response) => {
 					this.orders = response.data;
+					Event.$emit('data-loaded');
 				});
 			},
 			formatDate(date){

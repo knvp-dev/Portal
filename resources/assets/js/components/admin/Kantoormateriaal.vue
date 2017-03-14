@@ -104,8 +104,8 @@
 			fetchKantoormateriaal(){
 				this.$http.get('/admin/kantoormateriaal/all')
 				.then((response) => {
-					console.log(response.data);
 					this.kantoormateriaal = response.data;
+					Event.$emit('data-loaded');
 				});
 			},
 			openEditModal(product){
@@ -115,7 +115,6 @@
 			saveChanges(){
 				this.$http.post('/admin/kantoormateriaal/update', {'product': this.productToEdit})
 					.then((response) => {
-						console.log('Saved changes');
 						$('.editModal').removeClass("is-active");
 						Event.$emit('itemAddedToCart', { 'message': this.productToEdit.name_nl + " werd succesvol geupdated" });
 					});

@@ -107,7 +107,6 @@
 <script>
   export default {
     mounted() {
-      Event.$emit('start-loading');
       this.totalPrice = 0;
       this.fetchItemsInStock();
       this.fetchUser();

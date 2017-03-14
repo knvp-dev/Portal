@@ -48,7 +48,6 @@
 <script>
 	export default{
 		mounted(){
-			Event.$emit('start-loading');
 			this.fetchOrderDetails();
 		},
 		props: ['id'],

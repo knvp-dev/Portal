@@ -103,7 +103,6 @@
 	export default {
 		mounted(){
 			this.fetchPromomateriaal();
-			console.log('init');
 		},
 		data(){
 			return{
@@ -115,8 +114,8 @@
 			fetchPromomateriaal(){
 				this.$http.get('/admin/promomateriaal/all')
 				.then((response) => {
-					console.log(response.data);
 					this.promomateriaal = response.data;
+					Event.$emit('data-loaded');
 				});
 			},
 			openEditModal(product){
@@ -126,7 +125,6 @@
 			saveChanges(){
 				this.$http.post('/admin/promomateriaal/update', {'product': this.productToEdit})
 					.then((response) => {
-						console.log('Saved changes');
 						$('.editModal').removeClass("is-active");
 						Event.$emit('itemAddedToCart', { 'message': this.productToEdit.name_nl + " werd succesvol geupdated" });
 					});
