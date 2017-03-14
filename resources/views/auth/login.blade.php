@@ -58,9 +58,9 @@
                     Login
                 </button>
 
-                <a class="button is-link" href="{{ url('/password/reset') }}">
+                {{-- <a class="button is-link" href="{{ url('/password/reset') }}">
                     Forgot Your Password?
-                </a>
+                </a> --}}
             </p>
         </form>
     </div>
