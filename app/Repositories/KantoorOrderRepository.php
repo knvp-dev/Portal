@@ -25,7 +25,11 @@ class KantoorOrderRepository implements OrderInterface{
 	}
 
 	public function remove($id){
-		$order = KantoorOrder::where('id',$id)->first();
+		$order = KantoorOrder::where('id',$id)->with('products')->first();
+		foreach($order->products as $product){
+			$product->stock += $product->pivot->amount;
+			$product->save();
+		}
 		$order->delete();
 		return "deleted";
 	}

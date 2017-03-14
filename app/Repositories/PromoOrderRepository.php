@@ -25,7 +25,11 @@ class PromoOrderRepository implements OrderInterface{
 	}
 
 	public function remove($id){
-		$order = PromoOrder::whereId($id)->first();
+		$order = PromoOrder::whereId($id)->with('products')->first();
+		foreach($order->products as $product){
+			$product->stock += $product->pivot->amount;
+			$product->save();
+		}
 		$user = Auth::user();
 		$user->budget += $order->total_price;
 		$user->save();
