@@ -19,6 +19,7 @@
       <a class="nav-item" href="/admin/overzicht" v-text="trans.translate('overzicht')"></a>
       <a class="nav-item" href="/admin/promomateriaal" v-text="trans.translate('promomateriaal')"></a>
       <a class="nav-item" href="/admin/kantoormateriaal" v-text="trans.translate('kantoormateriaal')"></a>
+      <a class="nav-item" href="/admin/beursmateriaal" v-text="trans.translate('beursmateriaal')"></a>
       <a class="nav-item" href="/admin/kantoren" v-text="trans.translate('kantoren')"></a>
       <a class="nav-item" href="/admin/emailhandtekeningen" v-text="trans.translate('emailhandtekeningen')"></a>
       <a class="nav-item" href="/logout" v-text="trans.translate('log uit')"></a>

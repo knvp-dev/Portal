@@ -5,22 +5,22 @@
 		@close="showConfirmationModal = false" 
 		@modalconfirmed="placeOrder"
 		:hasYesNoOptions="true"
-		:body="this.$root.trans.translate('Bent u zeker dat u deze bestelling wilt plaatsen?')"
+		:body="$root.trans.translate('Bent u zeker dat u deze bestelling wilt plaatsen?')"
 		>
 	</modal>
 
 	<notification></notification>
 
-	<hero :title="this.$root.trans.translate('beursmateriaal')" :hasSubtitle="false" type="is-blue">
+	<hero :title="$root.trans.translate('beursmateriaal')" :hasSubtitle="false" type="is-blue">
 		<p class="has-padding">
-			{{ this.$root.trans.translate('Vul de datum in van de beurs of het evenement om de beschikbare producten te zien.') }}
+			{{ $root.trans.translate('Vul de datum in van de beurs of het evenement om de beschikbare producten te zien.') }}
 		</p>
 		<p class="control has-icon has-icon-right is-fixed-width-centered-input " v-if="orderlist.length == 0">
 			<datepicker :disabled="{'to': new Date()}"></datepicker>
 			<i class="fa fa-calendar"></i>
 		</p>
-		<h1 class="title has-padding" v-else>{{ this.$root.trans.translate('Bestelling voor') }} {{ suggestedDate }}</h1>
-		<p class="has-padding">{{ this.$root.trans.translate('Voor welk evenement wilt u dit materiaal bestellen?') }}</p>
+		<h1 class="title has-padding" v-else>{{ $root.trans.translate('Bestelling voor') }} {{ suggestedDate }}</h1>
+		<p class="has-padding">{{ $root.trans.translate('Voor welk evenement wilt u dit materiaal bestellen?') }}</p>
 		<p class="control has-icon has-icon-right is-fixed-width-centered-input">
 			<input class="input is-medium is-transparant-underline-input" type="text" placeholder="" v-model="event">
 			<i class="fa fa-location-arrow"></i>
@@ -32,7 +32,7 @@
 	<div class="container">
 
 		<alert v-if="event == ''" :close="false">
-			{{ this.$root.trans.translate('U kunt pas bestellen indien u de naam van het evenement invult') }}
+			{{ $root.trans.translate('U kunt pas bestellen indien u de naam van het evenement invult') }}
 		</alert>
 
 		<section class="section" v-if="orderlist.length > 0">
@@ -59,8 +59,8 @@
 				</li>
 			</ul>
 			<div class="cart-item-segment cart-list-summary" v-if="orderlist.length >= 1">
-				<p>{{ this.$root.trans.translate('totaalprijs') }}: {{ this.$root.trans.translate('Gratis') }}</p>
-				<button v-if="event != ''" class="button is-primary pull-right" @click="showConfirmationModal = true">{{ this.$root.trans.translate('Bestelling plaatsen') }}</button>
+				<p>{{ $root.trans.translate('totaalprijs') }}: {{ $root.trans.translate('Gratis') }}</p>
+				<button v-if="event != ''" class="button is-primary pull-right" @click="showConfirmationModal = true">{{ $root.trans.translate('Bestelling plaatsen') }}</button>
 			</p>
 		</div>
 
@@ -71,7 +71,7 @@
 <section v-if="availableItems.length > 0" class="section text-is-centered">
 	<div class="container">
 		<div class="heading">
-			<h1 class="title is-title-centered-message">{{ this.$root.trans.translate('Beschikbare producten op') }} {{ suggestedDate }}</h1>
+			<h1 class="title is-title-centered-message">{{ $root.trans.translate('Beschikbare producten op') }} {{ suggestedDate }}</h1>
 		</div>
 		<hr>
 		<div class="single-product-card" v-for="item in availableItems">
@@ -97,7 +97,7 @@
 <section v-else class="section text-is-centered">
 	<div class="container">
 		<p class="subtitle">
-			<h1 class="is-light-centered-message">{{ this.$root.trans.translate('Geen datum geselecteerd') }}</h1>
+			<h1 class="is-light-centered-message">{{ $root.trans.translate('Geen datum geselecteerd') }}</h1>
 		</p>
 	</div>
 </section>

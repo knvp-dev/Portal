@@ -14,9 +14,10 @@
 Route::get('/', function () {
     if(!Auth::user()){
         return view('auth.login');
-    }
-    else if(Auth::user()->isDm()){
+    }else if(Auth::user()->isDm()){
         return view('pages.dm.overview');
+    }else if(Auth::user()->isAdmin()){
+        return view('pages.admin.dashboard.index');
     }else if(Auth::user()){
         return view('pages.orders.index');
     }

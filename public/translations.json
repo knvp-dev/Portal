@@ -72,7 +72,8 @@
 		"extra": "Extra",
 		"opslaan": "Opslaan",
 		"annuleren": "Annuleren",
-		"Resterend facebook budget": "Resterend facebook budget"
+		"Resterend facebook budget": "Resterend facebook budget",
+		"Voor welk evenement wilt u dit materiaal bestellen?": "Voor welk evenement wilt u dit materiaal bestellen?"
 	},
 	"fr":{
 		"ja": "Qui",
@@ -84,7 +85,7 @@
 		"beursmateriaal": "Matériel de salon",
 		"kantoren": "Offices",
 		"emailhandtekeningen": "Signatures électroniques",
-		"log uit": "De déconnecter",
+		"log uit": "Se déconnecter",
 		"Overzicht van alle bestellingen": "Apperçu de toutes les commandes",
 		"Overzicht bestellingen": "Apperçu des commandes",
 		"Resterend budget": "Budget restant",
@@ -147,6 +148,7 @@
 		"extra": "Extra",
 		"opslaan": "Sauvegarder",
 		"annuleren": "Annuler",
-		"Resterend facebook budget": "Budget restant Facebook"
+		"Resterend facebook budget": "Budget restant Facebook",
+		"Voor welk evenement wilt u dit materiaal bestellen?": "Pour quel événement vous voulez commander ce matériel ?"
 	}
 }]
