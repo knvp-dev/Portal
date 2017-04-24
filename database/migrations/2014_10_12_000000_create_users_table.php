@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->integer('phone');
             $table->integer('fax');
             $table->string('entity');
-            $table->string('entity_extra');
+            $table->string('entity_extra')->nullable();
             $table->integer('budget')->default(720);
             $table->integer('start_budget')->default(720);
             $table->integer('advertisement_budget')->default(150);

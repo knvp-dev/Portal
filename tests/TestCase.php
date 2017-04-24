@@ -22,4 +22,10 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         return $app;
     }
+
+    protected function signIn($user = null){
+        $user = $user ?: create('App\User');
+        $this->actingAs($user);
+        return $this;
+    }
 }
