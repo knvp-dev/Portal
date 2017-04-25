@@ -128,6 +128,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'App\Http\Middleware\Admin'],
     Route::get('/kantoren', 'OfficeAdminController@index');
     Route::get('/kantoren/all', 'OfficeAdminController@getAll');
     Route::post('/kantoren/update', 'OfficeAdminController@update');
+    Route::get('/kantoren/details/export/{entity}', 'OfficeAdminController@export');
 
 });
 

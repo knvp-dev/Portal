@@ -3,6 +3,14 @@
 
 	<hero title="Overzicht Kantoren" :hasSubtitle="false" type="is-blue"></hero>
 	<notification></notification>
+	<div class="container">
+		<div class="is-flex mt-50 mb-50">
+			<a href="/admin/kantoren/details/export/kiv" class="button is-primary button-centered">Exporteer cijfers KIV</a>
+			<a href="/admin/kantoren/details/export/kiw" class="button is-primary button-centered">Exporteer cijfers KIW</a>
+			<a href="/admin/kantoren/details/export/kk" class="button is-primary button-centered">Exporteer cijfers KC</a>
+			<a href="/admin/kantoren/details/export/ko" class="button is-primary button-centered">Exporteer cijfers KO</a>
+		</div>
+	</div>
 		<div class="modal editModal">
 			<div class="modal-background"></div>
 			<div class="box">
