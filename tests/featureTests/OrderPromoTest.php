@@ -38,4 +38,5 @@ class OrderPromoTest extends TestCase
 
     	$this->assertEquals(0, \App\PromoOrder::all()->count());
     }
+
 }

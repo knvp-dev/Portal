@@ -17,7 +17,7 @@ class CreateEmailhandtekeningenTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('name');
-            $table->string('lastname');
+            $table->string('firstname');
             $table->string('function');
             $table->string('image')->unique();
             $table->integer('approved')->default(0);
@@ -32,6 +32,6 @@ class CreateEmailhandtekeningenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('emailhandtekenings');
+        Schema::dropIfExists('emailhandtekeningen');
     }
 }
