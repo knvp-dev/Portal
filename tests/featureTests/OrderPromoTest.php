@@ -14,18 +14,20 @@ class OrderPromoTest extends TestCase
 
     	$promoitem = create('App\PromoItem');
     	$promoitem2 = create('App\PromoItem');
+		$promoitem3 = create('App\PromoItem');
 
     	$order = [
     		'orderitems' => [
     			'product' => $promoitem,
     			'product' => $promoitem2,
+				'product' => $promoitem3
     		],
     		'totalPrice' => 1254
     	];
 
     	$this->post('/promomateriaal/order/create', $order);
 
-    	$this->assertEquals(1, \App\PromoOrder::all()->count());
+    	$this->assertEquals(2, \App\PromoOrder::all()->count());
     }
 
     /** @test */
