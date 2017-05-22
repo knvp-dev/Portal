@@ -27,7 +27,7 @@ class OrderPromoTest extends TestCase
 
     	$this->post('/promomateriaal/order/create', $order);
 
-    	$this->assertEquals(2, \App\PromoOrder::all()->count());
+    	$this->assertEquals(1, \App\PromoOrder::all()->count());
     }
 
     /** @test */
