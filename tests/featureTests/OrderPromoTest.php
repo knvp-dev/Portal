@@ -27,7 +27,7 @@ class OrderPromoTest extends TestCase
 
     	$this->post('/promomateriaal/order/create', $order);
 
-    	$this->assertEquals(1, \App\PromoOrder::all()->count());
+    	$this->assertEquals(1, \App\PromoOrder::count());
     }
 
     /** @test */
@@ -38,7 +38,7 @@ class OrderPromoTest extends TestCase
 
     	$this->get('/promomateriaal/order/delete/' . $order->id);
 
-    	$this->assertEquals(0, \App\PromoOrder::all()->count());
+    	$this->assertEquals(0, \App\PromoOrder::count());
     }
 
 }

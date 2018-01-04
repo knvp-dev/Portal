@@ -17,9 +17,9 @@
 				</div>
 
 				<div class="filters mb-20 is-clickable">
-					<span class="tag" :class="{'is-primary': activeStatus == 2}" @click="fetchOrders(activeType)">{{ trans.translate('Alle') }}</span>
-					<span class="tag" :class="{'is-primary': activeStatus == 0}" @click="filterOrders(0)">{{ trans.translate('In behandeling') }}</span>
-					<span class="tag" :class="{'is-primary': activeStatus == 1}" @click="filterOrders(1)">{{ trans.translate('Voltooid') }}</span>
+					<span class="tag is-not-rounded" :class="{'is-primary': activeStatus == 2}" @click="fetchOrders(activeType)">{{ trans.translate('Alle') }}</span>
+					<span class="tag is-not-rounded" :class="{'is-primary': activeStatus == 0}" @click="filterOrders(0)">{{ trans.translate('In behandeling') }}</span>
+					<span class="tag is-not-rounded" :class="{'is-primary': activeStatus == 1}" @click="filterOrders(1)">{{ trans.translate('Voltooid') }}</span>
 				</div>
 
 				<ul class="cart-list">
@@ -58,9 +58,10 @@
 				</ul>
 
 				<span class="is-light-centered-message" v-if="orders.length == 0">{{ trans.translate('Geen bestellingen') }}</span>
-			</div>
+			
 
 		</section>
+		</div>
 	</div>
 </template>
 

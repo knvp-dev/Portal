@@ -57,9 +57,10 @@
 				</ul>
 
 				<span class="is-light-centered-message" v-if="orders.length == 0">Geen bestellingen</span>
-			</div>
+			
 
 		</section>
+		</div>
 	</div>
 </template>
 

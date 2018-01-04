@@ -35,11 +35,49 @@ body{
 	height:100%;
 }
 
+.h100{
+	height: 100%;
+}
+
 #app{
 	display: flex;
 	flex-direction: column;
 	height:100vh;
 }
+
+.input:active, .input:focus, .input.is-active, .textarea:active, .textarea:focus, .textarea.is-active{
+	border-color:$konvert-blue;
+}
+
+.login-panel{
+	width: 320px;
+    padding: 40px;
+    background-color: white;
+}
+
+.login-section{
+	background-image:url('/images/bg_grey.jpg')!important;
+	background-size: cover!important;
+}
+
+.button.is-danger{
+	background-color:$red;
+	color:white;
+}
+
+.button.is-danger:hover{
+	background-color:darken($red, 4%);
+}
+
+.button.is-primary{
+	background-color:$konvert-blue;
+	color:white;
+}
+
+.button.is-primary:hover{
+	background-color:darken($konvert-blue, 4%);
+}
+
 
 .chooseLanguage{
 	display:flex;
@@ -160,7 +198,7 @@ body{
 }
 
 .button{
-	border-radius:18px;
+	// border-radius:18px;
 	border:none;
 }
 

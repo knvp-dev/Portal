@@ -83,13 +83,18 @@
     </div>
     <div class="single-product-card-info">
     <div class="card-info-item">
-      {{ item.stock + " " + $root.trans.translate('in stock')}} 
+      <div v-if="item.stock != 0">
+      {{ item.stock + " " + $root.trans.translate('in stock')}}
+      </div>
+      <div v-else>
+        {{ $root.trans.translate('out of stock') }}
+      </div>
     </div>
     <div class="card-info-item">
       {{ '€' + (item.price / 100).toFixed(2) }}
     </div>
       <div class="card-info-item">
-        <a class="button button-round is-blue transitioning-icon" @click="addItemToOrder(item)">
+        <a class="button button-round is-blue transitioning-icon" @click="addItemToOrder(item)" v-if="item.stock != 0">
           <span class="icon is-small has-stacked-icons has-animation">
             <i class="fa fa-shopping-cart"></i>
             <i class="fa fa-plus"></i>
@@ -148,8 +153,7 @@
         if(this.checkBudget(item)){
           var ordereditem = this.findItemInOrderList(item);
           if(!ordereditem){
-            var stock = item.stock;
-            this.orderlist.push({'product': item, 'amount': 1, 'stock': stock-1});
+            this.orderlist.push({'product': item, 'amount': 1, 'stock': item.stock-1});
             Event.$emit('itemAddedToCart', { 'message': this.$root.trans.translate('Het gekozen product werd toegevoegd aan uw winkelmandje') });
           }else{
             this.increaseAmount(ordereditem);

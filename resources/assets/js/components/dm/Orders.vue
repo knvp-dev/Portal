@@ -51,9 +51,9 @@
 				</ul>
 
 				<span class="is-light-centered-message" v-if="orders.length == 0">{{ $root.trans.translate('Geen bestellingen') }}</span>
-			</div>
 
 		</section>
+		</div>
 	</div>
 </template>
 

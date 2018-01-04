@@ -20,7 +20,7 @@
 				<li v-for="product in order.products" class="slideInLeft">
 					<div class="cart-item-segment" :class="{ notdeliverable : !!product.pivot.status }">
 						<div class="cart-item-amount">
-							{{ product.pivot.amount }}x
+							{{ product.pivot.amount }}x	
 							<span class="anim-circle"></span>
 						</div>
 						<div class="cart-item-info-name">

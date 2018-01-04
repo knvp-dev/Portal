@@ -48,7 +48,7 @@
 		props: ["orderPrice", "noBudget"],
 		data(){
 			return{
-				user: '',
+				user: {},
 				budgetLeft: 0,
 				advertisement_budget: 0,
 				day: moment().format("DD MMMM, YYYY"),

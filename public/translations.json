@@ -73,7 +73,8 @@
 		"opslaan": "Opslaan",
 		"annuleren": "Annuleren",
 		"Resterend facebook budget": "Resterend facebook budget",
-		"Voor welk evenement wilt u dit materiaal bestellen?": "Voor welk evenement wilt u dit materiaal bestellen?"
+		"Voor welk evenement wilt u dit materiaal bestellen?": "Voor welk evenement wilt u dit materiaal bestellen?",
+		"out of stock": "Niet voorradig"
 	},
 	"fr":{
 		"ja": "Qui",
@@ -149,6 +150,7 @@
 		"opslaan": "Sauvegarder",
 		"annuleren": "Annuler",
 		"Resterend facebook budget": "Budget restant Facebook",
-		"Voor welk evenement wilt u dit materiaal bestellen?": "Pour quel événement vous voulez commander ce matériel ?"
+		"Voor welk evenement wilt u dit materiaal bestellen?": "Pour quel événement vous voulez commander ce matériel ?",
+		"out of stock": "Pas en stock"
 	}
 }]

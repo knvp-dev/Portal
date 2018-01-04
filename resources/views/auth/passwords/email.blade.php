@@ -1,47 +1,66 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Main Content -->
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
-                        {{ csrf_field() }}
+    <title>{{ config('app.name', 'Konvert Marketing') }}</title>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/vendor.css">
+    <link href="/css/app.css" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script>
+        window.Laravel = <?php echo json_encode([
+                            'csrfToken' => csrf_token(),
+                        ]); ?>
+        </script>
+    </head>
+    <body>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+<section class="section has-text-centered h100 login-section" style="z-index:999;">
+    <div class="container login-panel">
+        <div class="heading">
+            <h1 class="title">Reset Password</h1>
+            <h2 class="subtitle">
+              {{-- Gebruik het emailadres van het kantoor om in te loggen. --}}
+          </h2>
+          
+            @if(session('status'))
+            <p>{{ session('status') }}</p>
+            @endif
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+          <i class="fa fa-lock p-20"></i>
+      </div>
+      <div class="centered-form">
+          <form role="form" role="form" method="POST" action="{{ url('/password/email') }}">
+            {{ csrf_field() }}
+            <p class="control">
+                <label for="email" class="label">E-Mail Address</label>
+                <input id="email" type="email" class="input" name="email" value="{{ old('email') }}" required autofocus>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                @if ($errors->has('email'))
+                <span class="help is-danger">{{ $errors->first('email') }}</span>
+                @endif
+            </p>
+
+            <p class="control">
+                <button type="submit" class="button is-primary">
+                    Send Reset Link
+                </button>
+                <a class="button is-link" href="{{ url('/login') }}">
+                    Login
+                </a>
+            </p>
+
+        </form>
     </div>
 </div>
-@endsection
+</section>
+        </body>
+        </html>

@@ -22,8 +22,8 @@
         </script>
     </head>
     <body>
-<section class="section has-text-centered">
-    <div class="container">
+<section class="section has-text-centered h100 login-section">
+    <div class="container login-panel">
         <div class="heading">
             <h1 class="title">Log in</h1>
             <h2 class="subtitle">
@@ -58,9 +58,9 @@
                     Login
                 </button>
 
-                {{-- <a class="button is-link" href="{{ url('/password/reset') }}">
+                <a class="button is-link" href="{{ url('/password/reset') }}">
                     Forgot Your Password?
-                </a> --}}
+                </a>
             </p>
         </form>
     </div>

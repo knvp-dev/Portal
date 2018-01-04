@@ -30,7 +30,7 @@ Route::get('/logout', 'HomeController@logout');
 // PROMOMATERIAAL
 
 Route::get('/promomateriaal', 'PromoMateriaalController@index');
-Route::get('/promomateriaal/get', 'PromoMateriaalController@getPromoItemsInStock');
+Route::get('/promomateriaal/get', 'PromoMateriaalController@getAll');
 
 // BEURSMATERIAAL
 
